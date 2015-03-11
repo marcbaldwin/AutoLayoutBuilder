@@ -54,3 +54,9 @@ public func equalHeights(views: UIView...) -> [NSLayoutConstraint] {
     }
     return constraints
 }
+
+public func activate(constraints: [NSLayoutConstraint]) {
+    for constraint in constraints {
+        constraint.active = true
+    }
+}

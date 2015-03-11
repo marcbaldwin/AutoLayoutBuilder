@@ -31,5 +31,4 @@ class Tests: XCTestCase {
             NSLayoutConstraint(view1, .Height, .Equal, view3, .Height, 1, 0)
             ], constraints)
     }
-
 }
