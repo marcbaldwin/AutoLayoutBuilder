@@ -29,6 +29,12 @@ class DimensionConstraintBuilderTests: XCTestCase {
             NSLayoutConstraint(view2, .Width, .Equal, view3, .Width, 1, 0)], constraints)
     }
 
+    func testEqualConstant() {
+        let constraints = view1.layout(.Width) === 10
+        XCTAssertEqual([
+            NSLayoutConstraint(view1, .Width, .Equal, nil, .NotAnAttribute, 1, 10)], constraints)
+    }
+
     // MARK: UIView Layout Tests
 
     func testLayoutWithWidth() {

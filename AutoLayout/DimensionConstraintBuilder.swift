@@ -40,6 +40,14 @@ public func ===(lhs: DimensionConstraintBuilder, rhs: DimensionConstraintBuilder
     return constraints
 }
 
+public func ===(lhs: DimensionConstraintBuilder, rhs: CGFloat) -> [NSLayoutConstraint] {
+    var constraints = [NSLayoutConstraint]()
+    for view in lhs.views {
+        constraints.append(NSLayoutConstraint(view, lhs.trueAttribute, .Equal, nil, .NotAnAttribute, 1, rhs))
+    }
+    return constraints
+}
+
 public func *(lhs: DimensionConstraintBuilder, rhs: CGFloat) -> DimensionConstraintBuilder {
     return DimensionConstraintBuilder(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)
 }

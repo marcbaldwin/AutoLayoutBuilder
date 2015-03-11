@@ -22,12 +22,16 @@ func assertEqual(expectedConstraint: NSLayoutConstraint, actualConstraint: NSLay
 extension NSLayoutConstraint: Equatable {}
 
 public func ==(lhs: NSLayoutConstraint, rhs: NSLayoutConstraint) -> Bool {
-    return
-        lhs.firstItem as UIView == rhs.firstItem as UIView
-            && lhs.secondItem as UIView == rhs.secondItem as UIView
-            && lhs.firstAttribute == rhs.firstAttribute
-            && lhs.secondAttribute == rhs.secondAttribute
-            && lhs.multiplier == rhs.multiplier
-            && lhs.constant == rhs.constant
-            && lhs.relation == rhs.relation
+
+    var isEqual = true
+
+    isEqual &= lhs.firstItem.isEqual(rhs.firstItem)
+
+    isEqual &= lhs.firstAttribute == rhs.firstAttribute
+    isEqual &= lhs.secondAttribute == rhs.secondAttribute
+    isEqual &= lhs.multiplier == rhs.multiplier
+    isEqual &= lhs.constant == rhs.constant
+    isEqual &= lhs.relation == rhs.relation
+
+    return isEqual
 }
