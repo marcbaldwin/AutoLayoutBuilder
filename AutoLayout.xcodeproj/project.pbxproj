@@ -25,6 +25,9 @@
 		A0B915071AB08D1500C47CC2 /* CenterConstraintBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B915061AB08D1500C47CC2 /* CenterConstraintBuilder.swift */; };
 		A0B915081AB08D1500C47CC2 /* CenterConstraintBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B915061AB08D1500C47CC2 /* CenterConstraintBuilder.swift */; };
 		A0B9150B1AB08D8200C47CC2 /* CenterConstraintBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B915091AB08D8200C47CC2 /* CenterConstraintBuilderTests.swift */; };
+		A0B9150D1AB0951400C47CC2 /* EdgeConstraintBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9150C1AB0951400C47CC2 /* EdgeConstraintBuilder.swift */; };
+		A0B9150E1AB0951400C47CC2 /* EdgeConstraintBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9150C1AB0951400C47CC2 /* EdgeConstraintBuilder.swift */; };
+		A0B915101AB0955800C47CC2 /* EdgeConstraintBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9150F1AB0955800C47CC2 /* EdgeConstraintBuilderTests.swift */; };
 		A0DA08951AB05D39007E24E4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DA08941AB05D39007E24E4 /* Common.swift */; };
 		A0DA08961AB05D39007E24E4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DA08941AB05D39007E24E4 /* Common.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +59,8 @@
 		A06C04341AAFB7F200570771 /* SizeConstraintBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeConstraintBuilderTests.swift; sourceTree = "<group>"; };
 		A0B915061AB08D1500C47CC2 /* CenterConstraintBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterConstraintBuilder.swift; sourceTree = "<group>"; };
 		A0B915091AB08D8200C47CC2 /* CenterConstraintBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterConstraintBuilderTests.swift; sourceTree = "<group>"; };
+		A0B9150C1AB0951400C47CC2 /* EdgeConstraintBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeConstraintBuilder.swift; sourceTree = "<group>"; };
+		A0B9150F1AB0955800C47CC2 /* EdgeConstraintBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeConstraintBuilderTests.swift; sourceTree = "<group>"; };
 		A0DA08941AB05D39007E24E4 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +146,7 @@
 				A06C04311AAFB6CA00570771 /* SizeConstraintBuilder.swift */,
 				A06C04261AAF9C6200570771 /* VerticalPosition.swift */,
 				A0B915061AB08D1500C47CC2 /* CenterConstraintBuilder.swift */,
+				A0B9150C1AB0951400C47CC2 /* EdgeConstraintBuilder.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -153,6 +159,7 @@
 				A06C04341AAFB7F200570771 /* SizeConstraintBuilderTests.swift */,
 				A06C04241AAF9BCA00570771 /* VerticalPositionTests.swift */,
 				A0B915091AB08D8200C47CC2 /* CenterConstraintBuilderTests.swift */,
+				A0B9150F1AB0955800C47CC2 /* EdgeConstraintBuilderTests.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -277,6 +284,7 @@
 				A06C042E1AAFB39600570771 /* DimensionConstraintBuilder.swift in Sources */,
 				A0B915071AB08D1500C47CC2 /* CenterConstraintBuilder.swift in Sources */,
 				A0DA08951AB05D39007E24E4 /* Common.swift in Sources */,
+				A0B9150D1AB0951400C47CC2 /* EdgeConstraintBuilder.swift in Sources */,
 				A06C041D1AAF90A700570771 /* HoirzontalPosition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +297,7 @@
 				A06C042F1AAFB39600570771 /* DimensionConstraintBuilder.swift in Sources */,
 				A06C04361AAFB7F200570771 /* SizeConstraintBuilderTests.swift in Sources */,
 				A06C04201AAF920200570771 /* HoirzontalPosition.swift in Sources */,
+				A0B915101AB0955800C47CC2 /* EdgeConstraintBuilderTests.swift in Sources */,
 				A06C042C1AAFB38200570771 /* DimensionConstraintBuilderTests.swift in Sources */,
 				A06C042A1AAF9E5900570771 /* Helper.swift in Sources */,
 				A06C04331AAFB6CA00570771 /* SizeConstraintBuilder.swift in Sources */,
@@ -297,6 +306,7 @@
 				A0B9150B1AB08D8200C47CC2 /* CenterConstraintBuilderTests.swift in Sources */,
 				A0DA08961AB05D39007E24E4 /* Common.swift in Sources */,
 				A06C04251AAF9BCA00570771 /* VerticalPositionTests.swift in Sources */,
+				A0B9150E1AB0951400C47CC2 /* EdgeConstraintBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
