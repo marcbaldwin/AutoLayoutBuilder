@@ -8,20 +8,20 @@
 
 import UIKit
 
-enum SizeAttribute {
+public enum SizeAttribute {
     case Size
 }
 
-struct SizeConstraintBuilder {
+public struct SizeConstraintBuilder {
     let views: [UIView]
     let attribute: SizeAttribute
     let multiplier: CGFloat
     let constant: CGFloat
 }
 
-// MARK: Operator Overload
+// MARK: Operator Overloads
 
-func ===(lhs: SizeConstraintBuilder, rhs: SizeConstraintBuilder) -> [NSLayoutConstraint] {
+public func ===(lhs: SizeConstraintBuilder, rhs: SizeConstraintBuilder) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
 
     let widthConstraint = NSLayoutConstraint(
@@ -41,42 +41,34 @@ func ===(lhs: SizeConstraintBuilder, rhs: SizeConstraintBuilder) -> [NSLayoutCon
     return constraints
 }
 
-func *(lhs: SizeConstraintBuilder, rhs: CGFloat) -> SizeConstraintBuilder {
+public func *(lhs: SizeConstraintBuilder, rhs: CGFloat) -> SizeConstraintBuilder {
     return SizeConstraintBuilder(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)
 }
 
-func /(lhs: SizeConstraintBuilder, rhs: CGFloat) -> SizeConstraintBuilder {
+public func /(lhs: SizeConstraintBuilder, rhs: CGFloat) -> SizeConstraintBuilder {
     return lhs * (1/rhs)
 }
 
-func +(lhs: SizeConstraintBuilder, rhs: CGFloat) -> SizeConstraintBuilder {
+public func +(lhs: SizeConstraintBuilder, rhs: CGFloat) -> SizeConstraintBuilder {
     return SizeConstraintBuilder(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier, constant: lhs.constant + rhs)
 }
 
-func -(lhs: SizeConstraintBuilder, rhs: CGFloat) -> SizeConstraintBuilder {
+public func -(lhs: SizeConstraintBuilder, rhs: CGFloat) -> SizeConstraintBuilder {
     return lhs + (-rhs)
 }
 
-// MARK: UIKit Extensions
+// MARK: Extensions
 
-extension UIView {
+public extension UIView {
 
-    func layout(dimensionAttribute: SizeAttribute) -> SizeConstraintBuilder {
+    public func layout(dimensionAttribute: SizeAttribute) -> SizeConstraintBuilder {
         return SizeConstraintBuilder(views: [self], attribute: dimensionAttribute, multiplier: 1, constant: 0)
     }
 }
 
-// MARK: Array Extensions
+public extension Views {
 
-extension Array {
-
-    func layout(dimensionAttribute: SizeAttribute) -> SizeConstraintBuilder {
-        var views = [UIView]()
-        for e in self {
-            if let view = e as? UIView {
-                views.append(view)
-            }
-        }
+    public func layout(dimensionAttribute: SizeAttribute) -> SizeConstraintBuilder {
         return SizeConstraintBuilder(views: views, attribute: dimensionAttribute, multiplier: 1, constant: 0)
     }
 }

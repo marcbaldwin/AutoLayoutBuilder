@@ -49,7 +49,7 @@ class VerticalPositionTests: XCTestCase {
     // MARK: Array Layout Tests
 
     func testLayoutWithMultipleViewsBottom() {
-        let constraintBuilder = [view1, view2].layout(.Bottom)
+        let constraintBuilder = Views([view1, view2]).layout(.Bottom)
         XCTAssertEqual(VerticalPositionAttribute.Bottom, constraintBuilder.attribute)
         XCTAssertEqual([view1, view2], constraintBuilder.views)
     }

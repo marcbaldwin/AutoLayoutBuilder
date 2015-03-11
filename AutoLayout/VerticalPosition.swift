@@ -8,15 +8,13 @@
 
 import UIKit
 
-enum VerticalPositionAttribute {
+public enum VerticalPositionAttribute {
     case Center
     case Top
     case Bottom
 }
 
-// MARK:
-
-struct VerticalPositionConstraint {
+public struct VerticalPositionConstraint {
     let views: [UIView]
     let attribute: VerticalPositionAttribute
     let multiplier: CGFloat
@@ -34,9 +32,9 @@ extension VerticalPositionConstraint {
     }
 }
 
-// MARK: Operator Overload
+// MARK: Operator Overloads
 
-func ===(lhs: VerticalPositionConstraint, rhs: VerticalPositionConstraint) -> [NSLayoutConstraint] {
+public func ===(lhs: VerticalPositionConstraint, rhs: VerticalPositionConstraint) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
 
     let constraint = NSLayoutConstraint(
@@ -49,42 +47,34 @@ func ===(lhs: VerticalPositionConstraint, rhs: VerticalPositionConstraint) -> [N
     return constraints
 }
 
-func *(lhs: VerticalPositionConstraint, rhs: CGFloat) -> VerticalPositionConstraint {
+public func *(lhs: VerticalPositionConstraint, rhs: CGFloat) -> VerticalPositionConstraint {
     return VerticalPositionConstraint(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)
 }
 
-func /(lhs: VerticalPositionConstraint, rhs: CGFloat) -> VerticalPositionConstraint {
+public func /(lhs: VerticalPositionConstraint, rhs: CGFloat) -> VerticalPositionConstraint {
     return lhs * (1/rhs)
 }
 
-func +(lhs: VerticalPositionConstraint, rhs: CGFloat) -> VerticalPositionConstraint {
+public func +(lhs: VerticalPositionConstraint, rhs: CGFloat) -> VerticalPositionConstraint {
     return VerticalPositionConstraint(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier, constant: lhs.constant + rhs)
 }
 
-func -(lhs: VerticalPositionConstraint, rhs: CGFloat) -> VerticalPositionConstraint {
+public func -(lhs: VerticalPositionConstraint, rhs: CGFloat) -> VerticalPositionConstraint {
     return lhs + (-rhs)
 }
 
-// MARK: UIKit Extensions
+// MARK: Extensions
 
-extension UIView {
+public extension UIView {
 
-    func layout(verticalPosition: VerticalPositionAttribute) -> VerticalPositionConstraint {
+    public func layout(verticalPosition: VerticalPositionAttribute) -> VerticalPositionConstraint {
         return VerticalPositionConstraint(views: [self], attribute: verticalPosition, multiplier: 1, constant: 0)
     }
 }
 
-// MARK: Array Extensions
+public extension Views {
 
-extension Array {
-
-    func layout(verticalPosition: VerticalPositionAttribute) -> VerticalPositionConstraint {
-        var views = [UIView]()
-        for e in self {
-            if let view = e as? UIView {
-                views.append(view)
-            }
-        }
+    public func layout(verticalPosition: VerticalPositionAttribute) -> VerticalPositionConstraint {
         return VerticalPositionConstraint(views: views, attribute: verticalPosition, multiplier: 1, constant: 0)
     }
 }

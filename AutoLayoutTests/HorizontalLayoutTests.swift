@@ -49,7 +49,7 @@ class HorizontalLayoutTests: XCTestCase {
     // MARK: Array Layout Tests
 
     func testLayoutWithMultipleViewsRight() {
-        let constraintBuilder = [view1, view2].layout(.Right)
+        let constraintBuilder = Views([view1, view2]).layout(.Right)
         XCTAssertEqual(HorizontalPositionAttribute.Right, constraintBuilder.attribute)
         XCTAssertEqual([view1, view2], constraintBuilder.views)
     }

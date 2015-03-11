@@ -20,7 +20,7 @@ public struct DimensionConstraintBuilder {
     let constant: CGFloat
 }
 
-public extension DimensionConstraintBuilder {
+extension DimensionConstraintBuilder {
 
     var trueAttribute: NSLayoutAttribute {
         switch attribute {
@@ -30,7 +30,7 @@ public extension DimensionConstraintBuilder {
     }
 }
 
-// MARK: Operator Overload
+// MARK: Operator Overloads
 
 public func ===(lhs: DimensionConstraintBuilder, rhs: DimensionConstraintBuilder) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
@@ -61,7 +61,7 @@ public func -(lhs: DimensionConstraintBuilder, rhs: CGFloat) -> DimensionConstra
     return lhs + (-rhs)
 }
 
-// MARK: UIKit Extensions
+// MARK: Extensions
 
 public extension UIView {
 
@@ -70,17 +70,9 @@ public extension UIView {
     }
 }
 
-// MARK: Array Extensions
-
-extension Array {
+public extension Views {
 
     func layout(dimensionAttribute: DimensionAttribute) -> DimensionConstraintBuilder {
-        var views = [UIView]()
-        for e in self {
-            if let view = e as? UIView {
-                views.append(view)
-            }
-        }
         return DimensionConstraintBuilder(views: views, attribute: dimensionAttribute, multiplier: 1, constant: 0)
     }
 }

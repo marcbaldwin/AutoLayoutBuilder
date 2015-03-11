@@ -8,17 +8,13 @@
 
 import UIKit
 
-// MARK: Horizontal Position Attribute
-
-enum HorizontalPositionAttribute {
+public enum HorizontalPositionAttribute {
     case Center
     case Left
     case Right
 }
 
-// MARK:
-
-struct HorizontalPositionConstraint {
+public struct HorizontalPositionConstraint {
     let views: [UIView]
     let attribute: HorizontalPositionAttribute
     let multiplier: CGFloat
@@ -36,9 +32,9 @@ extension HorizontalPositionConstraint {
     }
 }
 
-// MARK: Operator Overload
+// MARK: Operator Overloads
 
-func ===(lhs: HorizontalPositionConstraint, rhs: HorizontalPositionConstraint) -> [NSLayoutConstraint] {
+public func ===(lhs: HorizontalPositionConstraint, rhs: HorizontalPositionConstraint) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
 
     let constraint = NSLayoutConstraint(
@@ -51,42 +47,34 @@ func ===(lhs: HorizontalPositionConstraint, rhs: HorizontalPositionConstraint) -
     return constraints
 }
 
-func *(lhs: HorizontalPositionConstraint, rhs: CGFloat) -> HorizontalPositionConstraint {
+public func *(lhs: HorizontalPositionConstraint, rhs: CGFloat) -> HorizontalPositionConstraint {
     return HorizontalPositionConstraint(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)
 }
 
-func /(lhs: HorizontalPositionConstraint, rhs: CGFloat) -> HorizontalPositionConstraint {
+public func /(lhs: HorizontalPositionConstraint, rhs: CGFloat) -> HorizontalPositionConstraint {
     return lhs * (1/rhs)
 }
 
-func +(lhs: HorizontalPositionConstraint, rhs: CGFloat) -> HorizontalPositionConstraint {
+public func +(lhs: HorizontalPositionConstraint, rhs: CGFloat) -> HorizontalPositionConstraint {
     return HorizontalPositionConstraint(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier, constant: lhs.constant + rhs)
 }
 
-func -(lhs: HorizontalPositionConstraint, rhs: CGFloat) -> HorizontalPositionConstraint {
+public func -(lhs: HorizontalPositionConstraint, rhs: CGFloat) -> HorizontalPositionConstraint {
     return lhs + (-rhs)
 }
 
-// MARK: UIKit Extensions
+// MARK: Extensions
 
-extension UIView {
+public extension UIView {
 
     func layout(hoirzontalPosition: HorizontalPositionAttribute) -> HorizontalPositionConstraint {
         return HorizontalPositionConstraint(views: [self], attribute: hoirzontalPosition, multiplier: 1, constant: 0)
     }
 }
 
-// MARK: Array Extensions
+public extension Views {
 
-extension Array {
-
-    func layout(hoirzontalPosition: HorizontalPositionAttribute) -> HorizontalPositionConstraint {
-        var views = [UIView]()
-        for e in self {
-            if let view = e as? UIView {
-                views.append(view)
-            }
-        }
+    public func layout(hoirzontalPosition: HorizontalPositionAttribute) -> HorizontalPositionConstraint {
         return HorizontalPositionConstraint(views: views, attribute: hoirzontalPosition, multiplier: 1, constant: 0)
     }
 }

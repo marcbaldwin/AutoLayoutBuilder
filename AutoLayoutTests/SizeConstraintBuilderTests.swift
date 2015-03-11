@@ -25,7 +25,7 @@ class SizeConstraintBuilderTests: XCTestCase {
     // MARK: Array Layout Tests
 
     func testLayoutWithMultipleViewsWidth() {
-        let constraintBuilder = [view1, view2].layout(.Size)
+        let constraintBuilder = Views([view1, view2]).layout(.Size)
         XCTAssertEqual(SizeAttribute.Size, constraintBuilder.attribute)
         XCTAssertEqual([view1, view2], constraintBuilder.views)
     }
