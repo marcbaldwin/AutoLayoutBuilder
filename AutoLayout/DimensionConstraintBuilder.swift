@@ -8,19 +8,19 @@
 
 import UIKit
 
-enum DimensionAttribute {
+public enum DimensionAttribute {
     case Width
     case Height
 }
 
-struct DimensionConstraintBuilder {
+public struct DimensionConstraintBuilder {
     let views: [UIView]
     let attribute: DimensionAttribute
     let multiplier: CGFloat
     let constant: CGFloat
 }
 
-extension DimensionConstraintBuilder {
+public extension DimensionConstraintBuilder {
 
     var trueAttribute: NSLayoutAttribute {
         switch attribute {
@@ -32,7 +32,7 @@ extension DimensionConstraintBuilder {
 
 // MARK: Operator Overload
 
-func ===(lhs: DimensionConstraintBuilder, rhs: DimensionConstraintBuilder) -> [NSLayoutConstraint] {
+public func ===(lhs: DimensionConstraintBuilder, rhs: DimensionConstraintBuilder) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
 
     let constraint = NSLayoutConstraint(
@@ -45,25 +45,25 @@ func ===(lhs: DimensionConstraintBuilder, rhs: DimensionConstraintBuilder) -> [N
     return constraints
 }
 
-func *(lhs: DimensionConstraintBuilder, rhs: CGFloat) -> DimensionConstraintBuilder {
+public func *(lhs: DimensionConstraintBuilder, rhs: CGFloat) -> DimensionConstraintBuilder {
     return DimensionConstraintBuilder(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)
 }
 
-func /(lhs: DimensionConstraintBuilder, rhs: CGFloat) -> DimensionConstraintBuilder {
+public func /(lhs: DimensionConstraintBuilder, rhs: CGFloat) -> DimensionConstraintBuilder {
     return lhs * (1/rhs)
 }
 
-func +(lhs: DimensionConstraintBuilder, rhs: CGFloat) -> DimensionConstraintBuilder {
+public func +(lhs: DimensionConstraintBuilder, rhs: CGFloat) -> DimensionConstraintBuilder {
     return DimensionConstraintBuilder(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier, constant: lhs.constant + rhs)
 }
 
-func -(lhs: DimensionConstraintBuilder, rhs: CGFloat) -> DimensionConstraintBuilder {
+public func -(lhs: DimensionConstraintBuilder, rhs: CGFloat) -> DimensionConstraintBuilder {
     return lhs + (-rhs)
 }
 
 // MARK: UIKit Extensions
 
-extension UIView {
+public extension UIView {
 
     func layout(dimensionAttribute: DimensionAttribute) -> DimensionConstraintBuilder {
         return DimensionConstraintBuilder(views: [self], attribute: dimensionAttribute, multiplier: 1, constant: 0)
