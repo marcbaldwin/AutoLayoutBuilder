@@ -18,3 +18,16 @@ func assertEqual(expectedConstraint: NSLayoutConstraint, actualConstraint: NSLay
     XCTAssertEqual(expectedConstraint.constant, actualConstraint.constant)
     XCTAssertEqual(expectedConstraint.relation, actualConstraint.relation)
 }
+
+extension NSLayoutConstraint: Equatable {}
+
+public func ==(lhs: NSLayoutConstraint, rhs: NSLayoutConstraint) -> Bool {
+    return
+        lhs.firstItem as UIView == rhs.firstItem as UIView
+            && lhs.secondItem as UIView == rhs.secondItem as UIView
+            && lhs.firstAttribute == rhs.firstAttribute
+            && lhs.secondAttribute == rhs.secondAttribute
+            && lhs.multiplier == rhs.multiplier
+            && lhs.constant == rhs.constant
+            && lhs.relation == rhs.relation
+}

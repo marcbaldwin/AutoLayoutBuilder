@@ -23,21 +23,10 @@ public struct SizeConstraintBuilder {
 
 public func ===(lhs: SizeConstraintBuilder, rhs: SizeConstraintBuilder) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
-
-    let widthConstraint = NSLayoutConstraint(
-        item: lhs.views.first!, attribute: .Width,
-        relatedBy: .Equal,
-        toItem: rhs.views.first!, attribute: .Width,
-        multiplier: rhs.multiplier, constant: rhs.constant)
-
-    let heightConstraint = NSLayoutConstraint(
-        item: lhs.views.first!, attribute: .Height,
-        relatedBy: .Equal,
-        toItem: rhs.views.first!, attribute: .Height,
-        multiplier: rhs.multiplier, constant: rhs.constant)
-
-    constraints.append(widthConstraint)
-    constraints.append(heightConstraint)
+    for view in lhs.views {
+        constraints.append(NSLayoutConstraint(view, .Width, .Equal, rhs.views.first!, .Width, rhs.multiplier, rhs.constant))
+        constraints.append(NSLayoutConstraint(view, .Height, .Equal, rhs.views.first!, .Height, rhs.multiplier, rhs.constant))
+    }
     return constraints
 }
 

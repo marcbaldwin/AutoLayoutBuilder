@@ -13,23 +13,20 @@ class VerticalPositionTests: XCTestCase {
 
     let view1 = UIView()
     let view2 = UIView()
+    let view3 = UIView()
 
-    func testViewLayout() {
+    // MARK: Tests
 
-        let constraints = view1.layout(.Top) === view2.layout(.Center)
-
-        XCTAssert(constraints.count == 1)
-        let constraint = constraints.first!
-        assertEqual(NSLayoutConstraint(item: view1, attribute: .Top, relatedBy: .Equal, toItem: view2, attribute: .CenterY, multiplier: 1, constant: 0), constraint)
+    func testSingleViewOnLHS() {
+        let constraints = view1.layout(.Top) === view2.layout(.Bottom)
+        XCTAssertEqual([NSLayoutConstraint(view1, .Top, .Equal, view2, .Bottom, 1, 0)], constraints)
     }
 
-    func testLeftOfViewEqualToLeftOfView() {
-
-        let constraints = view1.layout(.Bottom) === view2.layout(.Top)
-
-        XCTAssert(constraints.count == 1)
-        let constraint = constraints.first!
-        assertEqual(NSLayoutConstraint(item: view1, attribute: .Bottom, relatedBy: .Equal, toItem: view2, attribute: .Top, multiplier: 1, constant: 0), constraint)
+    func testMultipleViewsOnLHS() {
+        let constraints = Views(view1,view2).layout(.Top) === view3.layout(.Bottom)
+        XCTAssertEqual([
+            NSLayoutConstraint(view1, .Top, .Equal, view3, .Bottom, 1, 0),
+            NSLayoutConstraint(view2, .Top, .Equal, view3, .Bottom, 1, 0)], constraints)
     }
 
     // MARK: UIView Layout Tests

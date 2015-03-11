@@ -36,14 +36,9 @@ extension HorizontalPositionConstraint {
 
 public func ===(lhs: HorizontalPositionConstraint, rhs: HorizontalPositionConstraint) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
-
-    let constraint = NSLayoutConstraint(
-        item: lhs.views.first!, attribute: lhs.trueAttribute,
-        relatedBy: .Equal,
-        toItem: rhs.views.first!, attribute: rhs.trueAttribute,
-        multiplier: rhs.multiplier, constant: rhs.constant)
-
-    constraints.append(constraint)
+    for view in lhs.views {
+        constraints.append(NSLayoutConstraint(view, lhs.trueAttribute, .Equal, rhs.views.first!, rhs.trueAttribute, rhs.multiplier, rhs.constant))
+    }
     return constraints
 }
 

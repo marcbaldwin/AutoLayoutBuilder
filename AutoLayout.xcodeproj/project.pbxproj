@@ -130,11 +130,11 @@
 		A06C041E1AAF915E00570771 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A0DA08941AB05D39007E24E4 /* Common.swift */,
 				A06C042D1AAFB39600570771 /* DimensionConstraintBuilder.swift */,
 				A06C041C1AAF90A700570771 /* HoirzontalPosition.swift */,
-				A06C04261AAF9C6200570771 /* VerticalPosition.swift */,
 				A06C04311AAFB6CA00570771 /* SizeConstraintBuilder.swift */,
-				A0DA08941AB05D39007E24E4 /* Common.swift */,
+				A06C04261AAF9C6200570771 /* VerticalPosition.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
