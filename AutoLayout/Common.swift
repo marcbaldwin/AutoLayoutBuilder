@@ -11,7 +11,7 @@ import UIKit
 public struct Views {
     let views: [UIView]
 
-    init(_ views: [UIView]) {
+    public init(_ views: [UIView]) {
         self.views = views
     }
 }
@@ -19,7 +19,7 @@ public struct Views {
 public class Builder {
     var constraints = [NSLayoutConstraint]()
 
-    init() {}
+    public init() {}
 }
 
 public extension Builder {
