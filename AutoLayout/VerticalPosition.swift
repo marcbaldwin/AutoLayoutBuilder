@@ -9,7 +9,7 @@
 import UIKit
 
 public enum VerticalPositionAttribute {
-    case Center
+    case CenterY
     case Top
     case Bottom
 }
@@ -25,7 +25,7 @@ extension VerticalPositionConstraint {
 
     var trueAttribute: NSLayoutAttribute {
         switch attribute {
-        case .Center: return .CenterY
+        case .CenterY: return .CenterY
         case .Top: return .Top
         case .Bottom: return .Bottom
         }

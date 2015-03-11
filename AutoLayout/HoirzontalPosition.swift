@@ -9,7 +9,7 @@
 import UIKit
 
 public enum HorizontalPositionAttribute {
-    case Center
+    case CenterX
     case Left
     case Right
 }
@@ -25,7 +25,7 @@ extension HorizontalPositionConstraint {
 
     var trueAttribute: NSLayoutAttribute {
         switch attribute {
-        case .Center: return .CenterX
+        case .CenterX: return .CenterX
         case .Left: return .Left
         case .Right: return .Right
         }
