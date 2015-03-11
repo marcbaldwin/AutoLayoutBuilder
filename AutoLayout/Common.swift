@@ -16,21 +16,21 @@ public struct Views {
     }
 }
 
-public class Builder {
-    var constraints = [NSLayoutConstraint]()
-
-    public init() {}
-}
-
-public extension Builder {
-
-    public func activateConstraints(active: Bool) {
-        for constraint in constraints {
-            constraint.active = active
-        }
-    }
-}
-
-public func += (lhs: Builder, rhs: [NSLayoutConstraint]) {
-    lhs.constraints += rhs
-}
+//public class Builder {
+//    var constraints = [NSLayoutConstraint]()
+//
+//    public init() {}
+//}
+//
+//public extension Builder {
+//
+//    public func activateConstraints(active: Bool) {
+//        for constraint in constraints {
+//            constraint.active = active
+//        }
+//    }
+//}
+//
+//public func += (lhs: Builder, rhs: [NSLayoutConstraint]) {
+//    lhs.constraints += rhs
+//}
