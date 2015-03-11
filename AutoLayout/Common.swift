@@ -18,6 +18,8 @@ public struct Views {
 
 public class Builder {
     var constraints = [NSLayoutConstraint]()
+
+    init() {}
 }
 
 public extension Builder {
