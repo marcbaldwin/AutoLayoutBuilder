@@ -14,6 +14,10 @@ public struct Views {
     public init(_ views: [UIView]) {
         self.views = views
     }
+
+    public init(_ views: UIView...) {
+        self.views = views
+    }
 }
 
 public class Builder {
