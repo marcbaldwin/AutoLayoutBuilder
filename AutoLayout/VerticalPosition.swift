@@ -62,14 +62,14 @@ public func -(lhs: VerticalPositionConstraint, rhs: CGFloat) -> VerticalPosition
 
 public extension UIView {
 
-    public func layout(verticalPosition: VerticalPositionAttribute) -> VerticalPositionConstraint {
+    subscript(verticalPosition: VerticalPositionAttribute) -> VerticalPositionConstraint {
         return VerticalPositionConstraint(views: [self], attribute: verticalPosition, multiplier: 1, constant: 0)
     }
 }
 
 public extension Views {
 
-    public func layout(verticalPosition: VerticalPositionAttribute) -> VerticalPositionConstraint {
+    subscript(verticalPosition: VerticalPositionAttribute) -> VerticalPositionConstraint {
         return VerticalPositionConstraint(views: views, attribute: verticalPosition, multiplier: 1, constant: 0)
     }
 }

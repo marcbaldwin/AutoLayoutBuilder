@@ -50,14 +50,14 @@ public func -(lhs: SizeConstraintBuilder, rhs: CGFloat) -> SizeConstraintBuilder
 
 public extension UIView {
 
-    public func layout(dimensionAttribute: SizeAttribute) -> SizeConstraintBuilder {
+    subscript(dimensionAttribute: SizeAttribute) -> SizeConstraintBuilder {
         return SizeConstraintBuilder(views: [self], attribute: dimensionAttribute, multiplier: 1, constant: 0)
     }
 }
 
 public extension Views {
 
-    public func layout(dimensionAttribute: SizeAttribute) -> SizeConstraintBuilder {
+    subscript(dimensionAttribute: SizeAttribute) -> SizeConstraintBuilder {
         return SizeConstraintBuilder(views: views, attribute: dimensionAttribute, multiplier: 1, constant: 0)
     }
 }

@@ -18,14 +18,14 @@ class SizeConstraintBuilderTests: XCTestCase {
     // MARK: Tests
 
     func testSingleViewOnLHS() {
-        let constraints = view1.layout(.Size) == view2.layout(.Size)
+        let constraints = view1[.Size] == view2[.Size]
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Width, .Equal, view2, .Width, 1, 0),
             NSLayoutConstraint(view1, .Height, .Equal, view2, .Height, 1, 0)], constraints)
     }
 
     func testMultipleViewsOnLHS() {
-        let constraints = Views(view1,view2).layout(.Size) == view3.layout(.Size)
+        let constraints = Views(view1,view2)[.Size] == view3[.Size]
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Width, .Equal, view3, .Width, 1, 0),
             NSLayoutConstraint(view1, .Height, .Equal, view3, .Height, 1, 0),
@@ -36,7 +36,7 @@ class SizeConstraintBuilderTests: XCTestCase {
     // MARK: UIView Layout Tests
 
     func testLayoutWithWidth() {
-        let constraintBuilder = view1.layout(.Size)
+        let constraintBuilder = view1[.Size]
         XCTAssertEqual(SizeAttribute.Size, constraintBuilder.attribute)
         XCTAssertEqual([view1], constraintBuilder.views)
     }
@@ -44,7 +44,7 @@ class SizeConstraintBuilderTests: XCTestCase {
     // MARK: Array Layout Tests
 
     func testLayoutWithMultipleViewsWidth() {
-        let constraintBuilder = Views([view1, view2]).layout(.Size)
+        let constraintBuilder = Views([view1, view2])[.Size]
         XCTAssertEqual(SizeAttribute.Size, constraintBuilder.attribute)
         XCTAssertEqual([view1, view2], constraintBuilder.views)
     }
@@ -52,44 +52,44 @@ class SizeConstraintBuilderTests: XCTestCase {
     // MARK: Multiplier Tests
 
     func testMultiplierMultiplication() {
-        let constraintBuilder = view1.layout(.Size) * 0.5
+        let constraintBuilder = view1[.Size] * 0.5
         XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier)
     }
 
     func testSuccessiveMultiplierMultiplication() {
-        let constraintBuilder = view1.layout(.Size) * 0.5 * 0.25
+        let constraintBuilder = view1[.Size] * 0.5 * 0.25
         XCTAssertEqual(CGFloat(0.125), constraintBuilder.multiplier)
     }
 
     func testMultiplierDivision() {
-        let constraintBuilder = view1.layout(.Size) / 2
+        let constraintBuilder = view1[.Size] / 2
         XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier)
     }
 
     func testSuccessiveMultiplierDivision() {
-        let constraintBuilder = view1.layout(.Size) / 2 / 2.5
+        let constraintBuilder = view1[.Size] / 2 / 2.5
         XCTAssertEqual(CGFloat(0.2), constraintBuilder.multiplier)
     }
 
     // MARK: Constant Tests
 
     func testConstantAddition() {
-        let constraintBuilder = view1.layout(.Size) + 10
+        let constraintBuilder = view1[.Size] + 10
         XCTAssertEqual(CGFloat(10), constraintBuilder.constant)
     }
 
     func testSuccessiveConstantAddition() {
-        let constraintBuilder = view1.layout(.Size) + 10 + 5
+        let constraintBuilder = view1[.Size] + 10 + 5
         XCTAssertEqual(CGFloat(15), constraintBuilder.constant)
     }
 
     func testConstantSubtraction() {
-        let constraintBuilder = view1.layout(.Size) - 10
+        let constraintBuilder = view1[.Size] - 10
         XCTAssertEqual(CGFloat(-10), constraintBuilder.constant)
     }
 
     func testSuccessiveConstantSubtraction() {
-        let constraintBuilder = view1.layout(.Size) - 10 - 5
+        let constraintBuilder = view1[.Size] - 10 - 5
         XCTAssertEqual(CGFloat(-15), constraintBuilder.constant)
     }
 }

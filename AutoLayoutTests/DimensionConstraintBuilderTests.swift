@@ -18,19 +18,19 @@ class DimensionConstraintBuilderTests: XCTestCase {
     // MARK: Tests
 
     func testSingleViewOnLHS() {
-        let constraints = view1.layout(.Width) == view2.layout(.Width)
+        let constraints = view1[.Width] == view2[.Width]
         XCTAssertEqual([NSLayoutConstraint(view1, .Width, .Equal, view2, .Width, 1, 0)], constraints)
     }
 
     func testMultipleViewsOnLHS() {
-        let constraints = Views(view1,view2).layout(.Width) == view3.layout(.Width)
+        let constraints = Views(view1,view2)[.Width] == view3[.Width]
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Width, .Equal, view3, .Width, 1, 0),
             NSLayoutConstraint(view2, .Width, .Equal, view3, .Width, 1, 0)], constraints)
     }
 
     func testEqualConstant() {
-        let constraints = view1.layout(.Width) == 10
+        let constraints = view1[.Width] == 10
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Width, .Equal, nil, .NotAnAttribute, 1, 10)], constraints)
     }
@@ -38,13 +38,13 @@ class DimensionConstraintBuilderTests: XCTestCase {
     // MARK: UIView Layout Tests
 
     func testLayoutWithWidth() {
-        let constraintBuilder = view1.layout(.Width)
+        let constraintBuilder = view1[.Width]
         XCTAssertEqual(DimensionAttribute.Width, constraintBuilder.attribute)
         XCTAssertEqual([view1], constraintBuilder.views)
     }
 
     func testLayoutWithHeight() {
-        let constraintBuilder = view1.layout(.Height)
+        let constraintBuilder = view1[.Height]
         XCTAssertEqual(DimensionAttribute.Height, constraintBuilder.attribute)
         XCTAssertEqual([view1], constraintBuilder.views)
     }
@@ -52,7 +52,7 @@ class DimensionConstraintBuilderTests: XCTestCase {
     // MARK: Array Layout Tests
 
     func testLayoutWithMultipleViewsWidth() {
-        let constraintBuilder = Views(view1, view2).layout(.Width)
+        let constraintBuilder = Views(view1, view2)[.Width]
         XCTAssertEqual(DimensionAttribute.Width, constraintBuilder.attribute)
         XCTAssertEqual([view1, view2], constraintBuilder.views)
     }
@@ -60,44 +60,44 @@ class DimensionConstraintBuilderTests: XCTestCase {
     // MARK: Multiplier Tests
 
     func testMultiplierMultiplication() {
-        let constraintBuilder = view1.layout(.Width) * 0.5
+        let constraintBuilder = view1[.Width] * 0.5
         XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier)
     }
 
     func testSuccessiveMultiplierMultiplication() {
-        let constraintBuilder = view1.layout(.Width) * 0.5 * 0.25
+        let constraintBuilder = view1[.Width] * 0.5 * 0.25
         XCTAssertEqual(CGFloat(0.125), constraintBuilder.multiplier)
     }
 
     func testMultiplierDivision() {
-        let constraintBuilder = view1.layout(.Width) / 2
+        let constraintBuilder = view1[.Width] / 2
         XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier)
     }
 
     func testSuccessiveMultiplierDivision() {
-        let constraintBuilder = view1.layout(.Width) / 2 / 2.5
+        let constraintBuilder = view1[.Width] / 2 / 2.5
         XCTAssertEqual(CGFloat(0.2), constraintBuilder.multiplier)
     }
 
     // MARK: Constant Tests
 
     func testConstantAddition() {
-        let constraintBuilder = view1.layout(.Width) + 10
+        let constraintBuilder = view1[.Width] + 10
         XCTAssertEqual(CGFloat(10), constraintBuilder.constant)
     }
 
     func testSuccessiveConstantAddition() {
-        let constraintBuilder = view1.layout(.Width) + 10 + 5
+        let constraintBuilder = view1[.Width] + 10 + 5
         XCTAssertEqual(CGFloat(15), constraintBuilder.constant)
     }
 
     func testConstantSubtraction() {
-        let constraintBuilder = view1.layout(.Width) - 10
+        let constraintBuilder = view1[.Width] - 10
         XCTAssertEqual(CGFloat(-10), constraintBuilder.constant)
     }
 
     func testSuccessiveConstantSubtraction() {
-        let constraintBuilder = view1.layout(.Width) - 10 - 5
+        let constraintBuilder = view1[.Width] - 10 - 5
         XCTAssertEqual(CGFloat(-15), constraintBuilder.constant)
     }
 }

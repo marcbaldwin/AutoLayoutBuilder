@@ -50,14 +50,14 @@ public func -(lhs: CenterConstraintBuilder, rhs: CGFloat) -> CenterConstraintBui
 
 public extension UIView {
 
-    public func layout(dimensionAttribute: CenterAttribute) -> CenterConstraintBuilder {
+    subscript(dimensionAttribute: CenterAttribute) -> CenterConstraintBuilder {
         return CenterConstraintBuilder(views: [self], attribute: dimensionAttribute, multiplier: 1, constant: 0)
     }
 }
 
 public extension Views {
 
-    public func layout(dimensionAttribute: CenterAttribute) -> CenterConstraintBuilder {
+    subscript(dimensionAttribute: CenterAttribute) -> CenterConstraintBuilder {
         return CenterConstraintBuilder(views: views, attribute: dimensionAttribute, multiplier: 1, constant: 0)
     }
 }

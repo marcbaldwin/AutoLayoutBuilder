@@ -52,14 +52,14 @@ public func -(lhs: EdgeConstraintBuilder, rhs: CGFloat) -> EdgeConstraintBuilder
 
 public extension UIView {
 
-    public func layout(dimensionAttribute: EdgeAttribute) -> EdgeConstraintBuilder {
+    subscript(dimensionAttribute: EdgeAttribute) -> EdgeConstraintBuilder {
         return EdgeConstraintBuilder(views: [self], attribute: dimensionAttribute, multiplier: 1, constant: 0)
     }
 }
 
 public extension Views {
 
-    public func layout(dimensionAttribute: EdgeAttribute) -> EdgeConstraintBuilder {
+    subscript(dimensionAttribute: EdgeAttribute) -> EdgeConstraintBuilder {
         return EdgeConstraintBuilder(views: views, attribute: dimensionAttribute, multiplier: 1, constant: 0)
     }
 }

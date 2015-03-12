@@ -62,14 +62,14 @@ public func -(lhs: HorizontalPositionConstraint, rhs: CGFloat) -> HorizontalPosi
 
 public extension UIView {
 
-    func layout(hoirzontalPosition: HorizontalPositionAttribute) -> HorizontalPositionConstraint {
+    subscript(hoirzontalPosition: HorizontalPositionAttribute) -> HorizontalPositionConstraint {
         return HorizontalPositionConstraint(views: [self], attribute: hoirzontalPosition, multiplier: 1, constant: 0)
     }
 }
 
 public extension Views {
 
-    public func layout(hoirzontalPosition: HorizontalPositionAttribute) -> HorizontalPositionConstraint {
+    subscript(hoirzontalPosition: HorizontalPositionAttribute) -> HorizontalPositionConstraint {
         return HorizontalPositionConstraint(views: views, attribute: hoirzontalPosition, multiplier: 1, constant: 0)
     }
 }

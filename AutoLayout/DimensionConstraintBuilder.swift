@@ -68,14 +68,14 @@ public func -(lhs: DimensionConstraintBuilder, rhs: CGFloat) -> DimensionConstra
 
 public extension UIView {
 
-    public func layout(dimensionAttribute: DimensionAttribute) -> DimensionConstraintBuilder {
+    subscript(dimensionAttribute: DimensionAttribute) -> DimensionConstraintBuilder {
         return DimensionConstraintBuilder(views: [self], attribute: dimensionAttribute, multiplier: 1, constant: 0)
     }
 }
 
 public extension Views {
 
-    func layout(dimensionAttribute: DimensionAttribute) -> DimensionConstraintBuilder {
+    subscript(dimensionAttribute: DimensionAttribute) -> DimensionConstraintBuilder {
         return DimensionConstraintBuilder(views: views, attribute: dimensionAttribute, multiplier: 1, constant: 0)
     }
 }
