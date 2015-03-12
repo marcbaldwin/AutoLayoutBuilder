@@ -18,19 +18,19 @@ class DimensionConstraintBuilderTests: XCTestCase {
     // MARK: Tests
 
     func testSingleViewOnLHS() {
-        let constraints = view1.layout(.Width) === view2.layout(.Width)
+        let constraints = view1.layout(.Width) == view2.layout(.Width)
         XCTAssertEqual([NSLayoutConstraint(view1, .Width, .Equal, view2, .Width, 1, 0)], constraints)
     }
 
     func testMultipleViewsOnLHS() {
-        let constraints = Views(view1,view2).layout(.Width) === view3.layout(.Width)
+        let constraints = Views(view1,view2).layout(.Width) == view3.layout(.Width)
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Width, .Equal, view3, .Width, 1, 0),
             NSLayoutConstraint(view2, .Width, .Equal, view3, .Width, 1, 0)], constraints)
     }
 
     func testEqualConstant() {
-        let constraints = view1.layout(.Width) === 10
+        let constraints = view1.layout(.Width) == 10
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Width, .Equal, nil, .NotAnAttribute, 1, 10)], constraints)
     }

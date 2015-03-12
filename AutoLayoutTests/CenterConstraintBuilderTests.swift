@@ -18,14 +18,14 @@ class CenterConstraintBuilderTests: XCTestCase {
     // MARK: Tests
 
     func testSingleViewOnLHS() {
-        let constraints = view1.layout(.Center) === view2.layout(.Center)
+        let constraints = view1.layout(.Center) == view2.layout(.Center)
         XCTAssertEqual([
             NSLayoutConstraint(view1, .CenterX, .Equal, view2, .CenterX, 1, 0),
             NSLayoutConstraint(view1, .CenterY, .Equal, view2, .CenterY, 1, 0)], constraints)
     }
 
     func testMultipleViewsOnLHS() {
-        let constraints = Views(view1,view2).layout(.Center) === view3.layout(.Center)
+        let constraints = Views(view1,view2).layout(.Center) == view3.layout(.Center)
         XCTAssertEqual([
             NSLayoutConstraint(view1, .CenterX, .Equal, view3, .CenterX, 1, 0),
             NSLayoutConstraint(view1, .CenterY, .Equal, view3, .CenterY, 1, 0),

@@ -34,7 +34,7 @@ extension VerticalPositionConstraint {
 
 // MARK: Operator Overloads
 
-public func ===(lhs: VerticalPositionConstraint, rhs: VerticalPositionConstraint) -> [NSLayoutConstraint] {
+public func ==(lhs: VerticalPositionConstraint, rhs: VerticalPositionConstraint) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
     for view in lhs.views {
         constraints.append(NSLayoutConstraint(view, lhs.trueAttribute, .Equal, rhs.views.first!, rhs.trueAttribute, rhs.multiplier, rhs.constant))

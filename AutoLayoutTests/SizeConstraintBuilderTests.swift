@@ -18,14 +18,14 @@ class SizeConstraintBuilderTests: XCTestCase {
     // MARK: Tests
 
     func testSingleViewOnLHS() {
-        let constraints = view1.layout(.Size) === view2.layout(.Size)
+        let constraints = view1.layout(.Size) == view2.layout(.Size)
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Width, .Equal, view2, .Width, 1, 0),
             NSLayoutConstraint(view1, .Height, .Equal, view2, .Height, 1, 0)], constraints)
     }
 
     func testMultipleViewsOnLHS() {
-        let constraints = Views(view1,view2).layout(.Size) === view3.layout(.Size)
+        let constraints = Views(view1,view2).layout(.Size) == view3.layout(.Size)
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Width, .Equal, view3, .Width, 1, 0),
             NSLayoutConstraint(view1, .Height, .Equal, view3, .Height, 1, 0),

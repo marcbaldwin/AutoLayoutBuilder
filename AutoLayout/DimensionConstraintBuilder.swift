@@ -32,7 +32,7 @@ extension DimensionConstraintBuilder {
 
 // MARK: Operator Overloads
 
-public func ===(lhs: DimensionConstraintBuilder, rhs: DimensionConstraintBuilder) -> [NSLayoutConstraint] {
+public func ==(lhs: DimensionConstraintBuilder, rhs: DimensionConstraintBuilder) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
     for view in lhs.views {
         constraints.append(NSLayoutConstraint(view, lhs.trueAttribute, .Equal, rhs.views.first!, rhs.trueAttribute, rhs.multiplier, rhs.constant))
@@ -40,7 +40,7 @@ public func ===(lhs: DimensionConstraintBuilder, rhs: DimensionConstraintBuilder
     return constraints
 }
 
-public func ===(lhs: DimensionConstraintBuilder, rhs: CGFloat) -> [NSLayoutConstraint] {
+public func ==(lhs: DimensionConstraintBuilder, rhs: CGFloat) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
     for view in lhs.views {
         constraints.append(NSLayoutConstraint(view, lhs.trueAttribute, .Equal, nil, .NotAnAttribute, 1, rhs))

@@ -21,7 +21,7 @@ public struct EdgeConstraintBuilder {
 
 // MARK: Operator Overloads
 
-public func ===(lhs: EdgeConstraintBuilder, rhs: EdgeConstraintBuilder) -> [NSLayoutConstraint] {
+public func ==(lhs: EdgeConstraintBuilder, rhs: EdgeConstraintBuilder) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
     for view in lhs.views {
         constraints.append(NSLayoutConstraint(view, .Left, .Equal, rhs.views.first!, .Left, rhs.multiplier, rhs.constant))

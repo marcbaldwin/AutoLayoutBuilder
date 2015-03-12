@@ -18,12 +18,12 @@ class VerticalPositionTests: XCTestCase {
     // MARK: Tests
 
     func testSingleViewOnLHS() {
-        let constraints = view1.layout(.Top) === view2.layout(.Bottom)
+        let constraints = view1.layout(.Top) == view2.layout(.Bottom)
         XCTAssertEqual([NSLayoutConstraint(view1, .Top, .Equal, view2, .Bottom, 1, 0)], constraints)
     }
 
     func testMultipleViewsOnLHS() {
-        let constraints = Views(view1,view2).layout(.Top) === view3.layout(.Bottom)
+        let constraints = Views(view1,view2).layout(.Top) == view3.layout(.Bottom)
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Top, .Equal, view3, .Bottom, 1, 0),
             NSLayoutConstraint(view2, .Top, .Equal, view3, .Bottom, 1, 0)], constraints)

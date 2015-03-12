@@ -21,7 +21,7 @@ public struct CenterConstraintBuilder {
 
 // MARK: Operator Overloads
 
-public func ===(lhs: CenterConstraintBuilder, rhs: CenterConstraintBuilder) -> [NSLayoutConstraint] {
+public func ==(lhs: CenterConstraintBuilder, rhs: CenterConstraintBuilder) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
     for view in lhs.views {
         constraints.append(NSLayoutConstraint(view, .CenterX, .Equal, rhs.views.first!, .CenterX, rhs.multiplier, rhs.constant))

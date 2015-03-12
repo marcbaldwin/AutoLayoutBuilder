@@ -18,7 +18,7 @@ class EdgeConstraintBuilderTests: XCTestCase {
     // MARK: Tests
 
     func testSingleViewOnLHS() {
-        let constraints = view1.layout(.Edges) === view2.layout(.Edges)
+        let constraints = view1.layout(.Edges) == view2.layout(.Edges)
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Left, .Equal, view2, .Left, 1, 0),
             NSLayoutConstraint(view1, .Right, .Equal, view2, .Right, 1, 0),
@@ -27,7 +27,7 @@ class EdgeConstraintBuilderTests: XCTestCase {
     }
 
     func testMultipleViewsOnLHS() {
-        let constraints = Views(view1,view2).layout(.Edges) === view3.layout(.Edges)
+        let constraints = Views(view1,view2).layout(.Edges) == view3.layout(.Edges)
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Left, .Equal, view3, .Left, 1, 0),
             NSLayoutConstraint(view1, .Right, .Equal, view3, .Right, 1, 0),

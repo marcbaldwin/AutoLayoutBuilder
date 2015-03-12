@@ -21,7 +21,7 @@ public struct SizeConstraintBuilder {
 
 // MARK: Operator Overloads
 
-public func ===(lhs: SizeConstraintBuilder, rhs: SizeConstraintBuilder) -> [NSLayoutConstraint] {
+public func ==(lhs: SizeConstraintBuilder, rhs: SizeConstraintBuilder) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
     for view in lhs.views {
         constraints.append(NSLayoutConstraint(view, .Width, .Equal, rhs.views.first!, .Width, rhs.multiplier, rhs.constant))

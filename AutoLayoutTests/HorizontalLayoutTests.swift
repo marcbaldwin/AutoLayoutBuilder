@@ -18,12 +18,12 @@ class HorizontalLayoutTests: XCTestCase {
     // MARK: Tests
 
     func testSingleViewOnLHS() {
-        let constraints = view1.layout(.Left) === view2.layout(.Right)
+        let constraints = view1.layout(.Left) == view2.layout(.Right)
         XCTAssertEqual([NSLayoutConstraint(view1, .Left, .Equal, view2, .Right, 1, 0)], constraints)
     }
 
     func testMultipleViewsOnLHS() {
-        let constraints = Views(view1,view2).layout(.Left) === view3.layout(.Right)
+        let constraints = Views(view1,view2).layout(.Left) == view3.layout(.Right)
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Left, .Equal, view3, .Right, 1, 0),
             NSLayoutConstraint(view2, .Left, .Equal, view3, .Right, 1, 0)], constraints)
