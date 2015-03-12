@@ -44,7 +44,7 @@ public func |(lhs: StackBuilder, rhs: UIView) -> StackBuilder {
 }
 
 public func |(lhs: StackBuilder, rhs: CGFloat) -> StackBuilder {
-    lhs.constants[lhs.constants.count-1] = rhs
+    lhs.constants.append(rhs)
     return lhs
 }
 

@@ -31,10 +31,17 @@ class StackLayoutTests: XCTestCase {
         XCTAssertEqual([NSLayoutConstraint(view2, .Top, .Equal, view1, .Bottom, 1, 10)], constraints)
     }
 
-    func testStackLayoutWithThreeViewsAndConstant() {
+    func testStackLayoutWithThreeViewsAndConstantCase1() {
         let constraints = .Vertical ~ view1 | 10 | view2 | view3
         XCTAssertEqual([
             NSLayoutConstraint(view2, .Top, .Equal, view1, .Bottom, 1, 10),
             NSLayoutConstraint(view3, .Top, .Equal, view2, .Bottom, 1, 0)], constraints)
+    }
+
+    func testStackLayoutWithThreeViewsAndConstantCase2() {
+        let constraints = .Vertical ~ view1 | view2 | 10 | view3
+        XCTAssertEqual([
+            NSLayoutConstraint(view2, .Top, .Equal, view1, .Bottom, 1, 0),
+            NSLayoutConstraint(view3, .Top, .Equal, view2, .Bottom, 1, 10)], constraints)
     }
 }
