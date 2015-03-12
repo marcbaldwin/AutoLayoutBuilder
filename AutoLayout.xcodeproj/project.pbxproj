@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A031692D1AB2491D001EB66F /* StackLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031692C1AB2491D001EB66F /* StackLayoutTests.swift */; };
+		A031692F1AB249B7001EB66F /* StackLayoutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031692E1AB249B7001EB66F /* StackLayoutBuilder.swift */; };
+		A03169301AB249B7001EB66F /* StackLayoutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031692E1AB249B7001EB66F /* StackLayoutBuilder.swift */; };
 		A06C04041AAF8FA100570771 /* AutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = A06C04031AAF8FA100570771 /* AutoLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A06C040A1AAF8FA100570771 /* AutoLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06C03FE1AAF8FA100570771 /* AutoLayout.framework */; };
 		A06C04111AAF8FA100570771 /* HorizontalLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04101AAF8FA100570771 /* HorizontalLayoutTests.swift */; };
@@ -44,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A031692C1AB2491D001EB66F /* StackLayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackLayoutTests.swift; sourceTree = "<group>"; };
+		A031692E1AB249B7001EB66F /* StackLayoutBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackLayoutBuilder.swift; sourceTree = "<group>"; };
 		A06C03FE1AAF8FA100570771 /* AutoLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AutoLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06C04021AAF8FA100570771 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A06C04031AAF8FA100570771 /* AutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoLayout.h; sourceTree = "<group>"; };
@@ -142,13 +147,14 @@
 		A06C041E1AAF915E00570771 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A0B915061AB08D1500C47CC2 /* CenterConstraintBuilder.swift */,
 				A0DA08941AB05D39007E24E4 /* Common.swift */,
 				A06C042D1AAFB39600570771 /* DimensionConstraintBuilder.swift */,
+				A0B9150C1AB0951400C47CC2 /* EdgeConstraintBuilder.swift */,
 				A06C041C1AAF90A700570771 /* HoirzontalPosition.swift */,
 				A06C04311AAFB6CA00570771 /* SizeConstraintBuilder.swift */,
+				A031692E1AB249B7001EB66F /* StackLayoutBuilder.swift */,
 				A06C04261AAF9C6200570771 /* VerticalPosition.swift */,
-				A0B915061AB08D1500C47CC2 /* CenterConstraintBuilder.swift */,
-				A0B9150C1AB0951400C47CC2 /* EdgeConstraintBuilder.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -163,6 +169,7 @@
 				A0B915091AB08D8200C47CC2 /* CenterConstraintBuilderTests.swift */,
 				A0B9150F1AB0955800C47CC2 /* EdgeConstraintBuilderTests.swift */,
 				A0B915111AB09E1A00C47CC2 /* Tests.swift */,
+				A031692C1AB2491D001EB66F /* StackLayoutTests.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -288,6 +295,7 @@
 				A0B915071AB08D1500C47CC2 /* CenterConstraintBuilder.swift in Sources */,
 				A0DA08951AB05D39007E24E4 /* Common.swift in Sources */,
 				A0B9150D1AB0951400C47CC2 /* EdgeConstraintBuilder.swift in Sources */,
+				A031692F1AB249B7001EB66F /* StackLayoutBuilder.swift in Sources */,
 				A06C041D1AAF90A700570771 /* HoirzontalPosition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,8 +310,10 @@
 				A06C04361AAFB7F200570771 /* SizeConstraintBuilderTests.swift in Sources */,
 				A06C04201AAF920200570771 /* HoirzontalPosition.swift in Sources */,
 				A0B915101AB0955800C47CC2 /* EdgeConstraintBuilderTests.swift in Sources */,
+				A03169301AB249B7001EB66F /* StackLayoutBuilder.swift in Sources */,
 				A06C042C1AAFB38200570771 /* DimensionConstraintBuilderTests.swift in Sources */,
 				A06C042A1AAF9E5900570771 /* Helper.swift in Sources */,
+				A031692D1AB2491D001EB66F /* StackLayoutTests.swift in Sources */,
 				A06C04331AAFB6CA00570771 /* SizeConstraintBuilder.swift in Sources */,
 				A06C04111AAF8FA100570771 /* HorizontalLayoutTests.swift in Sources */,
 				A0B915081AB08D1500C47CC2 /* CenterConstraintBuilder.swift in Sources */,
