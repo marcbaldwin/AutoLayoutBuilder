@@ -59,11 +59,11 @@ public func equalHeights(views: [UIView]) -> [NSLayoutConstraint] {
     return constraints
 }
 
-public func equalWidths(views: [UIView]) -> [NSLayoutConstraint] {
+public func equalWidths(views: UIView...) -> [NSLayoutConstraint] {
     return equalWidths(views)
 }
 
-public func equalWidths(views: UIView...) -> [NSLayoutConstraint] {
+public func equalWidths(views: [UIView]) -> [NSLayoutConstraint] {
     let firstView = views.first!
     var constraints = [NSLayoutConstraint]()
     for view in views[1..<views.count] {
