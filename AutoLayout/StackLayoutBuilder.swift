@@ -39,7 +39,9 @@ public func |(lhs: UIView, rhs: UIView) -> StackBuilder {
 
 public func |(lhs: StackBuilder, rhs: UIView) -> StackBuilder {
     lhs.views.append(rhs)
-    lhs.constants.append(0)
+    if lhs.constants.count < lhs.views.count-1 {
+        lhs.constants.append(0)
+    }
     return lhs
 }
 
