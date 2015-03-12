@@ -68,6 +68,14 @@ public extension Builder {
 
     public func activateConstraintsExcludingKeys(keys: String...) {
         for (key, builderGroup) in keyedBuilders {
+            if !contains(keys, key) {
+                builderGroup.activateConstraints(true)
+            }
+        }
+    }
+
+    public func activateConstraintsWithKeys(keys: String...) {
+        for (key, builderGroup) in keyedBuilders {
             if contains(keys, key) {
                 builderGroup.activateConstraints(true)
             }
