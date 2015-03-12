@@ -21,7 +21,7 @@ public class StackBuilder {
     }
 }
 
-infix operator ~ { associativity left precedence 90 }
+infix operator ~ { associativity left precedence 100 }
 
 public func ~(lhs: StackDirection, rhs: StackBuilder) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
