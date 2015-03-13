@@ -1,8 +1,3 @@
-//
-//  Created by Marc Baldwin on 11/03/2015.
-//  Copyright (c) 2015 Marc Baldwin. All rights reserved.
-//
-
 import Foundation
 
 import UIKit
@@ -14,38 +9,80 @@ class StackLayoutTests: XCTestCase {
     let view2 = UIView()
     let view3 = UIView()
 
-    func testStackLayoutWithTwoViews() {
+    // MARK: Horizontal Layout Tests
+
+    func testHorizontalLayoutWithTwoAdjacentViews() {
+        let constraints = .Horizontal ~ view1 | view2
+        XCTAssertEqual([NSLayoutConstraint(view2, .Left, .Equal, view1, .Right, 1, 0)], constraints)
+    }
+
+    func testHorizontalLayoutWithThreeAdjacentViews() {
+        let constraints = .Horizontal ~ view1 | view2 | view3
+        XCTAssertEqual([
+            NSLayoutConstraint(view2, .Left, .Equal, view1, .Right, 1, 0),
+            NSLayoutConstraint(view3, .Left, .Equal, view2, .Right, 1, 0)], constraints)
+    }
+
+    func testHorizontalLayoutWithTwoViewsWithMargin() {
+        let constraints = .Horizontal ~ view1 | 10 | view2
+        XCTAssertEqual([NSLayoutConstraint(view2, .Left, .Equal, view1, .Right, 1, 10)], constraints)
+    }
+
+    func testHorizontalLayoutWithThreeViewsWithMarginCase1() {
+        let constraints = .Horizontal ~ view1 | 10 | view2 | view3
+        XCTAssertEqual([
+            NSLayoutConstraint(view2, .Left, .Equal, view1, .Right, 1, 10),
+            NSLayoutConstraint(view3, .Left, .Equal, view2, .Right, 1, 0)], constraints)
+    }
+
+    func testHorizontalLayoutWithThreeViewsWithMarginCase2() {
+        let constraints = .Horizontal ~ view1 | view2 | 10 | view3
+        XCTAssertEqual([
+            NSLayoutConstraint(view2, .Left, .Equal, view1, .Right, 1, 0),
+            NSLayoutConstraint(view3, .Left, .Equal, view2, .Right, 1, 10)], constraints)
+    }
+
+    func testHorizontalLayoutWithThreeViewsWithMarginCase3() {
+        let constraints = .Horizontal ~ view1 | 10 | view2 | 10 | view3
+        XCTAssertEqual([
+            NSLayoutConstraint(view2, .Left, .Equal, view1, .Right, 1, 10),
+            NSLayoutConstraint(view3, .Left, .Equal, view2, .Right, 1, 10)], constraints)
+    }
+
+    // MARK: Vertical Layout Tests
+
+    func testVerticalLayoutWithTwoAdjacentViews() {
         let constraints = .Vertical ~ view1 | view2
         XCTAssertEqual([NSLayoutConstraint(view2, .Top, .Equal, view1, .Bottom, 1, 0)], constraints)
     }
 
-    func testStackLayoutWithThreeViews() {
+    func testVerticalLayoutWithThreeAdjacentViews() {
         let constraints = .Vertical ~ view1 | view2 | view3
         XCTAssertEqual([
             NSLayoutConstraint(view2, .Top, .Equal, view1, .Bottom, 1, 0),
             NSLayoutConstraint(view3, .Top, .Equal, view2, .Bottom, 1, 0)], constraints)
     }
 
-    func testStackLayoutWithTwoViewsAndConstant() {
+    func testVerticalLayoutWithTwoViewsWithMargin() {
         let constraints = .Vertical ~ view1 | 10 | view2
         XCTAssertEqual([NSLayoutConstraint(view2, .Top, .Equal, view1, .Bottom, 1, 10)], constraints)
     }
 
-    func testStackLayoutWithThreeViewsAndConstantCase1() {
+    func testVerticalLayoutWithThreeViewsWithMarginCase1() {
         let constraints = .Vertical ~ view1 | 10 | view2 | view3
         XCTAssertEqual([
             NSLayoutConstraint(view2, .Top, .Equal, view1, .Bottom, 1, 10),
             NSLayoutConstraint(view3, .Top, .Equal, view2, .Bottom, 1, 0)], constraints)
     }
 
-    func testStackLayoutWithThreeViewsAndConstantCase2() {
+    func testVerticalLayoutWithThreeViewsWithMarginCase2() {
         let constraints = .Vertical ~ view1 | view2 | 10 | view3
         XCTAssertEqual([
             NSLayoutConstraint(view2, .Top, .Equal, view1, .Bottom, 1, 0),
             NSLayoutConstraint(view3, .Top, .Equal, view2, .Bottom, 1, 10)], constraints)
     }
 
-    func testStackLayoutWithThreeViewsAndConstantCase3() {
+    func testVerticalLayoutWithThreeViewsWithMarginCase3() {
         let constraints = .Vertical ~ view1 | 10 | view2 | 10 | view3
         XCTAssertEqual([
             NSLayoutConstraint(view2, .Top, .Equal, view1, .Bottom, 1, 10),

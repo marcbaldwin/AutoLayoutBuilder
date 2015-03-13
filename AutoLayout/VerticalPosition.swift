@@ -1,11 +1,3 @@
-//
-//  Attributes.swift
-//  AutoLayout
-//
-//  Created by Marc Baldwin on 10/03/2015.
-//  Copyright (c) 2015 Marc Baldwin. All rights reserved.
-//
-
 import UIKit
 
 public enum VerticalPositionAttribute {

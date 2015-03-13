@@ -1,20 +1,15 @@
-//
-//  StackLayoutBuilder.swift
-//  AutoLayout
-//
-//  Created by Marc Baldwin on 12/03/2015.
-//  Copyright (c) 2015 Marc Baldwin. All rights reserved.
-//
-
 import UIKit
 
 public enum StackDirection {
+    case Horizontal
     case Vertical
 }
 
 public class StackBuilder {
+
     var views: [UIView]
     var constants: [CGFloat]
+
     public init(views: UIView...) {
         self.views = views
         self.constants = [0]
@@ -25,10 +20,14 @@ infix operator ~ { associativity left precedence 100 }
 
 public func ~(lhs: StackDirection, rhs: StackBuilder) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
-    let views = rhs.views
+    for i in 1..<rhs.views.count {
+        switch lhs {
+        case .Horizontal:
+            constraints.append(NSLayoutConstraint(rhs.views[i], .Left, .Equal, rhs.views[i-1], .Right, 1, rhs.constants[i-1]))
+        case .Vertical:
+            constraints.append(NSLayoutConstraint(rhs.views[i], .Top, .Equal, rhs.views[i-1], .Bottom, 1, rhs.constants[i-1]))
+        }
 
-    for i in 1..<views.count {
-        constraints.append(NSLayoutConstraint(views[i], .Top, .Equal, views[i-1], .Bottom, 1, rhs.constants[i-1]))
     }
     return constraints
 }
