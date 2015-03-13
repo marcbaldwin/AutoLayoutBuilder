@@ -27,7 +27,19 @@ public func ~(lhs: StackDirection, rhs: StackBuilder) -> [NSLayoutConstraint] {
         case .Vertical:
             constraints.append(NSLayoutConstraint(rhs.views[i], .Top, .Equal, rhs.views[i-1], .Bottom, 1, rhs.constants[i-1]))
         }
+    }
+    return constraints
+}
 
+public func ~(lhs: StackDirection, rhs: Views) -> [NSLayoutConstraint] {
+    var constraints = [NSLayoutConstraint]()
+    for i in 1..<rhs.views.count {
+        switch lhs {
+        case .Horizontal:
+            constraints.append(NSLayoutConstraint(rhs.views[i], .Left, .Equal, rhs.views[i-1], .Right, 1, 0))
+        case .Vertical:
+            constraints.append(NSLayoutConstraint(rhs.views[i], .Top, .Equal, rhs.views[i-1], .Bottom, 1, 0))
+        }
     }
     return constraints
 }
