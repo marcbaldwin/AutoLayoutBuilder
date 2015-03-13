@@ -27,6 +27,11 @@ class DimensionConstraintBuilderTests: XCTestCase {
             NSLayoutConstraint(view1, .Width, .Equal, nil, .NotAnAttribute, 1, 10)], constraints)
     }
 
+    func testGreaterThanOrEqualTo() {
+        let constraints = view1[.Width] >= view2[.Width]
+        XCTAssertEqual([NSLayoutConstraint(view1, .Width, .GreaterThanOrEqual, view2, .Width, 1, 0)], constraints)
+    }
+
     // MARK: UIView Layout Tests
 
     func testLayoutWithWidth() {

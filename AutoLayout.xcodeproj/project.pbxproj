@@ -162,14 +162,14 @@
 		A06C04301AAFB51100570771 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A0B915091AB08D8200C47CC2 /* CenterConstraintBuilderTests.swift */,
 				A06C042B1AAFB38200570771 /* DimensionConstraintBuilderTests.swift */,
+				A0B9150F1AB0955800C47CC2 /* EdgeConstraintBuilderTests.swift */,
 				A06C04101AAF8FA100570771 /* HorizontalLayoutTests.swift */,
 				A06C04341AAFB7F200570771 /* SizeConstraintBuilderTests.swift */,
-				A06C04241AAF9BCA00570771 /* VerticalPositionTests.swift */,
-				A0B915091AB08D8200C47CC2 /* CenterConstraintBuilderTests.swift */,
-				A0B9150F1AB0955800C47CC2 /* EdgeConstraintBuilderTests.swift */,
-				A0B915111AB09E1A00C47CC2 /* Tests.swift */,
 				A031692C1AB2491D001EB66F /* StackLayoutTests.swift */,
+				A0B915111AB09E1A00C47CC2 /* Tests.swift */,
+				A06C04241AAF9BCA00570771 /* VerticalPositionTests.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
