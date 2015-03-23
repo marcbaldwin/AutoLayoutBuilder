@@ -1,13 +1,13 @@
 import UIKit
 import XCTest
 
-class DimensionConstraintBuilderTests: XCTestCase {
+class DimensionRelationTests: XCTestCase {
 
     let view1 = UIView()
     let view2 = UIView()
     let view3 = UIView()
 
-    // MARK: Tests
+    // MARK: == Tests
 
     func testSingleViewOnLHS() {
         let constraints = view1[.Width] == view2[.Width]
@@ -27,12 +27,21 @@ class DimensionConstraintBuilderTests: XCTestCase {
             NSLayoutConstraint(view1, .Width, .Equal, nil, .NotAnAttribute, 1, 10)], constraints)
     }
 
+    // MARK: >= Tests
+
     func testGreaterThanOrEqualTo() {
         let constraints = view1[.Width] >= view2[.Width]
         XCTAssertEqual([NSLayoutConstraint(view1, .Width, .GreaterThanOrEqual, view2, .Width, 1, 0)], constraints)
     }
 
-    // MARK: UIView Layout Tests
+    // MARK: <= Tests
+
+    func testLessThanOrEqualTo() {
+        let constraints = view1[.Width] <= view2[.Width]
+        XCTAssertEqual([NSLayoutConstraint(view1, .Width, .LessThanOrEqual, view2, .Width, 1, 0)], constraints)
+    }
+
+    // MARK: UIView subscript Tests
 
     func testLayoutWithWidth() {
         let constraintBuilder = view1[.Width]
