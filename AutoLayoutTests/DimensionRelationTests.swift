@@ -9,19 +9,19 @@ class DimensionRelationTests: XCTestCase {
 
     // MARK: == Tests
 
-    func testSingleViewOnLHS() {
+    func testEqualToView() {
         let constraints = view1[.Width] == view2[.Width]
         XCTAssertEqual([NSLayoutConstraint(view1, .Width, .Equal, view2, .Width, 1, 0)], constraints)
     }
 
-    func testMultipleViewsOnLHS() {
+    func testEqualToMultipleViews() {
         let constraints = Views(view1,view2)[.Width] == view3[.Width]
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Width, .Equal, view3, .Width, 1, 0),
             NSLayoutConstraint(view2, .Width, .Equal, view3, .Width, 1, 0)], constraints)
     }
 
-    func testEqualConstant() {
+    func testEqualToConstant() {
         let constraints = view1[.Width] == 10
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Width, .Equal, nil, .NotAnAttribute, 1, 10)], constraints)
@@ -29,16 +29,26 @@ class DimensionRelationTests: XCTestCase {
 
     // MARK: >= Tests
 
-    func testGreaterThanOrEqualTo() {
+    func testGreaterThanOrEqualToAnotherView() {
         let constraints = view1[.Width] >= view2[.Width]
         XCTAssertEqual([NSLayoutConstraint(view1, .Width, .GreaterThanOrEqual, view2, .Width, 1, 0)], constraints)
     }
 
+    func testGreaterThanOrEqualToConstant() {
+        let constraints = view1[.Width] >= 10
+        XCTAssertEqual([NSLayoutConstraint(view1, .Width, .GreaterThanOrEqual, nil, .NotAnAttribute, 1, 10)], constraints)
+    }
+
     // MARK: <= Tests
 
-    func testLessThanOrEqualTo() {
+    func testLessThanOrEqualToAnotherView() {
         let constraints = view1[.Width] <= view2[.Width]
         XCTAssertEqual([NSLayoutConstraint(view1, .Width, .LessThanOrEqual, view2, .Width, 1, 0)], constraints)
+    }
+
+    func testLessThanOrEqualToConstant() {
+        let constraints = view1[.Width] <= 10
+        XCTAssertEqual([NSLayoutConstraint(view1, .Width, .LessThanOrEqual, nil, .NotAnAttribute, 1, 10)], constraints)
     }
 
     // MARK: UIView subscript Tests

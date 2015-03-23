@@ -21,6 +21,20 @@ public class DimensionRelation: AbstractSingleRelation {
     }
 }
 
+// MARK: Operators
+
+public func ==(lhs: DimensionRelation, rhs: CGFloat) -> [NSLayoutConstraint] { return makeDimensionRelationConstraints(lhs, rhs, .Equal) }
+
+public func >=(lhs: DimensionRelation, rhs: CGFloat) -> [NSLayoutConstraint] { return makeDimensionRelationConstraints(lhs, rhs, .GreaterThanOrEqual) }
+
+public func <=(lhs: DimensionRelation, rhs: CGFloat) -> [NSLayoutConstraint] { return makeDimensionRelationConstraints(lhs, rhs, .LessThanOrEqual) }
+
+// MARK: Internal Helper Functions
+
+internal func makeDimensionRelationConstraints(lhs: DimensionRelation, rhs: CGFloat, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
+    return lhs.views.map() { NSLayoutConstraint($0, lhs.trueAttribute, relation, nil, .NotAnAttribute, 1, rhs) }
+}
+
 // MARK: Extensions
 
 public extension UIView {
