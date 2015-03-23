@@ -22,7 +22,7 @@ extension DimensionRelation {
     }
 }
 
-// MARK: Operator Overloads
+// MARK: Equality Operators
 
 public func ==(lhs: DimensionRelation, rhs: CGFloat) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
@@ -34,9 +34,13 @@ public func ==(lhs: DimensionRelation, rhs: CGFloat) -> [NSLayoutConstraint] {
 
 public func ==(lhs: DimensionRelation, rhs: DimensionRelation) -> [NSLayoutConstraint] { return makeDimensionRelationConstraints(lhs, rhs, .Equal) }
 
+// MARK: Inequality Operators
+
 public func >=(lhs: DimensionRelation, rhs: DimensionRelation) -> [NSLayoutConstraint] { return makeDimensionRelationConstraints(lhs, rhs, .GreaterThanOrEqual) }
 
 public func <=(lhs: DimensionRelation, rhs: DimensionRelation) -> [NSLayoutConstraint] { return makeDimensionRelationConstraints(lhs, rhs, .LessThanOrEqual) }
+
+// MARK: Arithmetic Operators
 
 public func *(lhs: DimensionRelation, rhs: CGFloat) -> DimensionRelation {
     return DimensionRelation(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)

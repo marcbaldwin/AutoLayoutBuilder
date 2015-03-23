@@ -11,7 +11,7 @@ public struct EdgeRelation {
     let constant: CGFloat
 }
 
-// MARK: Operator Overloads
+// MARK: Equality Operators
 
 public func ==(lhs: EdgeRelation, rhs: EdgeRelation) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
@@ -23,6 +23,8 @@ public func ==(lhs: EdgeRelation, rhs: EdgeRelation) -> [NSLayoutConstraint] {
     }
     return constraints
 }
+
+// MARK: Arithmetic Operators
 
 public func *(lhs: EdgeRelation, rhs: CGFloat) -> EdgeRelation {
     return EdgeRelation(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)

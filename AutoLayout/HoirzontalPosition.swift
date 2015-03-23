@@ -24,7 +24,7 @@ extension HorizontalPositionConstraint {
     }
 }
 
-// MARK: Operator Overloads
+// MARK: Equality Operators
 
 public func ==(lhs: HorizontalPositionConstraint, rhs: HorizontalPositionConstraint) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
@@ -33,6 +33,8 @@ public func ==(lhs: HorizontalPositionConstraint, rhs: HorizontalPositionConstra
     }
     return constraints
 }
+
+// MARK: Arithmetic Operators
 
 public func *(lhs: HorizontalPositionConstraint, rhs: CGFloat) -> HorizontalPositionConstraint {
     return HorizontalPositionConstraint(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)

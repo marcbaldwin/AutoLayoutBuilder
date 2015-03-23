@@ -11,7 +11,7 @@ public struct CenterConstraintBuilder {
     let constant: CGFloat
 }
 
-// MARK: Operator Overloads
+// MARK: Equality Operators
 
 public func ==(lhs: CenterConstraintBuilder, rhs: CenterConstraintBuilder) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
@@ -21,6 +21,8 @@ public func ==(lhs: CenterConstraintBuilder, rhs: CenterConstraintBuilder) -> [N
     }
     return constraints
 }
+
+// MARK: Arithmetic Operators
 
 public func *(lhs: CenterConstraintBuilder, rhs: CGFloat) -> CenterConstraintBuilder {
     return CenterConstraintBuilder(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)

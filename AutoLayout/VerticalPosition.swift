@@ -24,7 +24,7 @@ extension VerticalPositionConstraint {
     }
 }
 
-// MARK: Operator Overloads
+// MARK: Equality Operators
 
 public func ==(lhs: VerticalPositionConstraint, rhs: VerticalPositionConstraint) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
@@ -33,6 +33,8 @@ public func ==(lhs: VerticalPositionConstraint, rhs: VerticalPositionConstraint)
     }
     return constraints
 }
+
+// MARK: Arithmetic Operators
 
 public func *(lhs: VerticalPositionConstraint, rhs: CGFloat) -> VerticalPositionConstraint {
     return VerticalPositionConstraint(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)
