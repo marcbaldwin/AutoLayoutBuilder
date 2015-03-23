@@ -1,13 +1,13 @@
 import UIKit
 import XCTest
 
-class CenterConstraintBuilderTests: XCTestCase {
+class CenterPositionRelationTests: XCTestCase {
 
     let view1 = UIView()
     let view2 = UIView()
     let view3 = UIView()
 
-    // MARK: Tests
+    // MARK: == Tests
 
     func testSingleViewOnLHS() {
         let constraints = view1[.Center] == view2[.Center]
