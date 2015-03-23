@@ -25,6 +25,13 @@ class SizeRelationTests: XCTestCase {
             NSLayoutConstraint(view2, .Height, .Equal, view3, .Height, 1, 0)], constraints)
     }
 
+    func testSizeEqualsConstantValue() {
+        let constraints = view1[.Size] == CGSize(width: 50, height: 100)
+        XCTAssertEqual([
+            NSLayoutConstraint(view1, .Width, .Equal, nil, .NotAnAttribute, 1, 50),
+            NSLayoutConstraint(view1, .Height, .Equal, nil, .NotAnAttribute, 1, 100)], constraints)
+    }
+
     // MARK: UIView Layout Tests
 
     func testLayoutWithWidth() {

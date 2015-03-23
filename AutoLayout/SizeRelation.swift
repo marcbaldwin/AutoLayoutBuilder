@@ -11,7 +11,7 @@ public struct SizeRelation {
     let constant: CGFloat
 }
 
-// MARK: Operator Overloads
+// MARK: Equality Operators
 
 public func ==(lhs: SizeRelation, rhs: SizeRelation) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
@@ -21,6 +21,17 @@ public func ==(lhs: SizeRelation, rhs: SizeRelation) -> [NSLayoutConstraint] {
     }
     return constraints
 }
+
+public func ==(lhs: SizeRelation, rhs: CGSize) -> [NSLayoutConstraint] {
+    var constraints = [NSLayoutConstraint]()
+    for view in lhs.views {
+        constraints.append(NSLayoutConstraint(view, .Width, .Equal, nil, .NotAnAttribute, 1, rhs.width))
+        constraints.append(NSLayoutConstraint(view, .Height, .Equal, nil, .NotAnAttribute, 1, rhs.height))
+    }
+    return constraints
+}
+
+// MARK: Arithmetic Operators
 
 public func *(lhs: SizeRelation, rhs: CGFloat) -> SizeRelation {
     return SizeRelation(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)
