@@ -28,9 +28,9 @@
 		A0B915071AB08D1500C47CC2 /* CenterConstraintBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B915061AB08D1500C47CC2 /* CenterConstraintBuilder.swift */; };
 		A0B915081AB08D1500C47CC2 /* CenterConstraintBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B915061AB08D1500C47CC2 /* CenterConstraintBuilder.swift */; };
 		A0B9150B1AB08D8200C47CC2 /* CenterConstraintBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B915091AB08D8200C47CC2 /* CenterConstraintBuilderTests.swift */; };
-		A0B9150D1AB0951400C47CC2 /* EdgeConstraintBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9150C1AB0951400C47CC2 /* EdgeConstraintBuilder.swift */; };
-		A0B9150E1AB0951400C47CC2 /* EdgeConstraintBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9150C1AB0951400C47CC2 /* EdgeConstraintBuilder.swift */; };
-		A0B915101AB0955800C47CC2 /* EdgeConstraintBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9150F1AB0955800C47CC2 /* EdgeConstraintBuilderTests.swift */; };
+		A0B9150D1AB0951400C47CC2 /* EdgeRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9150C1AB0951400C47CC2 /* EdgeRelation.swift */; };
+		A0B9150E1AB0951400C47CC2 /* EdgeRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9150C1AB0951400C47CC2 /* EdgeRelation.swift */; };
+		A0B915101AB0955800C47CC2 /* EdgeRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9150F1AB0955800C47CC2 /* EdgeRelation.swift */; };
 		A0B915121AB09E1A00C47CC2 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B915111AB09E1A00C47CC2 /* Tests.swift */; };
 		A0DA08951AB05D39007E24E4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DA08941AB05D39007E24E4 /* Common.swift */; };
 		A0DA08961AB05D39007E24E4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DA08941AB05D39007E24E4 /* Common.swift */; };
@@ -65,8 +65,8 @@
 		A06C04341AAFB7F200570771 /* SizeRelationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeRelationTests.swift; sourceTree = "<group>"; };
 		A0B915061AB08D1500C47CC2 /* CenterConstraintBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterConstraintBuilder.swift; sourceTree = "<group>"; };
 		A0B915091AB08D8200C47CC2 /* CenterConstraintBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterConstraintBuilderTests.swift; sourceTree = "<group>"; };
-		A0B9150C1AB0951400C47CC2 /* EdgeConstraintBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeConstraintBuilder.swift; sourceTree = "<group>"; };
-		A0B9150F1AB0955800C47CC2 /* EdgeConstraintBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeConstraintBuilderTests.swift; sourceTree = "<group>"; };
+		A0B9150C1AB0951400C47CC2 /* EdgeRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeRelation.swift; sourceTree = "<group>"; };
+		A0B9150F1AB0955800C47CC2 /* EdgeRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeRelation.swift; sourceTree = "<group>"; };
 		A0B915111AB09E1A00C47CC2 /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		A0DA08941AB05D39007E24E4 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,7 +150,7 @@
 				A0B915061AB08D1500C47CC2 /* CenterConstraintBuilder.swift */,
 				A0DA08941AB05D39007E24E4 /* Common.swift */,
 				A06C042D1AAFB39600570771 /* DimensionRelation.swift */,
-				A0B9150C1AB0951400C47CC2 /* EdgeConstraintBuilder.swift */,
+				A0B9150C1AB0951400C47CC2 /* EdgeRelation.swift */,
 				A06C041C1AAF90A700570771 /* HoirzontalPosition.swift */,
 				A06C04311AAFB6CA00570771 /* SizeRelation.swift */,
 				A031692E1AB249B7001EB66F /* StackLayoutBuilder.swift */,
@@ -164,7 +164,7 @@
 			children = (
 				A0B915091AB08D8200C47CC2 /* CenterConstraintBuilderTests.swift */,
 				A06C042B1AAFB38200570771 /* DimensionRelationTests.swift */,
-				A0B9150F1AB0955800C47CC2 /* EdgeConstraintBuilderTests.swift */,
+				A0B9150F1AB0955800C47CC2 /* EdgeRelation.swift */,
 				A06C04101AAF8FA100570771 /* HorizontalLayoutTests.swift */,
 				A06C04341AAFB7F200570771 /* SizeRelationTests.swift */,
 				A031692C1AB2491D001EB66F /* StackLayoutTests.swift */,
@@ -294,7 +294,7 @@
 				A06C042E1AAFB39600570771 /* DimensionRelation.swift in Sources */,
 				A0B915071AB08D1500C47CC2 /* CenterConstraintBuilder.swift in Sources */,
 				A0DA08951AB05D39007E24E4 /* Common.swift in Sources */,
-				A0B9150D1AB0951400C47CC2 /* EdgeConstraintBuilder.swift in Sources */,
+				A0B9150D1AB0951400C47CC2 /* EdgeRelation.swift in Sources */,
 				A031692F1AB249B7001EB66F /* StackLayoutBuilder.swift in Sources */,
 				A06C041D1AAF90A700570771 /* HoirzontalPosition.swift in Sources */,
 			);
@@ -309,7 +309,7 @@
 				A06C042F1AAFB39600570771 /* DimensionRelation.swift in Sources */,
 				A06C04361AAFB7F200570771 /* SizeRelationTests.swift in Sources */,
 				A06C04201AAF920200570771 /* HoirzontalPosition.swift in Sources */,
-				A0B915101AB0955800C47CC2 /* EdgeConstraintBuilderTests.swift in Sources */,
+				A0B915101AB0955800C47CC2 /* EdgeRelation.swift in Sources */,
 				A03169301AB249B7001EB66F /* StackLayoutBuilder.swift in Sources */,
 				A06C042C1AAFB38200570771 /* DimensionRelationTests.swift in Sources */,
 				A06C042A1AAF9E5900570771 /* Helper.swift in Sources */,
@@ -320,7 +320,7 @@
 				A0B9150B1AB08D8200C47CC2 /* CenterConstraintBuilderTests.swift in Sources */,
 				A0DA08961AB05D39007E24E4 /* Common.swift in Sources */,
 				A06C04251AAF9BCA00570771 /* VerticalPositionTests.swift in Sources */,
-				A0B9150E1AB0951400C47CC2 /* EdgeConstraintBuilder.swift in Sources */,
+				A0B9150E1AB0951400C47CC2 /* EdgeRelation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

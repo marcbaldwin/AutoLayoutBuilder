@@ -1,13 +1,13 @@
 import UIKit
 import XCTest
 
-class EdgeConstraintBuilderTests: XCTestCase {
+class EdgeRelationTests: XCTestCase {
 
     let view1 = UIView()
     let view2 = UIView()
     let view3 = UIView()
 
-    // MARK: Tests
+    // MARK: == Tests
 
     func testSingleViewOnLHS() {
         let constraints = view1[.Edges] == view2[.Edges]
