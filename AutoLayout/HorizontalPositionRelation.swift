@@ -6,11 +6,13 @@ public enum HorizontalPositionAttribute {
     case Right
 }
 
-public struct HorizontalPositionRelation {
-    let views: [UIView]
+public class HorizontalPositionRelation: AbstractRelation {
     let attribute: HorizontalPositionAttribute
-    let multiplier: CGFloat
-    let constant: CGFloat
+
+    init(attribute: HorizontalPositionAttribute, views: [UIView]) {
+        self.attribute = attribute
+        super.init(views: views)
+    }
 }
 
 extension HorizontalPositionRelation {
@@ -34,36 +36,18 @@ public func ==(lhs: HorizontalPositionRelation, rhs: HorizontalPositionRelation)
     return constraints
 }
 
-// MARK: Arithmetic Operators
-
-public func *(lhs: HorizontalPositionRelation, rhs: CGFloat) -> HorizontalPositionRelation {
-    return HorizontalPositionRelation(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)
-}
-
-public func /(lhs: HorizontalPositionRelation, rhs: CGFloat) -> HorizontalPositionRelation {
-    return lhs * (1/rhs)
-}
-
-public func +(lhs: HorizontalPositionRelation, rhs: CGFloat) -> HorizontalPositionRelation {
-    return HorizontalPositionRelation(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier, constant: lhs.constant + rhs)
-}
-
-public func -(lhs: HorizontalPositionRelation, rhs: CGFloat) -> HorizontalPositionRelation {
-    return lhs + (-rhs)
-}
-
 // MARK: Extensions
 
 public extension UIView {
 
     subscript(hoirzontalPosition: HorizontalPositionAttribute) -> HorizontalPositionRelation {
-        return HorizontalPositionRelation(views: [self], attribute: hoirzontalPosition, multiplier: 1, constant: 0)
+        return HorizontalPositionRelation(attribute: hoirzontalPosition, views: [self])
     }
 }
 
 public extension Views {
 
     subscript(hoirzontalPosition: HorizontalPositionAttribute) -> HorizontalPositionRelation {
-        return HorizontalPositionRelation(views: views, attribute: hoirzontalPosition, multiplier: 1, constant: 0)
+        return HorizontalPositionRelation(attribute: hoirzontalPosition, views: views)
     }
 }

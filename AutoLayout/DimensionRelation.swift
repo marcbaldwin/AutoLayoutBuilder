@@ -5,11 +5,13 @@ public enum DimensionAttribute {
     case Height
 }
 
-public struct DimensionRelation {
-    let views: [UIView]
+public class DimensionRelation: AbstractRelation {
     let attribute: DimensionAttribute
-    let multiplier: CGFloat
-    let constant: CGFloat
+
+    init(attribute: DimensionAttribute, views: [UIView]) {
+        self.attribute = attribute
+        super.init(views: views)
+    }
 }
 
 extension DimensionRelation {
@@ -40,24 +42,6 @@ public func >=(lhs: DimensionRelation, rhs: DimensionRelation) -> [NSLayoutConst
 
 public func <=(lhs: DimensionRelation, rhs: DimensionRelation) -> [NSLayoutConstraint] { return makeDimensionRelationConstraints(lhs, rhs, .LessThanOrEqual) }
 
-// MARK: Arithmetic Operators
-
-public func *(lhs: DimensionRelation, rhs: CGFloat) -> DimensionRelation {
-    return DimensionRelation(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)
-}
-
-public func /(lhs: DimensionRelation, rhs: CGFloat) -> DimensionRelation {
-    return lhs * (1/rhs)
-}
-
-public func +(lhs: DimensionRelation, rhs: CGFloat) -> DimensionRelation {
-    return DimensionRelation(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier, constant: lhs.constant + rhs)
-}
-
-public func -(lhs: DimensionRelation, rhs: CGFloat) -> DimensionRelation {
-    return lhs + (-rhs)
-}
-
 internal func makeDimensionRelationConstraints(lhs: DimensionRelation, rhs: DimensionRelation, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
     for view in lhs.views {
@@ -71,13 +55,13 @@ internal func makeDimensionRelationConstraints(lhs: DimensionRelation, rhs: Dime
 public extension UIView {
 
     subscript(dimensionAttribute: DimensionAttribute) -> DimensionRelation {
-        return DimensionRelation(views: [self], attribute: dimensionAttribute, multiplier: 1, constant: 0)
+        return DimensionRelation(attribute: dimensionAttribute, views: [self])
     }
 }
 
 public extension Views {
 
     subscript(dimensionAttribute: DimensionAttribute) -> DimensionRelation {
-        return DimensionRelation(views: views, attribute: dimensionAttribute, multiplier: 1, constant: 0)
+        return DimensionRelation(attribute: dimensionAttribute, views: views)
     }
 }

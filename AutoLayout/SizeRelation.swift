@@ -4,11 +4,14 @@ public enum SizeAttribute {
     case Size
 }
 
-public struct SizeRelation {
-    let views: [UIView]
+public class SizeRelation: AbstractRelation {
+
     let attribute: SizeAttribute
-    let multiplier: CGFloat
-    let constant: CGFloat
+
+    init(attribute: SizeAttribute, views: [UIView]) {
+        self.attribute = attribute
+        super.init(views: views)
+    }
 }
 
 // MARK: Equality Operators
@@ -31,36 +34,18 @@ public func ==(lhs: SizeRelation, rhs: CGSize) -> [NSLayoutConstraint] {
     return constraints
 }
 
-// MARK: Arithmetic Operators
-
-public func *(lhs: SizeRelation, rhs: CGFloat) -> SizeRelation {
-    return SizeRelation(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)
-}
-
-public func /(lhs: SizeRelation, rhs: CGFloat) -> SizeRelation {
-    return lhs * (1/rhs)
-}
-
-public func +(lhs: SizeRelation, rhs: CGFloat) -> SizeRelation {
-    return SizeRelation(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier, constant: lhs.constant + rhs)
-}
-
-public func -(lhs: SizeRelation, rhs: CGFloat) -> SizeRelation {
-    return lhs + (-rhs)
-}
-
 // MARK: Extensions
 
 public extension UIView {
 
     subscript(dimensionAttribute: SizeAttribute) -> SizeRelation {
-        return SizeRelation(views: [self], attribute: dimensionAttribute, multiplier: 1, constant: 0)
+        return SizeRelation(attribute: dimensionAttribute, views: [self])
     }
 }
 
 public extension Views {
 
     subscript(dimensionAttribute: SizeAttribute) -> SizeRelation {
-        return SizeRelation(views: views, attribute: dimensionAttribute, multiplier: 1, constant: 0)
+        return SizeRelation(attribute: dimensionAttribute, views: views)
     }
 }

@@ -4,11 +4,13 @@ public enum EdgeAttribute {
     case Edges
 }
 
-public struct EdgeRelation {
-    let views: [UIView]
+public class EdgeRelation: AbstractRelation {
     let attribute: EdgeAttribute
-    let multiplier: CGFloat
-    let constant: CGFloat
+
+    init(attribute: EdgeAttribute, views: [UIView]) {
+        self.attribute = attribute
+        super.init(views: views)
+    }
 }
 
 // MARK: Equality Operators
@@ -24,36 +26,18 @@ public func ==(lhs: EdgeRelation, rhs: EdgeRelation) -> [NSLayoutConstraint] {
     return constraints
 }
 
-// MARK: Arithmetic Operators
-
-public func *(lhs: EdgeRelation, rhs: CGFloat) -> EdgeRelation {
-    return EdgeRelation(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)
-}
-
-public func /(lhs: EdgeRelation, rhs: CGFloat) -> EdgeRelation {
-    return lhs * (1/rhs)
-}
-
-public func +(lhs: EdgeRelation, rhs: CGFloat) -> EdgeRelation {
-    return EdgeRelation(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier, constant: lhs.constant + rhs)
-}
-
-public func -(lhs: EdgeRelation, rhs: CGFloat) -> EdgeRelation {
-    return lhs + (-rhs)
-}
-
 // MARK: Extensions
 
 public extension UIView {
 
     subscript(dimensionAttribute: EdgeAttribute) -> EdgeRelation {
-        return EdgeRelation(views: [self], attribute: dimensionAttribute, multiplier: 1, constant: 0)
+        return EdgeRelation(attribute: dimensionAttribute, views: [self])
     }
 }
 
 public extension Views {
 
     subscript(dimensionAttribute: EdgeAttribute) -> EdgeRelation {
-        return EdgeRelation(views: views, attribute: dimensionAttribute, multiplier: 1, constant: 0)
+        return EdgeRelation(attribute: dimensionAttribute, views: views)
     }
 }

@@ -6,11 +6,14 @@ public enum VerticalPositionAttribute {
     case Bottom
 }
 
-public struct VerticalPositionRelation {
-    let views: [UIView]
+public class VerticalPositionRelation: AbstractRelation {
+
     let attribute: VerticalPositionAttribute
-    let multiplier: CGFloat
-    let constant: CGFloat
+
+    init(attribute: VerticalPositionAttribute, views: [UIView]) {
+        self.attribute = attribute
+        super.init(views: views)
+    }
 }
 
 extension VerticalPositionRelation {
@@ -34,36 +37,18 @@ public func ==(lhs: VerticalPositionRelation, rhs: VerticalPositionRelation) -> 
     return constraints
 }
 
-// MARK: Arithmetic Operators
-
-public func *(lhs: VerticalPositionRelation, rhs: CGFloat) -> VerticalPositionRelation {
-    return VerticalPositionRelation(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier * rhs, constant: lhs.constant)
-}
-
-public func /(lhs: VerticalPositionRelation, rhs: CGFloat) -> VerticalPositionRelation {
-    return lhs * (1/rhs)
-}
-
-public func +(lhs: VerticalPositionRelation, rhs: CGFloat) -> VerticalPositionRelation {
-    return VerticalPositionRelation(views: lhs.views, attribute: lhs.attribute, multiplier: lhs.multiplier, constant: lhs.constant + rhs)
-}
-
-public func -(lhs: VerticalPositionRelation, rhs: CGFloat) -> VerticalPositionRelation {
-    return lhs + (-rhs)
-}
-
 // MARK: Extensions
 
 public extension UIView {
 
     subscript(verticalPosition: VerticalPositionAttribute) -> VerticalPositionRelation {
-        return VerticalPositionRelation(views: [self], attribute: verticalPosition, multiplier: 1, constant: 0)
+        return VerticalPositionRelation(attribute: verticalPosition, views: [self])
     }
 }
 
 public extension Views {
 
     subscript(verticalPosition: VerticalPositionAttribute) -> VerticalPositionRelation {
-        return VerticalPositionRelation(views: views, attribute: verticalPosition, multiplier: 1, constant: 0)
+        return VerticalPositionRelation(attribute: verticalPosition, views: views)
     }
 }
