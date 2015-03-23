@@ -15,9 +15,9 @@
 		A06C04111AAF8FA100570771 /* HorizontalPositionRelationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04101AAF8FA100570771 /* HorizontalPositionRelationTests.swift */; };
 		A06C041D1AAF90A700570771 /* HorizontalPositionRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C041C1AAF90A700570771 /* HorizontalPositionRelation.swift */; };
 		A06C04201AAF920200570771 /* HorizontalPositionRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C041C1AAF90A700570771 /* HorizontalPositionRelation.swift */; };
-		A06C04251AAF9BCA00570771 /* VerticalPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04241AAF9BCA00570771 /* VerticalPositionTests.swift */; };
-		A06C04271AAF9C6200570771 /* VerticalPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04261AAF9C6200570771 /* VerticalPosition.swift */; };
-		A06C04281AAF9C6200570771 /* VerticalPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04261AAF9C6200570771 /* VerticalPosition.swift */; };
+		A06C04251AAF9BCA00570771 /* VerticalPositionRelationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04241AAF9BCA00570771 /* VerticalPositionRelationTests.swift */; };
+		A06C04271AAF9C6200570771 /* VerticalPositionRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04261AAF9C6200570771 /* VerticalPositionRelation.swift */; };
+		A06C04281AAF9C6200570771 /* VerticalPositionRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04261AAF9C6200570771 /* VerticalPositionRelation.swift */; };
 		A06C042A1AAF9E5900570771 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04291AAF9E5900570771 /* Helper.swift */; };
 		A06C042C1AAFB38200570771 /* DimensionRelationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C042B1AAFB38200570771 /* DimensionRelationTests.swift */; };
 		A06C042E1AAFB39600570771 /* DimensionRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C042D1AAFB39600570771 /* DimensionRelation.swift */; };
@@ -56,8 +56,8 @@
 		A06C040F1AAF8FA100570771 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A06C04101AAF8FA100570771 /* HorizontalPositionRelationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPositionRelationTests.swift; sourceTree = "<group>"; };
 		A06C041C1AAF90A700570771 /* HorizontalPositionRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalPositionRelation.swift; sourceTree = "<group>"; };
-		A06C04241AAF9BCA00570771 /* VerticalPositionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalPositionTests.swift; sourceTree = "<group>"; };
-		A06C04261AAF9C6200570771 /* VerticalPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalPosition.swift; sourceTree = "<group>"; };
+		A06C04241AAF9BCA00570771 /* VerticalPositionRelationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalPositionRelationTests.swift; sourceTree = "<group>"; };
+		A06C04261AAF9C6200570771 /* VerticalPositionRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalPositionRelation.swift; sourceTree = "<group>"; };
 		A06C04291AAF9E5900570771 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		A06C042B1AAFB38200570771 /* DimensionRelationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimensionRelationTests.swift; sourceTree = "<group>"; };
 		A06C042D1AAFB39600570771 /* DimensionRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimensionRelation.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 				A06C041C1AAF90A700570771 /* HorizontalPositionRelation.swift */,
 				A06C04311AAFB6CA00570771 /* SizeRelation.swift */,
 				A031692E1AB249B7001EB66F /* StackLayoutBuilder.swift */,
-				A06C04261AAF9C6200570771 /* VerticalPosition.swift */,
+				A06C04261AAF9C6200570771 /* VerticalPositionRelation.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 				A06C04341AAFB7F200570771 /* SizeRelationTests.swift */,
 				A031692C1AB2491D001EB66F /* StackLayoutTests.swift */,
 				A0B915111AB09E1A00C47CC2 /* Tests.swift */,
-				A06C04241AAF9BCA00570771 /* VerticalPositionTests.swift */,
+				A06C04241AAF9BCA00570771 /* VerticalPositionRelationTests.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -289,7 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A06C04271AAF9C6200570771 /* VerticalPosition.swift in Sources */,
+				A06C04271AAF9C6200570771 /* VerticalPositionRelation.swift in Sources */,
 				A06C04321AAFB6CA00570771 /* SizeRelation.swift in Sources */,
 				A06C042E1AAFB39600570771 /* DimensionRelation.swift in Sources */,
 				A0B915071AB08D1500C47CC2 /* CenterPositionRelation.swift in Sources */,
@@ -304,7 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A06C04281AAF9C6200570771 /* VerticalPosition.swift in Sources */,
+				A06C04281AAF9C6200570771 /* VerticalPositionRelation.swift in Sources */,
 				A0B915121AB09E1A00C47CC2 /* Tests.swift in Sources */,
 				A06C042F1AAFB39600570771 /* DimensionRelation.swift in Sources */,
 				A06C04361AAFB7F200570771 /* SizeRelationTests.swift in Sources */,
@@ -319,7 +319,7 @@
 				A0B915081AB08D1500C47CC2 /* CenterPositionRelation.swift in Sources */,
 				A0B9150B1AB08D8200C47CC2 /* CenterPositionRelationTests.swift in Sources */,
 				A0DA08961AB05D39007E24E4 /* Common.swift in Sources */,
-				A06C04251AAF9BCA00570771 /* VerticalPositionTests.swift in Sources */,
+				A06C04251AAF9BCA00570771 /* VerticalPositionRelationTests.swift in Sources */,
 				A0B9150E1AB0951400C47CC2 /* EdgeRelation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
