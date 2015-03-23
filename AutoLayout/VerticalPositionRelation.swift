@@ -6,35 +6,21 @@ public enum VerticalPositionAttribute {
     case Bottom
 }
 
-public class VerticalPositionRelation: AbstractRelation {
+public class VerticalPositionRelation: AbstractSingleRelation {
 
     let attribute: VerticalPositionAttribute
-
-    init(attribute: VerticalPositionAttribute, views: [UIView]) {
-        self.attribute = attribute
-        super.init(views: views)
-    }
-}
-
-extension VerticalPositionRelation {
-
-    var trueAttribute: NSLayoutAttribute {
+    override var trueAttribute: NSLayoutAttribute {
         switch attribute {
         case .CenterY: return .CenterY
         case .Top: return .Top
         case .Bottom: return .Bottom
         }
     }
-}
 
-// MARK: Equality Operators
-
-public func ==(lhs: VerticalPositionRelation, rhs: VerticalPositionRelation) -> [NSLayoutConstraint] {
-    var constraints = [NSLayoutConstraint]()
-    for view in lhs.views {
-        constraints.append(NSLayoutConstraint(view, lhs.trueAttribute, .Equal, rhs.views.first!, rhs.trueAttribute, rhs.multiplier, rhs.constant))
+    init(attribute: VerticalPositionAttribute, views: [UIView]) {
+        self.attribute = attribute
+        super.init(views: views)
     }
-    return constraints
 }
 
 // MARK: Extensions

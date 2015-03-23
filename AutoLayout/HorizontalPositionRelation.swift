@@ -6,34 +6,21 @@ public enum HorizontalPositionAttribute {
     case Right
 }
 
-public class HorizontalPositionRelation: AbstractRelation {
+public class HorizontalPositionRelation: AbstractSingleRelation {
+
     let attribute: HorizontalPositionAttribute
-
-    init(attribute: HorizontalPositionAttribute, views: [UIView]) {
-        self.attribute = attribute
-        super.init(views: views)
-    }
-}
-
-extension HorizontalPositionRelation {
-
-    var trueAttribute: NSLayoutAttribute {
+    override var trueAttribute: NSLayoutAttribute {
         switch attribute {
         case .CenterX: return .CenterX
         case .Left: return .Left
         case .Right: return .Right
         }
     }
-}
 
-// MARK: Equality Operators
-
-public func ==(lhs: HorizontalPositionRelation, rhs: HorizontalPositionRelation) -> [NSLayoutConstraint] {
-    var constraints = [NSLayoutConstraint]()
-    for view in lhs.views {
-        constraints.append(NSLayoutConstraint(view, lhs.trueAttribute, .Equal, rhs.views.first!, rhs.trueAttribute, rhs.multiplier, rhs.constant))
+    init(attribute: HorizontalPositionAttribute, views: [UIView]) {
+        self.attribute = attribute
+        super.init(views: views)
     }
-    return constraints
 }
 
 // MARK: Extensions

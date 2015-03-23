@@ -10,6 +10,8 @@
 		A031692D1AB2491D001EB66F /* StackLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031692C1AB2491D001EB66F /* StackLayoutTests.swift */; };
 		A031692F1AB249B7001EB66F /* StackLayoutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031692E1AB249B7001EB66F /* StackLayoutBuilder.swift */; };
 		A03169301AB249B7001EB66F /* StackLayoutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031692E1AB249B7001EB66F /* StackLayoutBuilder.swift */; };
+		A06492771AC0BEBA000C05DB /* AbstractSingleRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06492761AC0BEBA000C05DB /* AbstractSingleRelation.swift */; };
+		A06492781AC0BEBA000C05DB /* AbstractSingleRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06492761AC0BEBA000C05DB /* AbstractSingleRelation.swift */; };
 		A06C04041AAF8FA100570771 /* AutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = A06C04031AAF8FA100570771 /* AutoLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A06C040A1AAF8FA100570771 /* AutoLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06C03FE1AAF8FA100570771 /* AutoLayout.framework */; };
 		A06C04111AAF8FA100570771 /* HorizontalPositionRelationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04101AAF8FA100570771 /* HorizontalPositionRelationTests.swift */; };
@@ -51,6 +53,7 @@
 /* Begin PBXFileReference section */
 		A031692C1AB2491D001EB66F /* StackLayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackLayoutTests.swift; sourceTree = "<group>"; };
 		A031692E1AB249B7001EB66F /* StackLayoutBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackLayoutBuilder.swift; sourceTree = "<group>"; };
+		A06492761AC0BEBA000C05DB /* AbstractSingleRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractSingleRelation.swift; sourceTree = "<group>"; };
 		A06C03FE1AAF8FA100570771 /* AutoLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AutoLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06C04021AAF8FA100570771 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A06C04031AAF8FA100570771 /* AutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoLayout.h; sourceTree = "<group>"; };
@@ -151,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				A084A5B41AC0B85900CD8B05 /* AbstractRelation.swift */,
+				A06492761AC0BEBA000C05DB /* AbstractSingleRelation.swift */,
 				A0B915061AB08D1500C47CC2 /* CenterPositionRelation.swift */,
 				A0DA08941AB05D39007E24E4 /* Common.swift */,
 				A06C042D1AAFB39600570771 /* DimensionRelation.swift */,
@@ -300,6 +304,7 @@
 				A0DA08951AB05D39007E24E4 /* Common.swift in Sources */,
 				A0B9150D1AB0951400C47CC2 /* EdgeRelation.swift in Sources */,
 				A084A5B51AC0B85900CD8B05 /* AbstractRelation.swift in Sources */,
+				A06492771AC0BEBA000C05DB /* AbstractSingleRelation.swift in Sources */,
 				A031692F1AB249B7001EB66F /* StackLayoutBuilder.swift in Sources */,
 				A06C041D1AAF90A700570771 /* HorizontalPositionRelation.swift in Sources */,
 			);
@@ -313,6 +318,7 @@
 				A0B915121AB09E1A00C47CC2 /* Tests.swift in Sources */,
 				A06C042F1AAFB39600570771 /* DimensionRelation.swift in Sources */,
 				A06C04361AAFB7F200570771 /* SizeRelationTests.swift in Sources */,
+				A06492781AC0BEBA000C05DB /* AbstractSingleRelation.swift in Sources */,
 				A06C04201AAF920200570771 /* HorizontalPositionRelation.swift in Sources */,
 				A0B915101AB0955800C47CC2 /* EdgeRelationTests.swift in Sources */,
 				A03169301AB249B7001EB66F /* StackLayoutBuilder.swift in Sources */,
