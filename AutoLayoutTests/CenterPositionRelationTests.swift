@@ -17,7 +17,7 @@ class CenterPositionRelationTests: XCTestCase {
     }
 
     func testEqualToMultipleViews() {
-        let constraints = Views(view1,view2)[.Center] == view3[.Center]
+        let constraints = Group(view1,view2)[.Center] == view3[.Center]
         XCTAssertEqual([
             NSLayoutConstraint(view1, .CenterX, .Equal, view3, .CenterX, 1, 0),
             NSLayoutConstraint(view1, .CenterY, .Equal, view3, .CenterY, 1, 0),
@@ -36,7 +36,7 @@ class CenterPositionRelationTests: XCTestCase {
     // MARK: Array Layout Tests
 
     func testLayoutWithMultipleViewsWidth() {
-        let constraintBuilder = Views([view1, view2])[.Center]
+        let constraintBuilder = Group([view1, view2])[.Center]
         XCTAssertEqual(CenterAttribute.Center, constraintBuilder.attribute)
         XCTAssertEqual([view1, view2], constraintBuilder.views)
     }

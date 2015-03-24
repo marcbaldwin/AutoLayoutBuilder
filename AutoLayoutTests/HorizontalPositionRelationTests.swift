@@ -20,7 +20,7 @@ class HorizontalPositionRelationTests: XCTestCase {
     }
 
     func testEqualMultipleViews() {
-        let constraints = Views(view1,view2)[.Left] == view3[.Right]
+        let constraints = Group(view1,view2)[.Left] == view3[.Right]
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Left, .Equal, view3, .Right, 1, 0),
             NSLayoutConstraint(view2, .Left, .Equal, view3, .Right, 1, 0)], constraints)
@@ -43,7 +43,7 @@ class HorizontalPositionRelationTests: XCTestCase {
     // MARK: Array Layout Tests
 
     func testLayoutWithMultipleViewsRight() {
-        let constraintBuilder = Views([view1, view2])[.Right]
+        let constraintBuilder = Group([view1, view2])[.Right]
         XCTAssertEqual(HorizontalPositionAttribute.Right, constraintBuilder.attribute)
         XCTAssertEqual([view1, view2], constraintBuilder.views)
     }

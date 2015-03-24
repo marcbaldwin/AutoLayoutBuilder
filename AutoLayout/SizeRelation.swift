@@ -20,7 +20,7 @@ public class SizeRelation: AbstractDualRelation, DualRelation {
     }
 }
 
-// MARK: Equality Operators
+// MARK: Operators
 
 public func ==(lhs: SizeRelation, rhs: CGSize) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
@@ -40,7 +40,7 @@ public extension UIView {
     }
 }
 
-public extension Views {
+public extension Group {
 
     subscript(dimensionAttribute: SizeAttribute) -> SizeRelation {
         return SizeRelation(attribute: dimensionAttribute, views: views)

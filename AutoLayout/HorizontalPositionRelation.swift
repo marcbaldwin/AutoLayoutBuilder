@@ -33,7 +33,7 @@ public extension UIView {
     }
 }
 
-public extension Views {
+public extension Group {
 
     subscript(hoirzontalPosition: HorizontalPositionAttribute) -> HorizontalPositionRelation {
         return HorizontalPositionRelation(attribute: hoirzontalPosition, views: views)

@@ -15,7 +15,7 @@ class DimensionRelationTests: XCTestCase {
     }
 
     func testEqualToMultipleViews() {
-        let constraints = Views(view1,view2)[.Width] == view3[.Width]
+        let constraints = Group(view1,view2)[.Width] == view3[.Width]
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Width, .Equal, view3, .Width, 1, 0),
             NSLayoutConstraint(view2, .Width, .Equal, view3, .Width, 1, 0)], constraints)
@@ -68,7 +68,7 @@ class DimensionRelationTests: XCTestCase {
     // MARK: Array Layout Tests
 
     func testLayoutWithMultipleViewsWidth() {
-        let constraintBuilder = Views(view1, view2)[.Width]
+        let constraintBuilder = Group(view1, view2)[.Width]
         XCTAssertEqual(DimensionAttribute.Width, constraintBuilder.attribute)
         XCTAssertEqual([view1, view2], constraintBuilder.views)
     }

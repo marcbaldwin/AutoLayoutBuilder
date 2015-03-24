@@ -1,6 +1,6 @@
 import UIKit
 
-public struct Views {
+public struct Group {
     let views: [UIView]
 
     public init(_ views: [UIView]) {

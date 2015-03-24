@@ -33,7 +33,7 @@ public extension UIView {
     }
 }
 
-public extension Views {
+public extension Group {
 
     subscript(verticalPosition: VerticalPositionAttribute) -> VerticalPositionRelation {
         return VerticalPositionRelation(attribute: verticalPosition, views: views)

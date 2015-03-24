@@ -156,9 +156,9 @@
 		A06C041E1AAF915E00570771 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A0BC74391AC0E4D5009F42D4 /* AbstractDualRelation.swift */,
 				A084A5B41AC0B85900CD8B05 /* AbstractRelation.swift */,
 				A06492761AC0BEBA000C05DB /* AbstractSingleRelation.swift */,
-				A0BC74391AC0E4D5009F42D4 /* AbstractDualRelation.swift */,
 				A0B915061AB08D1500C47CC2 /* CenterPositionRelation.swift */,
 				A0DA08941AB05D39007E24E4 /* Common.swift */,
 				A06C042D1AAFB39600570771 /* DimensionRelation.swift */,

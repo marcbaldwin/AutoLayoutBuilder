@@ -29,7 +29,7 @@ public extension UIView {
     }
 }
 
-public extension Views {
+public extension Group {
 
     subscript(dimensionAttribute: CenterAttribute) -> CenterPositionRelation {
         return CenterPositionRelation(attribute: dimensionAttribute, views: views)

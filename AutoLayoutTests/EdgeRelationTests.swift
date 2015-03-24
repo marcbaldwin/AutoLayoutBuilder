@@ -28,7 +28,7 @@ class EdgeRelationTests: XCTestCase {
     }
 
     func testEqualToMultipleViews() {
-        let constraints = Views(view1,view2)[.Edges] == view3[.Edges]
+        let constraints = Group(view1,view2)[.Edges] == view3[.Edges]
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Left, .Equal, view3, .Left, 1, 0),
             NSLayoutConstraint(view1, .Right, .Equal, view3, .Right, 1, 0),
@@ -51,7 +51,7 @@ class EdgeRelationTests: XCTestCase {
     // MARK: Array Layout Tests
 
     func testLayoutWithMultipleViewsWidth() {
-        let constraintBuilder = Views([view1, view2])[.Edges]
+        let constraintBuilder = Group([view1, view2])[.Edges]
         XCTAssertEqual(EdgeAttribute.Edges, constraintBuilder.attribute)
         XCTAssertEqual([view1, view2], constraintBuilder.views)
     }

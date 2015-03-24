@@ -90,7 +90,7 @@ class StackLayoutTests: XCTestCase {
     }
 
     func testVerticalLayoutWithArrayOfViews() {
-        let constraints = .Vertical ~ Views(view1, view2, view3)
+        let constraints = .Vertical ~ Group(view1, view2, view3)
         XCTAssertEqual([
             NSLayoutConstraint(view2, .Top, .Equal, view1, .Bottom, 1, 0),
             NSLayoutConstraint(view3, .Top, .Equal, view2, .Bottom, 1, 0)], constraints)

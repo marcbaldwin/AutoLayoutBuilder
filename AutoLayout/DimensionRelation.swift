@@ -45,7 +45,7 @@ public extension UIView {
     }
 }
 
-public extension Views {
+public extension Group {
 
     subscript(dimensionAttribute: DimensionAttribute) -> DimensionRelation {
         return DimensionRelation(attribute: dimensionAttribute, views: views)

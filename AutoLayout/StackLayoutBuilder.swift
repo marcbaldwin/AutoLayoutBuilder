@@ -31,7 +31,7 @@ public func ~(lhs: StackDirection, rhs: StackBuilder) -> [NSLayoutConstraint] {
     return constraints
 }
 
-public func ~(lhs: StackDirection, rhs: Views) -> [NSLayoutConstraint] {
+public func ~(lhs: StackDirection, rhs: Group) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
     for i in 1..<rhs.views.count {
         switch lhs {

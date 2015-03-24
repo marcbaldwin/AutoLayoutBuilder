@@ -35,7 +35,7 @@ public class EdgeRelation: AbstractRelation, Relation {
     }
 }
 
-// MARK: Equality Operators
+// MARK: Operators
 
 public func ==(lhs: EdgeRelation, rhs: EdgeRelation) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
@@ -57,7 +57,7 @@ public extension UIView {
     }
 }
 
-public extension Views {
+public extension Group {
 
     subscript(dimensionAttribute: EdgeAttribute) -> EdgeRelation {
         return EdgeRelation(attribute: dimensionAttribute, views: views)
