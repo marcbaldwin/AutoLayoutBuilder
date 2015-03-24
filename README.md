@@ -1,4 +1,4 @@
-# AutoLayoutBuilder
+# AutoLayoutBuilder [![Build Status](https://travis-ci.org/marcbaldwin/AutoLayoutBuilder.svg?branch=master)](https://travis-ci.org/marcbaldwin/AutoLayoutBuilder)
 A DSL for Apple's Auto-Layout written in Swift
 
 ## Why use AutoLayoutBuilder?
