@@ -3,10 +3,13 @@ language: objective-c
 osx_image: xcode61
 
 before_install:
+  - brew update
+  - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
   - sudo easy_install cpp-coveralls
 
 script:
-  - xctool -project 'AutoLayout.xcodeproj' -scheme 'AutoLayout' -configuration Debug -sdk iphonesimulator8.1 clean build test ARCHS=i386 VALID_ARCHS=i386 ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+  - xctool clean build -project AutoLayout.xcodeproj -scheme AutoLayout
+  - xctool test -project AutoLayout.xcodeproj -scheme AutoLayout
 
 after_success:
   - ./script/coveralls.sh
