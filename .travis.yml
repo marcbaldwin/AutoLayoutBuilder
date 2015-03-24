@@ -1,6 +1,15 @@
 language: objective-c
+
 osx_image: xcode61
+
+before_install:
+  - sudo easy_install cpp-coveralls
+
 install:
     - gem install xcpretty
+
 script:
     - set -o pipefail && xcodebuild -scheme 'AutoLayout' test | xcpretty -c
+
+after_success:
+  - ./script/coveralls.sh
