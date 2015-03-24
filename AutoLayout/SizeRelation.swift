@@ -4,31 +4,23 @@ public enum SizeAttribute {
     case Size
 }
 
-public class SizeRelation: AbstractRelation {
+public class SizeRelation: AbstractDualRelation, DualRelation {
 
+    typealias AttributeType = SizeAttribute
     let attribute: SizeAttribute
-    var constant: (width: CGFloat, height: CGFloat) = (0, 0)
+    public var trueAttributes: (NSLayoutAttribute, NSLayoutAttribute) {
+        switch attribute {
+        case .Size: return (.Width, .Height)
+        }
+    }
 
     init(attribute: SizeAttribute, views: [UIView]) {
         self.attribute = attribute
         super.init(views: views)
     }
-
-    override func plus(constant: CGFloat) {
-        self.constant = (self.constant.width + constant, self.constant.height + constant)
-    }
 }
 
 // MARK: Equality Operators
-
-public func ==(lhs: SizeRelation, rhs: SizeRelation) -> [NSLayoutConstraint] {
-    var constraints = [NSLayoutConstraint]()
-    for view in lhs.views {
-        constraints.append(NSLayoutConstraint(view, .Width, .Equal, rhs.views.first!, .Width, rhs.multiplier, rhs.constant.width))
-        constraints.append(NSLayoutConstraint(view, .Height, .Equal, rhs.views.first!, .Height, rhs.multiplier, rhs.constant.height))
-    }
-    return constraints
-}
 
 public func ==(lhs: SizeRelation, rhs: CGSize) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()

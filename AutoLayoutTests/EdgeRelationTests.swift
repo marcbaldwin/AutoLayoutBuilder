@@ -60,22 +60,34 @@ class EdgeRelationTests: XCTestCase {
 
     func testMultiplierMultiplication() {
         let constraintBuilder = view1[.Edges] * 0.5
-        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier)
+        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier.l)
+        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier.r)
+        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier.t)
+        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier.b)
     }
 
     func testSuccessiveMultiplierMultiplication() {
         let constraintBuilder = view1[.Edges] * 0.5 * 0.25
-        XCTAssertEqual(CGFloat(0.125), constraintBuilder.multiplier)
+        XCTAssertEqual(CGFloat(0.125), constraintBuilder.multiplier.l)
+        XCTAssertEqual(CGFloat(0.125), constraintBuilder.multiplier.r)
+        XCTAssertEqual(CGFloat(0.125), constraintBuilder.multiplier.t)
+        XCTAssertEqual(CGFloat(0.125), constraintBuilder.multiplier.b)
     }
 
     func testMultiplierDivision() {
         let constraintBuilder = view1[.Edges] / 2
-        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier)
+        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier.l)
+        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier.r)
+        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier.t)
+        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier.b)
     }
 
     func testSuccessiveMultiplierDivision() {
         let constraintBuilder = view1[.Edges] / 2 / 2.5
-        XCTAssertEqual(CGFloat(0.2), constraintBuilder.multiplier)
+        XCTAssertEqual(CGFloat(0.2), constraintBuilder.multiplier.l)
+        XCTAssertEqual(CGFloat(0.2), constraintBuilder.multiplier.r)
+        XCTAssertEqual(CGFloat(0.2), constraintBuilder.multiplier.t)
+        XCTAssertEqual(CGFloat(0.2), constraintBuilder.multiplier.b)
     }
 
     // MARK: Constant Tests

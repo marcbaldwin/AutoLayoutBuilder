@@ -45,47 +45,51 @@ class CenterPositionRelationTests: XCTestCase {
 
     func testMultiplierMultiplication() {
         let constraintBuilder = view1[.Center] * 0.5
-        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier)
+        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier.0)
+        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier.1)
     }
 
     func testSuccessiveMultiplierMultiplication() {
         let constraintBuilder = view1[.Center] * 0.5 * 0.25
-        XCTAssertEqual(CGFloat(0.125), constraintBuilder.multiplier)
+        XCTAssertEqual(CGFloat(0.125), constraintBuilder.multiplier.0)
+        XCTAssertEqual(CGFloat(0.125), constraintBuilder.multiplier.1)
     }
 
     func testMultiplierDivision() {
         let constraintBuilder = view1[.Center] / 2
-        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier)
+        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier.0)
+        XCTAssertEqual(CGFloat(0.5), constraintBuilder.multiplier.1)
     }
 
     func testSuccessiveMultiplierDivision() {
         let constraintBuilder = view1[.Center] / 2 / 2.5
-        XCTAssertEqual(CGFloat(0.2), constraintBuilder.multiplier)
+        XCTAssertEqual(CGFloat(0.2), constraintBuilder.multiplier.0)
+        XCTAssertEqual(CGFloat(0.2), constraintBuilder.multiplier.1)
     }
 
     // MARK: Constant Tests
 
     func testConstantAddition() {
         let constraintBuilder = view1[.Center] + 10
-        XCTAssertEqual(CGFloat(10), constraintBuilder.constant.x)
-        XCTAssertEqual(CGFloat(10), constraintBuilder.constant.y)
+        XCTAssertEqual(CGFloat(10), constraintBuilder.constant.0)
+        XCTAssertEqual(CGFloat(10), constraintBuilder.constant.1)
     }
 
     func testSuccessiveConstantAddition() {
         let constraintBuilder = view1[.Center] + 10 + 5
-        XCTAssertEqual(CGFloat(15), constraintBuilder.constant.x)
-        XCTAssertEqual(CGFloat(15), constraintBuilder.constant.y)
+        XCTAssertEqual(CGFloat(15), constraintBuilder.constant.0)
+        XCTAssertEqual(CGFloat(15), constraintBuilder.constant.1)
     }
 
     func testConstantSubtraction() {
         let constraintBuilder = view1[.Center] - 10
-        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant.x)
-        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant.y)
+        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant.0)
+        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant.1)
     }
 
     func testSuccessiveConstantSubtraction() {
         let constraintBuilder = view1[.Center] - 10 - 5
-        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant.x)
-        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant.y)
+        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant.0)
+        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant.1)
     }
 }

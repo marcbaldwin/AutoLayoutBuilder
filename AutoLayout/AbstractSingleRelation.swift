@@ -1,21 +1,10 @@
 import UIKit
 
-public protocol SingleRelation: class {
+public protocol SingleRelation: Relation {
 
-    typealias AttributeType
-    var views: [UIView] { get }
     var trueAttribute: NSLayoutAttribute { get }
     var multiplier: CGFloat { get }
     var constant: CGFloat { get }
-}
-
-public class AbstractSingleRelation: AbstractRelation {
-
-    public var constant: CGFloat = 0
-
-    override func plus(constant: CGFloat) {
-        self.constant += constant
-    }
 }
 
 // MARK: Operators
@@ -39,4 +28,20 @@ internal func makeSingleRelationConstraints<
     where R1.AttributeType == R2.AttributeType>
     (lhs: R1, rhs: R2, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
         return lhs.views.map { NSLayoutConstraint($0, lhs.trueAttribute, relation, rhs.views.first!, rhs.trueAttribute, rhs.multiplier, rhs.constant) }
+}
+
+// Abstract Implementation
+
+public class AbstractSingleRelation: AbstractRelation {
+
+    public var multiplier: CGFloat = 1
+    public var constant: CGFloat = 0
+
+    public func add(constant: CGFloat) {
+        self.constant += constant
+    }
+
+    public func multiplyBy(multiplier: CGFloat) {
+        self.multiplier *= multiplier
+    }
 }
