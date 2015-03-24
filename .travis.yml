@@ -1,2 +1,6 @@
 language: objective-c
 osx_image: xcode61
+install:
+    - gem install xcpretty
+script:
+    - set -o pipefail && xcodebuild -scheme 'AutoLayout' test | xcpretty -c
