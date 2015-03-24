@@ -9,7 +9,7 @@ class EdgeRelationTests: XCTestCase {
 
     // MARK: == Tests
 
-    func testSingleViewOnLHS() {
+    func testEqualToView() {
         let constraints = view1[.Edges] == view2[.Edges]
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Left, .Equal, view2, .Left, 1, 0),
@@ -18,7 +18,16 @@ class EdgeRelationTests: XCTestCase {
             NSLayoutConstraint(view1, .Bottom, .Equal, view2, .Bottom, 1, 0)], constraints)
     }
 
-    func testMultipleViewsOnLHS() {
+    func testEqualToViewMinusConstant() {
+        let constraints = view1[.Edges] == view2[.Edges] - 5
+        XCTAssertEqual([
+            NSLayoutConstraint(view1, .Left, .Equal, view2, .Left, 1, 5),
+            NSLayoutConstraint(view1, .Right, .Equal, view2, .Right, 1, -5),
+            NSLayoutConstraint(view1, .Top, .Equal, view2, .Top, 1, 5),
+            NSLayoutConstraint(view1, .Bottom, .Equal, view2, .Bottom, 1, -5)], constraints)
+    }
+
+    func testEqualToMultipleViews() {
         let constraints = Views(view1,view2)[.Edges] == view3[.Edges]
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Left, .Equal, view3, .Left, 1, 0),
@@ -73,21 +82,33 @@ class EdgeRelationTests: XCTestCase {
 
     func testConstantAddition() {
         let constraintBuilder = view1[.Edges] + 10
-        XCTAssertEqual(CGFloat(10), constraintBuilder.constant)
+        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant.l)
+        XCTAssertEqual(CGFloat(10), constraintBuilder.constant.r)
+        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant.t)
+        XCTAssertEqual(CGFloat(10), constraintBuilder.constant.b)
     }
 
     func testSuccessiveConstantAddition() {
         let constraintBuilder = view1[.Edges] + 10 + 5
-        XCTAssertEqual(CGFloat(15), constraintBuilder.constant)
+        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant.l)
+        XCTAssertEqual(CGFloat(15), constraintBuilder.constant.r)
+        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant.t)
+        XCTAssertEqual(CGFloat(15), constraintBuilder.constant.b)
     }
 
     func testConstantSubtraction() {
         let constraintBuilder = view1[.Edges] - 10
-        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant)
+        XCTAssertEqual(CGFloat(10), constraintBuilder.constant.l)
+        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant.r)
+        XCTAssertEqual(CGFloat(10), constraintBuilder.constant.t)
+        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant.b)
     }
 
     func testSuccessiveConstantSubtraction() {
         let constraintBuilder = view1[.Edges] - 10 - 5
-        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant)
+        XCTAssertEqual(CGFloat(15), constraintBuilder.constant.l)
+        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant.r)
+        XCTAssertEqual(CGFloat(15), constraintBuilder.constant.t)
+        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant.b)
     }
 }

@@ -5,10 +5,11 @@ public enum DimensionAttribute {
     case Height
 }
 
-public class DimensionRelation: AbstractSingleRelation {
+public class DimensionRelation: AbstractSingleRelation, SingleRelation {
 
+    typealias AttributeType = DimensionAttribute
     let attribute: DimensionAttribute
-    override var trueAttribute: NSLayoutAttribute {
+    public var trueAttribute: NSLayoutAttribute {
         switch attribute {
         case .Width: return .Width
         case .Height: return .Height

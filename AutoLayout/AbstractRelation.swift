@@ -1,12 +1,16 @@
 import UIKit
 
 public class AbstractRelation {
-    let views: [UIView]
-    var multiplier: CGFloat = 1
-    var constant: CGFloat = 0
+
+    public var views: [UIView]
+    public var multiplier: CGFloat = 1
 
     init(views: [UIView]) {
         self.views = views
+    }
+
+    func plus(constant: CGFloat) {
+        // Abstract
     }
 }
 
@@ -22,7 +26,7 @@ public func /<T: AbstractRelation>(lhs: T, rhs: CGFloat) -> T {
 }
 
 public func +<T: AbstractRelation>(lhs: T, rhs: CGFloat) -> T {
-    lhs.constant += rhs
+    lhs.plus(rhs)
     return lhs
 }
 

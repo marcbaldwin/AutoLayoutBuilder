@@ -6,10 +6,11 @@ public enum HorizontalPositionAttribute {
     case Right
 }
 
-public class HorizontalPositionRelation: AbstractSingleRelation {
+public class HorizontalPositionRelation: AbstractSingleRelation, SingleRelation {
 
+    typealias AttributeType = HorizontalPositionAttribute
     let attribute: HorizontalPositionAttribute
-    override var trueAttribute: NSLayoutAttribute {
+    public var trueAttribute: NSLayoutAttribute {
         switch attribute {
         case .CenterX: return .CenterX
         case .Left: return .Left

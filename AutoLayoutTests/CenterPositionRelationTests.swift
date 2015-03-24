@@ -9,14 +9,14 @@ class CenterPositionRelationTests: XCTestCase {
 
     // MARK: == Tests
 
-    func testSingleViewOnLHS() {
+    func testEqualToView() {
         let constraints = view1[.Center] == view2[.Center]
         XCTAssertEqual([
             NSLayoutConstraint(view1, .CenterX, .Equal, view2, .CenterX, 1, 0),
             NSLayoutConstraint(view1, .CenterY, .Equal, view2, .CenterY, 1, 0)], constraints)
     }
 
-    func testMultipleViewsOnLHS() {
+    func testEqualToMultipleViews() {
         let constraints = Views(view1,view2)[.Center] == view3[.Center]
         XCTAssertEqual([
             NSLayoutConstraint(view1, .CenterX, .Equal, view3, .CenterX, 1, 0),
@@ -67,21 +67,25 @@ class CenterPositionRelationTests: XCTestCase {
 
     func testConstantAddition() {
         let constraintBuilder = view1[.Center] + 10
-        XCTAssertEqual(CGFloat(10), constraintBuilder.constant)
+        XCTAssertEqual(CGFloat(10), constraintBuilder.constant.x)
+        XCTAssertEqual(CGFloat(10), constraintBuilder.constant.y)
     }
 
     func testSuccessiveConstantAddition() {
         let constraintBuilder = view1[.Center] + 10 + 5
-        XCTAssertEqual(CGFloat(15), constraintBuilder.constant)
+        XCTAssertEqual(CGFloat(15), constraintBuilder.constant.x)
+        XCTAssertEqual(CGFloat(15), constraintBuilder.constant.y)
     }
 
     func testConstantSubtraction() {
         let constraintBuilder = view1[.Center] - 10
-        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant)
+        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant.x)
+        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant.y)
     }
 
     func testSuccessiveConstantSubtraction() {
         let constraintBuilder = view1[.Center] - 10 - 5
-        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant)
+        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant.x)
+        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant.y)
     }
 }

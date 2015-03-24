@@ -16,6 +16,20 @@ class SizeRelationTests: XCTestCase {
             NSLayoutConstraint(view1, .Height, .Equal, view2, .Height, 1, 0)], constraints)
     }
 
+    func testEqualToViewWithConstantAddition() {
+        let constraints = view1[.Size] == view2[.Size] + 10
+        XCTAssertEqual([
+            NSLayoutConstraint(view1, .Width, .Equal, view2, .Width, 1, 10),
+            NSLayoutConstraint(view1, .Height, .Equal, view2, .Height, 1, 10)], constraints)
+    }
+
+    func testEqualToViewWithConstantSubtraction() {
+        let constraints = view1[.Size] == view2[.Size] - 10
+        XCTAssertEqual([
+            NSLayoutConstraint(view1, .Width, .Equal, view2, .Width, 1, -10),
+            NSLayoutConstraint(view1, .Height, .Equal, view2, .Height, 1, -10)], constraints)
+    }
+
     func testMultipleViewsOnLHS() {
         let constraints = Views(view1,view2)[.Size] == view3[.Size]
         XCTAssertEqual([
@@ -74,21 +88,25 @@ class SizeRelationTests: XCTestCase {
 
     func testConstantAddition() {
         let constraintBuilder = view1[.Size] + 10
-        XCTAssertEqual(CGFloat(10), constraintBuilder.constant)
+        XCTAssertEqual(CGFloat(10), constraintBuilder.constant.width)
+        XCTAssertEqual(CGFloat(10), constraintBuilder.constant.height)
     }
 
     func testSuccessiveConstantAddition() {
         let constraintBuilder = view1[.Size] + 10 + 5
-        XCTAssertEqual(CGFloat(15), constraintBuilder.constant)
+        XCTAssertEqual(CGFloat(15), constraintBuilder.constant.width)
+        XCTAssertEqual(CGFloat(15), constraintBuilder.constant.height)
     }
 
     func testConstantSubtraction() {
         let constraintBuilder = view1[.Size] - 10
-        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant)
+        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant.width)
+        XCTAssertEqual(CGFloat(-10), constraintBuilder.constant.height)
     }
 
     func testSuccessiveConstantSubtraction() {
         let constraintBuilder = view1[.Size] - 10 - 5
-        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant)
+        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant.width)
+        XCTAssertEqual(CGFloat(-15), constraintBuilder.constant.height)
     }
 }

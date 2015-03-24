@@ -5,11 +5,17 @@ public enum CenterAttribute {
 }
 
 public class CenterPositionRelation: AbstractRelation {
+
     let attribute: CenterAttribute
+    var constant: (x: CGFloat, y: CGFloat) = (0, 0)
 
     init(attribute: CenterAttribute, views: [UIView]) {
         self.attribute = attribute
         super.init(views: views)
+    }
+
+    override func plus(constant: CGFloat) {
+        self.constant = (self.constant.x + constant, self.constant.y + constant)
     }
 }
 
@@ -18,8 +24,8 @@ public class CenterPositionRelation: AbstractRelation {
 public func ==(lhs: CenterPositionRelation, rhs: CenterPositionRelation) -> [NSLayoutConstraint] {
     var constraints = [NSLayoutConstraint]()
     for view in lhs.views {
-        constraints.append(NSLayoutConstraint(view, .CenterX, .Equal, rhs.views.first!, .CenterX, rhs.multiplier, rhs.constant))
-        constraints.append(NSLayoutConstraint(view, .CenterY, .Equal, rhs.views.first!, .CenterY, rhs.multiplier, rhs.constant))
+        constraints.append(NSLayoutConstraint(view, .CenterX, .Equal, rhs.views.first!, .CenterX, rhs.multiplier, rhs.constant.x))
+        constraints.append(NSLayoutConstraint(view, .CenterY, .Equal, rhs.views.first!, .CenterY, rhs.multiplier, rhs.constant.y))
     }
     return constraints
 }

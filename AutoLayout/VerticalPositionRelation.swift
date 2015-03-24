@@ -6,10 +6,11 @@ public enum VerticalPositionAttribute {
     case Bottom
 }
 
-public class VerticalPositionRelation: AbstractSingleRelation {
+public class VerticalPositionRelation: AbstractSingleRelation, SingleRelation {
 
+    typealias AttributeType = VerticalPositionAttribute
     let attribute: VerticalPositionAttribute
-    override var trueAttribute: NSLayoutAttribute {
+    public var trueAttribute: NSLayoutAttribute {
         switch attribute {
         case .CenterY: return .CenterY
         case .Top: return .Top

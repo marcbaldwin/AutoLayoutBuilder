@@ -9,12 +9,17 @@ class HorizontalPositionRelationTests: XCTestCase {
 
     // MARK: == Tests
 
-    func testSingleViewOnLHS() {
+    func testEqualView() {
         let constraints = view1[.Left] == view2[.Right]
         XCTAssertEqual([NSLayoutConstraint(view1, .Left, .Equal, view2, .Right, 1, 0)], constraints)
     }
 
-    func testMultipleViewsOnLHS() {
+    func testEqualViewWithConstant() {
+        let constraints = view1[.Left] == view2[.Right] + 10
+        XCTAssertEqual([NSLayoutConstraint(view1, .Left, .Equal, view2, .Right, 1, 10)], constraints)
+    }
+
+    func testEqualMultipleViews() {
         let constraints = Views(view1,view2)[.Left] == view3[.Right]
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Left, .Equal, view3, .Right, 1, 0),
