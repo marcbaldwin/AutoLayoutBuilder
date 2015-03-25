@@ -86,4 +86,46 @@ class VerticalPositionRelationTests: XCTestCase {
         let constraintBuilder = view1[.Bottom] - 10 - 5
         XCTAssertEqual(CGFloat(-15), constraintBuilder.constant)
     }
+
+    // MARK: UIView Subscript Tests
+
+    func testCenterY() {
+        let relation = view1[.CenterY]
+        XCTAssertEqual(VerticalPositionAttribute.CenterY, relation.attribute)
+    }
+
+    func testTop() {
+        let relation = view1[.Top]
+        XCTAssertEqual(VerticalPositionAttribute.Top, relation.attribute)
+    }
+
+    func testBottom() {
+        let relation = view1[.Bottom]
+        XCTAssertEqual(VerticalPositionAttribute.Bottom, relation.attribute)
+    }
+
+    func testBaseline() {
+        let relation = view1[.Baseline]
+        XCTAssertEqual(VerticalPositionAttribute.Baseline, relation.attribute)
+    }
+
+    func testFirstBaseline() {
+        let relation = view1[.FirstBaseline]
+        XCTAssertEqual(VerticalPositionAttribute.FirstBaseline, relation.attribute)
+    }
+
+    func testCenterYWithinMargins() {
+        let relation = view1[.CenterYWithinMargins]
+        XCTAssertEqual(VerticalPositionAttribute.CenterYWithinMargins, relation.attribute)
+    }
+
+    func testTopMargin() {
+        let relation = view1[.TopMargin]
+        XCTAssertEqual(VerticalPositionAttribute.TopMargin, relation.attribute)
+    }
+
+    func testBottomMargin() {
+        let relation = view1[.BottomMargin]
+        XCTAssertEqual(VerticalPositionAttribute.BottomMargin, relation.attribute)
+    }
 }

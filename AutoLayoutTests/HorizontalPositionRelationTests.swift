@@ -92,16 +92,11 @@ class HorizontalPositionRelationTests: XCTestCase {
         XCTAssertEqual(CGFloat(-15), constraintBuilder.constant)
     }
 
-    // MARK: Subscript Tests
+    // MARK: UIView Subscript Tests
 
     func testCenterX() {
         let relation = view1[.CenterX]
         XCTAssertEqual(HorizontalPositionAttribute.CenterX, relation.attribute)
-    }
-
-    func testCenterXWithinMargins() {
-        let relation = view1[.CenterXWithinMargins]
-        XCTAssertEqual(HorizontalPositionAttribute.CenterXWithinMargins, relation.attribute)
     }
 
     func testLeft() {
@@ -109,19 +104,9 @@ class HorizontalPositionRelationTests: XCTestCase {
         XCTAssertEqual(HorizontalPositionAttribute.Left, relation.attribute)
     }
 
-    func testLeftMargin() {
-        let relation = view1[.LeftMargin]
-        XCTAssertEqual(HorizontalPositionAttribute.LeftMargin, relation.attribute)
-    }
-
     func testRight() {
         let relation = view1[.Right]
         XCTAssertEqual(HorizontalPositionAttribute.Right, relation.attribute)
-    }
-
-    func testRightMargin() {
-        let relation = view1[.RightMargin]
-        XCTAssertEqual(HorizontalPositionAttribute.RightMargin, relation.attribute)
     }
 
     func testLeading() {
@@ -129,14 +114,29 @@ class HorizontalPositionRelationTests: XCTestCase {
         XCTAssertEqual(HorizontalPositionAttribute.Leading, relation.attribute)
     }
 
-    func testLeadingMargin() {
-        let relation = view1[.LeadingMargin]
-        XCTAssertEqual(HorizontalPositionAttribute.LeadingMargin, relation.attribute)
-    }
-
     func testTrailing() {
         let relation = view1[.Trailing]
         XCTAssertEqual(HorizontalPositionAttribute.Trailing, relation.attribute)
+    }
+
+    func testCenterXWithinMargins() {
+        let relation = view1[.CenterXWithinMargins]
+        XCTAssertEqual(HorizontalPositionAttribute.CenterXWithinMargins, relation.attribute)
+    }
+
+    func testLeftMargin() {
+        let relation = view1[.LeftMargin]
+        XCTAssertEqual(HorizontalPositionAttribute.LeftMargin, relation.attribute)
+    }
+
+    func testRightMargin() {
+        let relation = view1[.RightMargin]
+        XCTAssertEqual(HorizontalPositionAttribute.RightMargin, relation.attribute)
+    }
+
+    func testLeadingMargin() {
+        let relation = view1[.LeadingMargin]
+        XCTAssertEqual(HorizontalPositionAttribute.LeadingMargin, relation.attribute)
     }
 
     func testTrailingMargin() {

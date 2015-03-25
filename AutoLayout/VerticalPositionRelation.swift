@@ -1,9 +1,16 @@
 import UIKit
 
 public enum VerticalPositionAttribute {
+
     case CenterY
     case Top
     case Bottom
+    case Baseline
+    case FirstBaseline
+
+    case CenterYWithinMargins
+    case TopMargin
+    case BottomMargin
 }
 
 public class VerticalPositionRelation: AbstractSingleRelation, SingleRelation {
@@ -15,6 +22,11 @@ public class VerticalPositionRelation: AbstractSingleRelation, SingleRelation {
         case .CenterY: return .CenterY
         case .Top: return .Top
         case .Bottom: return .Bottom
+        case .Baseline: return .Baseline
+        case .FirstBaseline: return .FirstBaseline
+        case .CenterYWithinMargins: return .CenterYWithinMargins
+        case .TopMargin: return .TopMargin
+        case .BottomMargin: return .BottomMargin
         }
     }
 
