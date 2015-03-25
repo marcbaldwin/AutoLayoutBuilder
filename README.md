@@ -1,26 +1,17 @@
 # AutoLayoutBuilder [![Build Status](https://travis-ci.org/marcbaldwin/AutoLayoutBuilder.svg?branch=master)](https://travis-ci.org/marcbaldwin/AutoLayoutBuilder)
 A DSL for Apple's Auto-Layout written in Swift
 
+## [Examples](#examples) | [Installation](#installation)
+
 ## Why use AutoLayoutBuilder?
 * **Expressive** - Constraints are extremely readable and concise
 * **Fast** - Write fewer lines of code, and shorter ones at that
 * **Safe** - Invalid constraints are compiler errors
 * **Flexible** - Attributes are supplied as arguments, so can be varied at runtime
 
-## Installation
-
-####[CocoaPods](http://cocoapods.org)
-
-Add the following line to your Podfile
->`pod 'AutoLayoutBuilder'`
-
-````Swift
-import AutoLayoutBuilder
-````
-
 ## Examples
 
-````Swift
+```Swift
 // Example: Left equals right
 let constraints = view1[.Left] == view2[.Right]
 
@@ -71,3 +62,18 @@ let constraints = .Horizontal ~ view1 | 5 | view2 | 5 | view3
 
 // Example: Top to bottom layout with margins
 let constraints = .Vertical ~ view1 | 5 | view2 | 5 | view3
+```
+
+## Installation
+
+####[CocoaPods](http://cocoapods.org)
+
+Add the following line to your Podfile
+```bash
+pod 'AutoLayoutBuilder'
+```
+
+Add the following line to your .swift files
+```Swift
+import AutoLayoutBuilder
+```
