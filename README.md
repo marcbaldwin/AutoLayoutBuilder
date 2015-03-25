@@ -1,7 +1,8 @@
-# AutoLayoutBuilder [![Build Status](https://travis-ci.org/marcbaldwin/AutoLayoutBuilder.svg?branch=master)](https://travis-ci.org/marcbaldwin/AutoLayoutBuilder)
+# AutoLayoutBuilder [![Build Status](https://travis-ci.org/marcbaldwin/AutoLayoutBuilder.svg?branch=master)](https://travis-ci.org/marcbaldwin/AutoLayoutBuilder) [![Platform](http://img.shields.io/cocoapods/p/AutoLayoutBuilder.svg?style=flat)](http://cocoadocs.org/docsets/AutoLayoutBuilder/) [![Pod](http://img.shields.io/cocoapods/v/AutoLayoutBuilder.svg?style=flat)]() [![License](http://img.shields.io/cocoapods/l/AutoLayoutBuilder.svg?style=flat)](LICENSE)
+
 A DSL for Apple's Auto-Layout written in Swift
 
-## [Examples](#examples) | [Installation](#installation)
+[Examples](#examples) | [Installation](#installation)
 
 ## Why use AutoLayoutBuilder?
 * **Expressive** - Constraints are extremely readable and concise
@@ -66,7 +67,7 @@ let constraints = .Vertical ~ view1 | 5 | view2 | 5 | view3
 
 ## Installation
 
-####[CocoaPods](http://cocoapods.org)
+### [CocoaPods](http://cocoapods.org)
 
 Add the following line to your Podfile
 ```bash
