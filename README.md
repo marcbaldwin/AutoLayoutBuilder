@@ -52,8 +52,11 @@ let constraints = view1[.Width] == view2[.Width]
 // Example: Equal width and height
 let constraints = view1[.Width] == view1[.Height]
 
-// Example: Horizontal layout with margins
-let constraints = .Hoirzontal ~ view1 | 5 | view2 | 5 | view3
+// Example: Left to right layout
+let constraints = .Horizontal ~ view1 | view2 | view3
 
-// Example: Vertical layout with margins
+// Example: Left to right layout with margins
+let constraints = .Horizontal ~ view1 | 5 | view2 | 5 | view3
+
+// Example: Top to bottom layout with margins
 let constraints = .Vertical ~ view1 | 5 | view2 | 5 | view3
