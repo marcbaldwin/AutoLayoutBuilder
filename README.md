@@ -7,6 +7,17 @@ A DSL for Apple's Auto-Layout written in Swift
 * **Safe** - Invalid constraints are compiler errors
 * **Flexible** - Attributes are supplied as arguments, so can be varied at runtime
 
+## Installation
+
+####[CocoaPods](http://cocoapods.org)
+
+Add the following line to your Podfile
+>`pod 'AutoLayoutBuilder'`
+
+````Swift
+import AutoLayoutBuilder
+````
+
 ## Examples
 
 ````Swift
