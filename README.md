@@ -61,6 +61,9 @@ let constraints = .Horizontal ~ view1 | view2 | view3
 // Example: Left to right layout with margins
 let constraints = .Horizontal ~ view1 | 5 | view2 | 5 | view3
 
+// Example: Leading to trailing layout with margins
+let constraints = .LeadingToTrailing ~ view1 | 5 | view2 | 5 | view3
+
 // Example: Top to bottom layout with margins
 let constraints = .Vertical ~ view1 | 5 | view2 | 5 | view3
 ```
