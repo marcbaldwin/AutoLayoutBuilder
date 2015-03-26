@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AutoLayoutBuilder"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.license      = "MIT"
   s.summary      = "Create adaptive layouts with an expressive yet concise syntax."
   s.homepage     = "https://github.com/marcbaldwin/AutoLayoutBuilder"
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     It provides shorthand notation for creating readable, flexible layouts.
   }
 
-  s.source       = { :git => "https://github.com/marcbaldwin/AutoLayoutBuilder.git", :tag => "v0.0.1" }
+  s.source       = { :git => "https://github.com/marcbaldwin/AutoLayoutBuilder.git", :tag => "v0.0.2" }
   s.source_files = "AutoLayout"
 
   s.platform     = :ios, '8.0'
