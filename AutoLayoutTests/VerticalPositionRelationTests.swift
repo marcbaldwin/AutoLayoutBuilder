@@ -1,24 +1,59 @@
 import UIKit
 import XCTest
 
-class VerticalPositionRelationTests: XCTestCase {
-
-    let view1 = UIView()
-    let view2 = UIView()
-    let view3 = UIView()
+class VerticalPositionRelationTests: ALBTestCase {
 
     // MARK: == Tests
 
     func testSingleViewOnLHS() {
-        let constraints = view1[.Top] == view2[.Bottom]
-        XCTAssertEqual([NSLayoutConstraint(view1, .Top, .Equal, view2, .Bottom, 1, 0)], constraints)
+        constraints = view1[.Top] == view2[.Bottom]
+        XCTAssertEqual([NSLayoutConstraint(view1, .Top, .Equal, view2, .Bottom, 1, 0)], constraints!)
     }
 
     func testMultipleViewsOnLHS() {
-        let constraints = Group(view1,view2)[.Top] == view3[.Bottom]
+        constraints = Group(view1,view2)[.Top] == view3[.Bottom]
         XCTAssertEqual([
             NSLayoutConstraint(view1, .Top, .Equal, view3, .Bottom, 1, 0),
-            NSLayoutConstraint(view2, .Top, .Equal, view3, .Bottom, 1, 0)], constraints)
+            NSLayoutConstraint(view2, .Top, .Equal, view3, .Bottom, 1, 0)], constraints!)
+    }
+
+    func testSingleViewTopEqualsViewControllerTopLayoutGuideTop() {
+        constraints = view1[.Top] == viewController.layoutGuides.top[.Top]
+        XCTAssertEqual([NSLayoutConstraint(view1, .Top, .Equal, viewController.topLayoutGuide, .Top, 1, 0)], constraints!)
+    }
+
+    func testSingleViewTopEqualsViewControllerTopLayoutGuideBottom() {
+        constraints = view1[.Top] == viewController.layoutGuides.top[.Bottom]
+        XCTAssertEqual([NSLayoutConstraint(view1, .Top, .Equal, viewController.topLayoutGuide, .Bottom, 1, 0)], constraints!)
+    }
+
+    func testSingleViewTopEqualsViewControllerTopLayoutGuideBottomPlusMargin() {
+        constraints = view1[.Top] == viewController.layoutGuides.top[.Bottom] + 10
+        XCTAssertEqual([NSLayoutConstraint(view1, .Top, .Equal, viewController.topLayoutGuide, .Bottom, 1, 10)], constraints!)
+    }
+
+    func testSingleViewTopEqualsViewControllerTopLayoutGuideBottomMinusMargin() {
+        constraints = view1[.Top] == viewController.layoutGuides.top[.Bottom] - 10
+        XCTAssertEqual([NSLayoutConstraint(view1, .Top, .Equal, viewController.topLayoutGuide, .Bottom, 1, -10)], constraints!)
+    }
+
+    func testSingleViewTopEqualsViewControllerBottomLayoutGuideTop() {
+        constraints = view1[.Top] == viewController.layoutGuides.bottom[.Top]
+        XCTAssertEqual([NSLayoutConstraint(view1, .Top, .Equal, viewController.bottomLayoutGuide, .Top, 1, 0)], constraints!)
+    }
+
+    // MARK: >= Tests
+
+    func testSingleViewTopGreaterThanOrEqualToViewControllerTopLayoutGuideTop() {
+        constraints = view1[.Top] >= viewController.layoutGuides.top[.Top]
+        XCTAssertEqual([NSLayoutConstraint(view1, .Top, .GreaterThanOrEqual, viewController.topLayoutGuide, .Top, 1, 0)], constraints!)
+    }
+
+    // MARK: <= Tests
+
+    func testSingleViewTopLessThanOrEqualToViewControllerTopLayoutGuideTop() {
+        constraints = view1[.Top] <= viewController.layoutGuides.top[.Top]
+        XCTAssertEqual([NSLayoutConstraint(view1, .Top, .LessThanOrEqual, viewController.topLayoutGuide, .Top, 1, 0)], constraints!)
     }
 
     // MARK: UIView Layout Tests
