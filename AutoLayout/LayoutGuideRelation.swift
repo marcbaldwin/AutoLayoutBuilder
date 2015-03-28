@@ -11,7 +11,7 @@ public class LayoutGuideRelation {
         self.layoutGuide = layoutGuide
     }
 
-    subscript(attribute: VerticalPositionAttribute) -> LayoutGuideRelation {
+    public subscript(attribute: VerticalPositionAttribute) -> LayoutGuideRelation {
         self.attribute = attribute
         return self
     }
@@ -31,9 +31,9 @@ public func -(lhs: LayoutGuideRelation, rhs: CGFloat) -> LayoutGuideRelation {
 
 // MARK: Extensions
 
-extension UIViewController {
+public extension UIViewController {
 
-    var layoutGuides: (top: LayoutGuideRelation, bottom: LayoutGuideRelation) {
+    public var layoutGuides: (top: LayoutGuideRelation, bottom: LayoutGuideRelation) {
         return (top: LayoutGuideRelation(self.topLayoutGuide), bottom: LayoutGuideRelation(self.bottomLayoutGuide))
     }
 }
