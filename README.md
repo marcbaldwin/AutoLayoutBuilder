@@ -66,6 +66,12 @@ let constraints = .LeadingToTrailing ~ view1 | 5 | view2 | 5 | view3
 
 // Example: Top to bottom layout with margins
 let constraints = .Vertical ~ view1 | 5 | view2 | 5 | view3
+
+// Example: Top equals top layout guide's bottom
+let constraints = view1[.Top] == viewController.layoutGuide.top[.Bottom]
+
+// Example: Bottom equals bottom layout guide's top with margin
+let constraints = view1[.Bottom] == viewController.layoutGuide.bottom[.Top] - 5
 ```
 
 ## Installation
