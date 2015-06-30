@@ -14,4 +14,9 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+
+# AppCode
+.idea/
+
+# OSX
 .DS_Store
