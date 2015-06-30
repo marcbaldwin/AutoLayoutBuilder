@@ -1,12 +1,8 @@
-import Foundation
 import UIKit
 import XCTest
 
-class VerticalLayoutTests: XCTestCase {
+class VerticalLayoutTests: ALBTestCase {
 
-    let view1 = UIView()
-    let view2 = UIView()
-    let view3 = UIView()
 }
 
 extension VerticalLayoutTests: LayoutTestSpecification {

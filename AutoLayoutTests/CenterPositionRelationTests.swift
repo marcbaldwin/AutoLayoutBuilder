@@ -1,11 +1,7 @@
 import UIKit
 import XCTest
 
-class CenterPositionRelationTests: XCTestCase {
-
-    let view1 = UIView()
-    let view2 = UIView()
-    let view3 = UIView()
+class CenterPositionRelationTests: ALBTestCase {
 
     // MARK: == Tests
 

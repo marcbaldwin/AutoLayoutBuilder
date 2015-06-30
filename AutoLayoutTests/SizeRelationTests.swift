@@ -1,11 +1,7 @@
 import UIKit
 import XCTest
 
-class SizeRelationTests: XCTestCase {
-
-    let view1 = UIView()
-    let view2 = UIView()
-    let view3 = UIView()
+class SizeRelationTests: ALBTestCase {
 
     // MARK: == Tests
 

@@ -1,13 +1,7 @@
-import Foundation
-
 import UIKit
 import XCTest
 
-class Tests: XCTestCase {
-
-    let view1 = UIView()
-    let view2 = UIView()
-    let view3 = UIView()
+class Tests: ALBTestCase {
 
     // MARK: Equal Heights Tests
 

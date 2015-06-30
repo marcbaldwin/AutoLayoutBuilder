@@ -1,9 +1,7 @@
 import UIKit
 import XCTest
 
-class LayoutGuideRelationTests: XCTestCase {
-
-    var viewController = UIViewController()
+class LayoutGuideRelationTests: ALBTestCase {
 
     // MARK: UIViewController Extension Tests
 

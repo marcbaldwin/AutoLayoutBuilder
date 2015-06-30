@@ -18,6 +18,9 @@ class ALBTestCase: XCTestCase {
         superview.addSubview(view1)
         superview.addSubview(view2)
         superview.addSubview(view3)
+
+        viewController.loadView()
+        viewController.view = superview
     }
 
     override func tearDown() {

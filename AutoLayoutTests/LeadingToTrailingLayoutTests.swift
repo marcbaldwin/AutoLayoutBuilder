@@ -3,11 +3,7 @@ import Foundation
 import UIKit
 import XCTest
 
-class LeadingToTrailingLayoutTests: XCTestCase {
-
-    let view1 = UIView()
-    let view2 = UIView()
-    let view3 = UIView()
+class LeadingToTrailingLayoutTests: ALBTestCase {
 
 }
 

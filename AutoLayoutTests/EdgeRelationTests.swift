@@ -1,11 +1,7 @@
 import UIKit
 import XCTest
 
-class EdgeRelationTests: XCTestCase {
-
-    let view1 = UIView()
-    let view2 = UIView()
-    let view3 = UIView()
+class EdgeRelationTests: ALBTestCase {
 
     // MARK: == Tests
 
