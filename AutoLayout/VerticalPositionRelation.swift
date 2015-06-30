@@ -1,18 +1,5 @@
 import UIKit
 
-public enum VerticalPositionAttribute {
-
-    case CenterY
-    case Top
-    case Bottom
-    case Baseline
-    case FirstBaseline
-
-    case CenterYWithinMargins
-    case TopMargin
-    case BottomMargin
-}
-
 public class VerticalPositionRelation: AbstractSingleRelation, SingleRelation {
 
     typealias AttributeType = VerticalPositionAttribute

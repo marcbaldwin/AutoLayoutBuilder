@@ -1,9 +1,5 @@
 import UIKit
 
-public enum CenterAttribute {
-    case Center
-}
-
 public class CenterPositionRelation: AbstractDualRelation, DualRelation {
 
     typealias AttributeType = CenterAttribute

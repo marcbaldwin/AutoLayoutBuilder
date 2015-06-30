@@ -1,9 +1,5 @@
 import UIKit
 
-public enum SizeAttribute {
-    case Size
-}
-
 public class SizeRelation: AbstractDualRelation, DualRelation {
 
     typealias AttributeType = SizeAttribute

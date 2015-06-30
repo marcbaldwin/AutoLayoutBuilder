@@ -1,9 +1,5 @@
 import UIKit
 
-public enum EdgeAttribute {
-    case Edges
-}
-
 public class EdgeRelation: AbstractRelation, Relation {
 
     typealias AttributeType = EdgeAttribute

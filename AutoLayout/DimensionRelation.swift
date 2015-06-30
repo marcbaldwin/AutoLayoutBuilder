@@ -1,10 +1,5 @@
 import UIKit
 
-public enum DimensionAttribute {
-    case Width
-    case Height
-}
-
 public class DimensionRelation: AbstractSingleRelation, SingleRelation {
 
     typealias AttributeType = DimensionAttribute
