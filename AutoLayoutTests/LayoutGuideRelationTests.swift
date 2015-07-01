@@ -18,13 +18,13 @@ class LayoutGuideRelationTests: ALBTestCase {
     func testTopShouldSetAttributeToTop() {
         let relation = viewController.layoutGuides.top
         relation[.Top]
-        XCTAssertEqual(VerticalPositionAttribute.Top, relation.attribute)
+        XCTAssertEqual(VerticalAttribute.Top, relation.attribute)
     }
 
     func testBottomShouldSetAttributeToBottom() {
         let relation = viewController.layoutGuides.top
         relation[.Bottom]
-        XCTAssertEqual(VerticalPositionAttribute.Bottom, relation.attribute)
+        XCTAssertEqual(VerticalAttribute.Bottom, relation.attribute)
     }
 
     // MARK: LayoutGuideRelation Operator Tests

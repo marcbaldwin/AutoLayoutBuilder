@@ -30,19 +30,3 @@ public func <=(lhs: DimensionRelation, rhs: CGFloat) -> [NSLayoutConstraint] { r
 internal func makeDimensionRelationConstraints(lhs: DimensionRelation, rhs: CGFloat, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
     return lhs.views.map() { NSLayoutConstraint($0, lhs.trueAttribute, relation, nil, .NotAnAttribute, 1, rhs) }
 }
-
-// MARK: Extensions
-
-public extension UIView {
-
-    subscript(dimensionAttribute: DimensionAttribute) -> DimensionRelation {
-        return DimensionRelation(attribute: dimensionAttribute, views: [self])
-    }
-}
-
-public extension Group {
-
-    subscript(dimensionAttribute: DimensionAttribute) -> DimensionRelation {
-        return DimensionRelation(attribute: dimensionAttribute, views: views)
-    }
-}

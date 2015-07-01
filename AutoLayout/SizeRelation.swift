@@ -26,19 +26,3 @@ public func ==(lhs: SizeRelation, rhs: CGSize) -> [NSLayoutConstraint] {
     }
     return constraints
 }
-
-// MARK: Extensions
-
-public extension UIView {
-
-    subscript(dimensionAttribute: SizeAttribute) -> SizeRelation {
-        return SizeRelation(attribute: dimensionAttribute, views: [self])
-    }
-}
-
-public extension Group {
-
-    subscript(dimensionAttribute: SizeAttribute) -> SizeRelation {
-        return SizeRelation(attribute: dimensionAttribute, views: views)
-    }
-}

@@ -60,13 +60,13 @@ class VerticalPositionRelationTests: ALBTestCase {
 
     func testLayoutWithTop() {
         let constraintBuilder = view1[.Top]
-        XCTAssertEqual(VerticalPositionAttribute.Top, constraintBuilder.attribute)
+        XCTAssertEqual(VerticalAttribute.Top, constraintBuilder.attribute)
         XCTAssertEqual([view1], constraintBuilder.views)
     }
 
     func testLayoutWithBottom() {
         let constraintBuilder = view1[.Bottom]
-        XCTAssertEqual(VerticalPositionAttribute.Bottom, constraintBuilder.attribute)
+        XCTAssertEqual(VerticalAttribute.Bottom, constraintBuilder.attribute)
         XCTAssertEqual([view1], constraintBuilder.views)
     }
 
@@ -74,7 +74,7 @@ class VerticalPositionRelationTests: ALBTestCase {
 
     func testLayoutWithMultipleViewsBottom() {
         let constraintBuilder = Group([view1, view2])[.Bottom]
-        XCTAssertEqual(VerticalPositionAttribute.Bottom, constraintBuilder.attribute)
+        XCTAssertEqual(VerticalAttribute.Bottom, constraintBuilder.attribute)
         XCTAssertEqual([view1, view2], constraintBuilder.views)
     }
 
@@ -126,41 +126,41 @@ class VerticalPositionRelationTests: ALBTestCase {
 
     func testCenterY() {
         let relation = view1[.CenterY]
-        XCTAssertEqual(VerticalPositionAttribute.CenterY, relation.attribute)
+        XCTAssertEqual(VerticalAttribute.CenterY, relation.attribute)
     }
 
     func testTop() {
         let relation = view1[.Top]
-        XCTAssertEqual(VerticalPositionAttribute.Top, relation.attribute)
+        XCTAssertEqual(VerticalAttribute.Top, relation.attribute)
     }
 
     func testBottom() {
         let relation = view1[.Bottom]
-        XCTAssertEqual(VerticalPositionAttribute.Bottom, relation.attribute)
+        XCTAssertEqual(VerticalAttribute.Bottom, relation.attribute)
     }
 
     func testBaseline() {
         let relation = view1[.Baseline]
-        XCTAssertEqual(VerticalPositionAttribute.Baseline, relation.attribute)
+        XCTAssertEqual(VerticalAttribute.Baseline, relation.attribute)
     }
 
     func testFirstBaseline() {
         let relation = view1[.FirstBaseline]
-        XCTAssertEqual(VerticalPositionAttribute.FirstBaseline, relation.attribute)
+        XCTAssertEqual(VerticalAttribute.FirstBaseline, relation.attribute)
     }
 
     func testCenterYWithinMargins() {
         let relation = view1[.CenterYWithinMargins]
-        XCTAssertEqual(VerticalPositionAttribute.CenterYWithinMargins, relation.attribute)
+        XCTAssertEqual(VerticalAttribute.CenterYWithinMargins, relation.attribute)
     }
 
     func testTopMargin() {
         let relation = view1[.TopMargin]
-        XCTAssertEqual(VerticalPositionAttribute.TopMargin, relation.attribute)
+        XCTAssertEqual(VerticalAttribute.TopMargin, relation.attribute)
     }
 
     func testBottomMargin() {
         let relation = view1[.BottomMargin]
-        XCTAssertEqual(VerticalPositionAttribute.BottomMargin, relation.attribute)
+        XCTAssertEqual(VerticalAttribute.BottomMargin, relation.attribute)
     }
 }

@@ -2,8 +2,8 @@ import UIKit
 
 public class HorizontalPositionRelation: AbstractSingleRelation, SingleRelation {
 
-    typealias AttributeType = HorizontalPositionAttribute
-    let attribute: HorizontalPositionAttribute
+    typealias AttributeType = HorizontalAttribute
+    let attribute: HorizontalAttribute
     public var trueAttribute: NSLayoutAttribute {
         switch attribute {
         case .CenterX: return .CenterX
@@ -19,24 +19,8 @@ public class HorizontalPositionRelation: AbstractSingleRelation, SingleRelation 
         }
     }
 
-    init(attribute: HorizontalPositionAttribute, views: [UIView]) {
+    init(attribute: HorizontalAttribute, views: [UIView]) {
         self.attribute = attribute
         super.init(views: views)
-    }
-}
-
-// MARK: Extensions
-
-public extension UIView {
-
-    subscript(hoirzontalPosition: HorizontalPositionAttribute) -> HorizontalPositionRelation {
-        return HorizontalPositionRelation(attribute: hoirzontalPosition, views: [self])
-    }
-}
-
-public extension Group {
-
-    subscript(hoirzontalPosition: HorizontalPositionAttribute) -> HorizontalPositionRelation {
-        return HorizontalPositionRelation(attribute: hoirzontalPosition, views: views)
     }
 }

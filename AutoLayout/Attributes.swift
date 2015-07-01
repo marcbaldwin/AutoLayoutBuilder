@@ -1,7 +1,7 @@
 import Foundation
 
 // MARK: Horizontal
-public enum HorizontalPositionAttribute {
+public enum HorizontalAttribute {
 
     case CenterX
     case Left
@@ -17,7 +17,7 @@ public enum HorizontalPositionAttribute {
 }
 
 // MARK: Vertical
-public enum VerticalPositionAttribute {
+public enum VerticalAttribute {
 
     case CenterY
     case Top

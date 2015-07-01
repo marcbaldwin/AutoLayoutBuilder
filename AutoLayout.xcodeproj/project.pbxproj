@@ -51,6 +51,8 @@
 		A0DDC9241AC4072B009C3D8C /* LayoutTestSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDC9231AC4072B009C3D8C /* LayoutTestSpecification.swift */; };
 		A0DDC9261AC40803009C3D8C /* HorizontalLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDC9251AC40803009C3D8C /* HorizontalLayoutTests.swift */; };
 		A0DDC9281AC40907009C3D8C /* VerticalLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDC9271AC40907009C3D8C /* VerticalLayoutTests.swift */; };
+		A0E3147A1B4364FA0022E99B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E314791B4364FA0022E99B /* Extensions.swift */; };
+		A0E3147B1B4364FA0022E99B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E314791B4364FA0022E99B /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,7 @@
 		A0DDC9231AC4072B009C3D8C /* LayoutTestSpecification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutTestSpecification.swift; sourceTree = "<group>"; };
 		A0DDC9251AC40803009C3D8C /* HorizontalLayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalLayoutTests.swift; sourceTree = "<group>"; };
 		A0DDC9271AC40907009C3D8C /* VerticalLayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalLayoutTests.swift; sourceTree = "<group>"; };
+		A0E314791B4364FA0022E99B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				138BBAE7D9865477F9F6DFB9 /* Attributes.swift */,
+				A0E314791B4364FA0022E99B /* Extensions.swift */,
 				A0BC74391AC0E4D5009F42D4 /* AbstractDualRelation.swift */,
 				A084A5B41AC0B85900CD8B05 /* AbstractRelation.swift */,
 				A06492761AC0BEBA000C05DB /* AbstractSingleRelation.swift */,
@@ -337,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A06C04271AAF9C6200570771 /* VerticalPositionRelation.swift in Sources */,
+				A0E3147A1B4364FA0022E99B /* Extensions.swift in Sources */,
 				A06C04321AAFB6CA00570771 /* SizeRelation.swift in Sources */,
 				A06C042E1AAFB39600570771 /* DimensionRelation.swift in Sources */,
 				A0DDC9201AC34E49009C3D8C /* Group.swift in Sources */,
@@ -379,6 +384,7 @@
 				A0B915081AB08D1500C47CC2 /* CenterPositionRelation.swift in Sources */,
 				A0B9150B1AB08D8200C47CC2 /* CenterPositionRelationTests.swift in Sources */,
 				A0DA08961AB05D39007E24E4 /* Common.swift in Sources */,
+				A0E3147B1B4364FA0022E99B /* Extensions.swift in Sources */,
 				A084A5B61AC0B85900CD8B05 /* AbstractRelation.swift in Sources */,
 				A0BC743B1AC0E4D5009F42D4 /* AbstractDualRelation.swift in Sources */,
 				A06C04251AAF9BCA00570771 /* VerticalPositionRelationTests.swift in Sources */,

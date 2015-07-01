@@ -3,7 +3,7 @@ import UIKit
 public class LayoutGuideRelation {
 
     let layoutGuide: UILayoutSupport
-    var attribute: VerticalPositionAttribute!
+    var attribute: VerticalAttribute!
     var trueAttribute: NSLayoutAttribute { return verticalPositionToLayoutAttribute(self.attribute) }
     var constant: CGFloat = 0
 
@@ -11,7 +11,7 @@ public class LayoutGuideRelation {
         self.layoutGuide = layoutGuide
     }
 
-    public subscript(attribute: VerticalPositionAttribute) -> LayoutGuideRelation {
+    public subscript(attribute: VerticalAttribute) -> LayoutGuideRelation {
         self.attribute = attribute
         return self
     }

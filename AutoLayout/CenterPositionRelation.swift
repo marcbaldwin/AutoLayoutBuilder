@@ -15,19 +15,3 @@ public class CenterPositionRelation: AbstractDualRelation, DualRelation {
         super.init(views: views)
     }
 }
-
-// MARK: Extensions
-
-public extension UIView {
-
-    subscript(dimensionAttribute: CenterAttribute) -> CenterPositionRelation {
-        return CenterPositionRelation(attribute: dimensionAttribute, views: [self])
-    }
-}
-
-public extension Group {
-
-    subscript(dimensionAttribute: CenterAttribute) -> CenterPositionRelation {
-        return CenterPositionRelation(attribute: dimensionAttribute, views: views)
-    }
-}

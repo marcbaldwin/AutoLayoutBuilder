@@ -43,19 +43,3 @@ public func ==(lhs: EdgeRelation, rhs: EdgeRelation) -> [NSLayoutConstraint] {
     }
     return constraints
 }
-
-// MARK: Extensions
-
-public extension UIView {
-
-    subscript(dimensionAttribute: EdgeAttribute) -> EdgeRelation {
-        return EdgeRelation(attribute: dimensionAttribute, views: [self])
-    }
-}
-
-public extension Group {
-
-    subscript(dimensionAttribute: EdgeAttribute) -> EdgeRelation {
-        return EdgeRelation(attribute: dimensionAttribute, views: views)
-    }
-}

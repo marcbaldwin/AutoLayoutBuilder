@@ -2,11 +2,11 @@ import UIKit
 
 public class VerticalPositionRelation: AbstractSingleRelation, SingleRelation {
 
-    typealias AttributeType = VerticalPositionAttribute
-    let attribute: VerticalPositionAttribute
+    typealias AttributeType = VerticalAttribute
+    let attribute: VerticalAttribute
     public var trueAttribute: NSLayoutAttribute { return verticalPositionToLayoutAttribute(self.attribute)}
 
-    init(attribute: VerticalPositionAttribute, views: [UIView]) {
+    init(attribute: VerticalAttribute, views: [UIView]) {
         self.attribute = attribute
         super.init(views: views)
     }
@@ -26,25 +26,9 @@ public func <=(lhs: VerticalPositionRelation, rhs: LayoutGuideRelation) -> [NSLa
     return makeVerticalPositionRelationConstraints(lhs, rhs, .LessThanOrEqual)
 }
 
-// MARK: Extensions
-
-public extension UIView {
-
-    subscript(verticalPosition: VerticalPositionAttribute) -> VerticalPositionRelation {
-        return VerticalPositionRelation(attribute: verticalPosition, views: [self])
-    }
-}
-
-public extension Group {
-
-    subscript(verticalPosition: VerticalPositionAttribute) -> VerticalPositionRelation {
-        return VerticalPositionRelation(attribute: verticalPosition, views: views)
-    }
-}
-
 // MARK: Attribute conversion
 
-internal func verticalPositionToLayoutAttribute(attribute: VerticalPositionAttribute) -> NSLayoutAttribute {
+internal func verticalPositionToLayoutAttribute(attribute: VerticalAttribute) -> NSLayoutAttribute {
     switch attribute {
     case .CenterY: return .CenterY
     case .Top: return .Top
