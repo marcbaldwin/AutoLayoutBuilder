@@ -53,6 +53,9 @@
 		A0DDC9281AC40907009C3D8C /* VerticalLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDC9271AC40907009C3D8C /* VerticalLayoutTests.swift */; };
 		A0E3147A1B4364FA0022E99B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E314791B4364FA0022E99B /* Extensions.swift */; };
 		A0E3147B1B4364FA0022E99B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E314791B4364FA0022E99B /* Extensions.swift */; };
+		A0E3E2E21B4453A8004971AB /* AspectRatioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E3E2E11B4453A8004971AB /* AspectRatioTests.swift */; };
+		A0E3E2E41B445461004971AB /* AspectRatioRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E3E2E31B445461004971AB /* AspectRatioRelation.swift */; };
+		A0E3E2E51B445461004971AB /* AspectRatioRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E3E2E31B445461004971AB /* AspectRatioRelation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +103,8 @@
 		A0DDC9251AC40803009C3D8C /* HorizontalLayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalLayoutTests.swift; sourceTree = "<group>"; };
 		A0DDC9271AC40907009C3D8C /* VerticalLayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalLayoutTests.swift; sourceTree = "<group>"; };
 		A0E314791B4364FA0022E99B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A0E3E2E11B4453A8004971AB /* AspectRatioTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectRatioTests.swift; sourceTree = "<group>"; };
+		A0E3E2E31B445461004971AB /* AspectRatioRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectRatioRelation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +198,7 @@
 				A031692E1AB249B7001EB66F /* LayoutRelation.swift */,
 				A06C04311AAFB6CA00570771 /* SizeRelation.swift */,
 				A06C04261AAF9C6200570771 /* VerticalRelation.swift */,
+				A0E3E2E31B445461004971AB /* AspectRatioRelation.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 		A06C04301AAFB51100570771 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A0E3E2E11B4453A8004971AB /* AspectRatioTests.swift */,
 				A0B915091AB08D8200C47CC2 /* CenterRelationTests.swift */,
 				A06C042B1AAFB38200570771 /* DimensionRelationTests.swift */,
 				A0B9150F1AB0955800C47CC2 /* EdgeRelationTests.swift */,
@@ -341,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A06C04271AAF9C6200570771 /* VerticalRelation.swift in Sources */,
+				A0E3E2E41B445461004971AB /* AspectRatioRelation.swift in Sources */,
 				A0E3147A1B4364FA0022E99B /* Extensions.swift in Sources */,
 				A06C04321AAFB6CA00570771 /* SizeRelation.swift in Sources */,
 				A06C042E1AAFB39600570771 /* DimensionRelation.swift in Sources */,
@@ -370,9 +378,11 @@
 				A063C8CD1AC6F78900B66E26 /* LayoutGuideRelationTests.swift in Sources */,
 				A06C04361AAFB7F200570771 /* SizeRelationTests.swift in Sources */,
 				A06492781AC0BEBA000C05DB /* AbstractSingleRelation.swift in Sources */,
+				A0E3E2E51B445461004971AB /* AspectRatioRelation.swift in Sources */,
 				A06C04201AAF920200570771 /* HorizontalRelation.swift in Sources */,
 				A0DDC9241AC4072B009C3D8C /* LayoutTestSpecification.swift in Sources */,
 				A063C8CB1AC5B1C800B66E26 /* ALBTestCase.swift in Sources */,
+				A0E3E2E21B4453A8004971AB /* AspectRatioTests.swift in Sources */,
 				A0B915101AB0955800C47CC2 /* EdgeRelationTests.swift in Sources */,
 				A03169301AB249B7001EB66F /* LayoutRelation.swift in Sources */,
 				A06C042C1AAFB38200570771 /* DimensionRelationTests.swift in Sources */,

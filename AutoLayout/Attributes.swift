@@ -50,3 +50,8 @@ public enum DimensionAttribute {
 public enum SizeAttribute {
     case Size
 }
+
+// MARK: Aspect Ratio
+public enum AspectRatioAttribute {
+    case AspectRatio
+}
