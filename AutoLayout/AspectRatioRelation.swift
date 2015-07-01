@@ -1,6 +1,6 @@
 import UIKit
 
-public class AspectRatioRelation {
+class AspectRatioRelation {
 
     let views: [UIView]
 
@@ -9,10 +9,13 @@ public class AspectRatioRelation {
     }
 }
 
-public func ==(lhs: AspectRatioRelation, rhs: CGFloat) -> [NSLayoutConstraint] {
-    var constraints = [NSLayoutConstraint]()
-    for view in lhs.views {
-        constraints.append(NSLayoutConstraint(view, .Width, .Equal, view, .Height, rhs, 0))
+extension AspectRatioRelation: ConstrainableToValue {
+
+    func constrainToValue(value: CGFloat) -> [NSLayoutConstraint] {
+        var constraints = [NSLayoutConstraint]()
+        for view in views {
+            constraints.append(NSLayoutConstraint(view, .Width, .Equal, view, .Height, value, 0))
+        }
+        return constraints
     }
-    return constraints
 }

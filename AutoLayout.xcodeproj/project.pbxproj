@@ -56,6 +56,8 @@
 		A0E3E2E21B4453A8004971AB /* AspectRatioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E3E2E11B4453A8004971AB /* AspectRatioTests.swift */; };
 		A0E3E2E41B445461004971AB /* AspectRatioRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E3E2E31B445461004971AB /* AspectRatioRelation.swift */; };
 		A0E3E2E51B445461004971AB /* AspectRatioRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E3E2E31B445461004971AB /* AspectRatioRelation.swift */; };
+		A0E3E2E71B445EA9004971AB /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E3E2E61B445EA9004971AB /* Constraints.swift */; };
+		A0E3E2E81B445EA9004971AB /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E3E2E61B445EA9004971AB /* Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,7 @@
 		A0E314791B4364FA0022E99B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A0E3E2E11B4453A8004971AB /* AspectRatioTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectRatioTests.swift; sourceTree = "<group>"; };
 		A0E3E2E31B445461004971AB /* AspectRatioRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectRatioRelation.swift; sourceTree = "<group>"; };
+		A0E3E2E61B445EA9004971AB /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				138BBAE7D9865477F9F6DFB9 /* Attributes.swift */,
+				A0E3E2E61B445EA9004971AB /* Constraints.swift */,
 				A0E314791B4364FA0022E99B /* Extensions.swift */,
 				A0BC74391AC0E4D5009F42D4 /* AbstractDualRelation.swift */,
 				A084A5B41AC0B85900CD8B05 /* AbstractRelation.swift */,
@@ -349,6 +353,7 @@
 			files = (
 				A06C04271AAF9C6200570771 /* VerticalRelation.swift in Sources */,
 				A0E3E2E41B445461004971AB /* AspectRatioRelation.swift in Sources */,
+				A0E3E2E71B445EA9004971AB /* Constraints.swift in Sources */,
 				A0E3147A1B4364FA0022E99B /* Extensions.swift in Sources */,
 				A06C04321AAFB6CA00570771 /* SizeRelation.swift in Sources */,
 				A06C042E1AAFB39600570771 /* DimensionRelation.swift in Sources */,
@@ -374,6 +379,7 @@
 				A06C04281AAF9C6200570771 /* VerticalRelation.swift in Sources */,
 				A0DDC9261AC40803009C3D8C /* HorizontalLayoutTests.swift in Sources */,
 				A0B915121AB09E1A00C47CC2 /* Tests.swift in Sources */,
+				A0E3E2E81B445EA9004971AB /* Constraints.swift in Sources */,
 				A06C042F1AAFB39600570771 /* DimensionRelation.swift in Sources */,
 				A063C8CD1AC6F78900B66E26 /* LayoutGuideRelationTests.swift in Sources */,
 				A06C04361AAFB7F200570771 /* SizeRelationTests.swift in Sources */,

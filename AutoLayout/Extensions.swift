@@ -26,7 +26,7 @@ public extension UIView {
         return DimensionRelation(attribute: attribute, views: [self])
     }
 
-    subscript(attribute: AspectRatioAttribute) -> AspectRatioRelation {
+    subscript(attribute: AspectRatioAttribute) -> ConstrainableToValue {
         return AspectRatioRelation(views: [self])
     }
 }
@@ -57,7 +57,7 @@ public extension Group {
         return DimensionRelation(attribute: attribute, views: views)
     }
 
-    subscript(attribute: AspectRatioAttribute) -> AspectRatioRelation {
+    subscript(attribute: AspectRatioAttribute) -> ConstrainableToValue {
         return AspectRatioRelation(views: views)
     }
 }
