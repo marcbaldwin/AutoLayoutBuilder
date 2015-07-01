@@ -1,6 +1,6 @@
 import UIKit
 
-public class VerticalPositionRelation: AbstractSingleRelation, SingleRelation {
+public class VerticalRelation: AbstractSingleRelation, SingleRelation {
 
     typealias AttributeType = VerticalAttribute
     let attribute: VerticalAttribute
@@ -14,15 +14,15 @@ public class VerticalPositionRelation: AbstractSingleRelation, SingleRelation {
 
 // MARK: Operators
 
-public func ==(lhs: VerticalPositionRelation, rhs: LayoutGuideRelation) -> [NSLayoutConstraint] {
+public func ==(lhs: VerticalRelation, rhs: LayoutGuideRelation) -> [NSLayoutConstraint] {
     return makeVerticalPositionRelationConstraints(lhs, rhs, .Equal)
 }
 
-public func >=(lhs: VerticalPositionRelation, rhs: LayoutGuideRelation) -> [NSLayoutConstraint] {
+public func >=(lhs: VerticalRelation, rhs: LayoutGuideRelation) -> [NSLayoutConstraint] {
     return makeVerticalPositionRelationConstraints(lhs, rhs, .GreaterThanOrEqual)
 }
 
-public func <=(lhs: VerticalPositionRelation, rhs: LayoutGuideRelation) -> [NSLayoutConstraint] {
+public func <=(lhs: VerticalRelation, rhs: LayoutGuideRelation) -> [NSLayoutConstraint] {
     return makeVerticalPositionRelationConstraints(lhs, rhs, .LessThanOrEqual)
 }
 
@@ -43,6 +43,6 @@ internal func verticalPositionToLayoutAttribute(attribute: VerticalAttribute) ->
 
 // MARK: Internal
 
-func makeVerticalPositionRelationConstraints(lhs: VerticalPositionRelation, rhs: LayoutGuideRelation, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
+func makeVerticalPositionRelationConstraints(lhs: VerticalRelation, rhs: LayoutGuideRelation, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
     return lhs.views.map { NSLayoutConstraint($0, lhs.trueAttribute, relation, rhs.layoutGuide, rhs.trueAttribute, 1, rhs.constant) }
 }

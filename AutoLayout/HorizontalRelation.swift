@@ -1,6 +1,6 @@
 import UIKit
 
-public class HorizontalPositionRelation: AbstractSingleRelation, SingleRelation {
+public class HorizontalRelation: AbstractSingleRelation, SingleRelation {
 
     typealias AttributeType = HorizontalAttribute
     let attribute: HorizontalAttribute

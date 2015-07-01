@@ -1,7 +1,7 @@
 import UIKit
 import XCTest
 
-class CenterPositionRelationTests: ALBTestCase {
+class CenterRelationTests: ALBTestCase {
 
     // MARK: == Tests
 

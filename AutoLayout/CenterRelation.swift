@@ -1,6 +1,6 @@
 import UIKit
 
-public class CenterPositionRelation: AbstractDualRelation, DualRelation {
+public class CenterRelation: AbstractDualRelation, DualRelation {
 
     typealias AttributeType = CenterAttribute
     let attribute: CenterAttribute
