@@ -1,28 +1,61 @@
 import UIKit
 
-public class SizeRelation: AbstractDualRelation, DualRelation {
+public class SizeRelation: AbstractRelation {
 
-    typealias AttributeType = SizeAttribute
-    let attribute: SizeAttribute
-    public var trueAttributes: (NSLayoutAttribute, NSLayoutAttribute) {
-        switch attribute {
-        case .Size: return (.Width, .Height)
-        }
-    }
+    public var multiplier: (CGFloat, CGFloat) = (1, 1)
+    public var constant: (CGFloat, CGFloat) = (0, 0)
+}
 
-    init(attribute: SizeAttribute, views: [UIView]) {
-        self.attribute = attribute
-        super.init(views: views)
+extension SizeRelation: MultiplierSingleRelation {
+
+    public func setMultiplier(multiplier: CGFloat) {
+        self.multiplier = (multiplier, multiplier)
     }
 }
 
-// MARK: Operators
+extension SizeRelation: MultiplierTupleRelation {
 
-public func ==(lhs: SizeRelation, rhs: CGSize) -> [NSLayoutConstraint] {
-    var constraints = [NSLayoutConstraint]()
-    for view in lhs.views {
-        constraints.append(NSLayoutConstraint(view, .Width, .Equal, nil, .NotAnAttribute, 1, rhs.width))
-        constraints.append(NSLayoutConstraint(view, .Height, .Equal, nil, .NotAnAttribute, 1, rhs.height))
+    public func setMultiplier(multiplier: (CGFloat, CGFloat)) {
+        self.multiplier = multiplier
     }
-    return constraints
+}
+
+extension SizeRelation: ConstantSingleRelation {
+
+    public func setConstant(multiplier: CGFloat) {
+        self.constant = (multiplier, multiplier)
+    }
+}
+
+extension SizeRelation: ConstantTupleRelation {
+
+    public func setConstant(multiplier: (CGFloat, CGFloat)) {
+        self.constant = multiplier
+    }
+}
+
+extension SizeRelation: ConstrainableToSize {
+
+    public func constrainToSize(size: CGSize) -> [NSLayoutConstraint] {
+        var constraints = [NSLayoutConstraint]()
+        for view in views {
+            constraints.append(NSLayoutConstraint(view, .Width, .Equal, nil, .NotAnAttribute, 1, size.width))
+            constraints.append(NSLayoutConstraint(view, .Height, .Equal, nil, .NotAnAttribute, 1, size.height))
+        }
+        return constraints
+    }
+}
+
+extension SizeRelation: ConstrainableToRelation {
+
+    typealias This = SizeRelation
+    
+    public func constrainToRelation(relation: SizeRelation) -> [NSLayoutConstraint] {
+        var constraints = [NSLayoutConstraint]()
+        for lhsView in views {
+            constraints.append(NSLayoutConstraint(lhsView, .Width, .Equal, relation.views.first!, .Width, relation.multiplier.0, relation.constant.0))
+            constraints.append(NSLayoutConstraint(lhsView, .Height, .Equal, relation.views.first!, .Height, relation.multiplier.1, relation.constant.1))
+        }
+        return constraints
+    }
 }

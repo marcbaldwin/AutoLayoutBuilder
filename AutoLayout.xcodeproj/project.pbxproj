@@ -32,7 +32,7 @@
 		A06C042F1AAFB39600570771 /* DimensionRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C042D1AAFB39600570771 /* DimensionRelation.swift */; };
 		A06C04321AAFB6CA00570771 /* SizeRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04311AAFB6CA00570771 /* SizeRelation.swift */; };
 		A06C04331AAFB6CA00570771 /* SizeRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04311AAFB6CA00570771 /* SizeRelation.swift */; };
-		A06C04361AAFB7F200570771 /* SizeRelationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04341AAFB7F200570771 /* SizeRelationTests.swift */; };
+		A06C04361AAFB7F200570771 /* SizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04341AAFB7F200570771 /* SizeTests.swift */; };
 		A084A5B51AC0B85900CD8B05 /* AbstractRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084A5B41AC0B85900CD8B05 /* AbstractRelation.swift */; };
 		A084A5B61AC0B85900CD8B05 /* AbstractRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084A5B41AC0B85900CD8B05 /* AbstractRelation.swift */; };
 		A0B915071AB08D1500C47CC2 /* CenterRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B915061AB08D1500C47CC2 /* CenterRelation.swift */; };
@@ -91,7 +91,7 @@
 		A06C042B1AAFB38200570771 /* DimensionRelationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimensionRelationTests.swift; sourceTree = "<group>"; };
 		A06C042D1AAFB39600570771 /* DimensionRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimensionRelation.swift; sourceTree = "<group>"; };
 		A06C04311AAFB6CA00570771 /* SizeRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeRelation.swift; sourceTree = "<group>"; };
-		A06C04341AAFB7F200570771 /* SizeRelationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeRelationTests.swift; sourceTree = "<group>"; };
+		A06C04341AAFB7F200570771 /* SizeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeTests.swift; sourceTree = "<group>"; };
 		A084A5B41AC0B85900CD8B05 /* AbstractRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractRelation.swift; sourceTree = "<group>"; };
 		A0B915061AB08D1500C47CC2 /* CenterRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterRelation.swift; sourceTree = "<group>"; };
 		A0B915091AB08D8200C47CC2 /* CenterRelationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterRelationTests.swift; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 				A0B9150F1AB0955800C47CC2 /* EdgeRelationTests.swift */,
 				A06C04101AAF8FA100570771 /* HorizontalRelationTests.swift */,
 				A063C8CC1AC6F78900B66E26 /* LayoutGuideRelationTests.swift */,
-				A06C04341AAFB7F200570771 /* SizeRelationTests.swift */,
+				A06C04341AAFB7F200570771 /* SizeTests.swift */,
 				A0B915111AB09E1A00C47CC2 /* Tests.swift */,
 				A06C04241AAF9BCA00570771 /* VerticalRelationTests.swift */,
 				A0DDC9221AC35141009C3D8C /* Layout Relation Tests */,
@@ -382,7 +382,7 @@
 				A0E3E2E81B445EA9004971AB /* Constraints.swift in Sources */,
 				A06C042F1AAFB39600570771 /* DimensionRelation.swift in Sources */,
 				A063C8CD1AC6F78900B66E26 /* LayoutGuideRelationTests.swift in Sources */,
-				A06C04361AAFB7F200570771 /* SizeRelationTests.swift in Sources */,
+				A06C04361AAFB7F200570771 /* SizeTests.swift in Sources */,
 				A06492781AC0BEBA000C05DB /* AbstractSingleRelation.swift in Sources */,
 				A0E3E2E51B445461004971AB /* AspectRatioRelation.swift in Sources */,
 				A06C04201AAF920200570771 /* HorizontalRelation.swift in Sources */,

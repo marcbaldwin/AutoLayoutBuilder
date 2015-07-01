@@ -19,7 +19,7 @@ public extension UIView {
     }
 
     subscript(attribute: SizeAttribute) -> SizeRelation {
-        return SizeRelation(attribute: attribute, views: [self])
+        return SizeRelation(views: [self])
     }
 
     subscript(attribute: DimensionAttribute) -> DimensionRelation {
@@ -50,7 +50,7 @@ public extension Group {
     }
 
     subscript(attribute: SizeAttribute) -> SizeRelation {
-        return SizeRelation(attribute: attribute, views: views)
+        return SizeRelation(views: views)
     }
 
     subscript(attribute: DimensionAttribute) -> DimensionRelation {

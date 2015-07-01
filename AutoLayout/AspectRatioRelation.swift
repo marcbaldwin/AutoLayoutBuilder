@@ -1,13 +1,6 @@
 import UIKit
 
-class AspectRatioRelation {
-
-    let views: [UIView]
-
-    init(views: [UIView]) {
-        self.views = views
-    }
-}
+class AspectRatioRelation: AbstractRelation {}
 
 extension AspectRatioRelation: ConstrainableToValue {
 
