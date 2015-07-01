@@ -40,7 +40,7 @@
 		A0B9150B1AB08D8200C47CC2 /* CenterRelationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B915091AB08D8200C47CC2 /* CenterRelationTests.swift */; };
 		A0B9150D1AB0951400C47CC2 /* EdgeRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9150C1AB0951400C47CC2 /* EdgeRelation.swift */; };
 		A0B9150E1AB0951400C47CC2 /* EdgeRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9150C1AB0951400C47CC2 /* EdgeRelation.swift */; };
-		A0B915101AB0955800C47CC2 /* EdgeRelationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9150F1AB0955800C47CC2 /* EdgeRelationTests.swift */; };
+		A0B915101AB0955800C47CC2 /* EdgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9150F1AB0955800C47CC2 /* EdgeTests.swift */; };
 		A0B915121AB09E1A00C47CC2 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B915111AB09E1A00C47CC2 /* Tests.swift */; };
 		A0BC743A1AC0E4D5009F42D4 /* AbstractDualRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BC74391AC0E4D5009F42D4 /* AbstractDualRelation.swift */; };
 		A0BC743B1AC0E4D5009F42D4 /* AbstractDualRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BC74391AC0E4D5009F42D4 /* AbstractDualRelation.swift */; };
@@ -96,7 +96,7 @@
 		A0B915061AB08D1500C47CC2 /* CenterRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterRelation.swift; sourceTree = "<group>"; };
 		A0B915091AB08D8200C47CC2 /* CenterRelationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterRelationTests.swift; sourceTree = "<group>"; };
 		A0B9150C1AB0951400C47CC2 /* EdgeRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeRelation.swift; sourceTree = "<group>"; };
-		A0B9150F1AB0955800C47CC2 /* EdgeRelationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeRelationTests.swift; sourceTree = "<group>"; };
+		A0B9150F1AB0955800C47CC2 /* EdgeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeTests.swift; sourceTree = "<group>"; };
 		A0B915111AB09E1A00C47CC2 /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		A0BC74391AC0E4D5009F42D4 /* AbstractDualRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractDualRelation.swift; sourceTree = "<group>"; };
 		A0DA08941AB05D39007E24E4 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -170,6 +170,7 @@
 			children = (
 				A06C04371AAFB7FE00570771 /* Helper */,
 				A06C04301AAFB51100570771 /* Tests */,
+				A0DDC9221AC35141009C3D8C /* Layout Relation Tests */,
 				A06C040E1AAF8FA100570771 /* Supporting Files */,
 			);
 			path = AutoLayoutTests;
@@ -213,13 +214,12 @@
 				A0E3E2E11B4453A8004971AB /* AspectRatioTests.swift */,
 				A0B915091AB08D8200C47CC2 /* CenterRelationTests.swift */,
 				A06C042B1AAFB38200570771 /* DimensionRelationTests.swift */,
-				A0B9150F1AB0955800C47CC2 /* EdgeRelationTests.swift */,
+				A0B9150F1AB0955800C47CC2 /* EdgeTests.swift */,
 				A06C04101AAF8FA100570771 /* HorizontalRelationTests.swift */,
 				A063C8CC1AC6F78900B66E26 /* LayoutGuideRelationTests.swift */,
 				A06C04341AAFB7F200570771 /* SizeTests.swift */,
 				A0B915111AB09E1A00C47CC2 /* Tests.swift */,
 				A06C04241AAF9BCA00570771 /* VerticalRelationTests.swift */,
-				A0DDC9221AC35141009C3D8C /* Layout Relation Tests */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -389,7 +389,7 @@
 				A0DDC9241AC4072B009C3D8C /* LayoutTestSpecification.swift in Sources */,
 				A063C8CB1AC5B1C800B66E26 /* ALBTestCase.swift in Sources */,
 				A0E3E2E21B4453A8004971AB /* AspectRatioTests.swift in Sources */,
-				A0B915101AB0955800C47CC2 /* EdgeRelationTests.swift in Sources */,
+				A0B915101AB0955800C47CC2 /* EdgeTests.swift in Sources */,
 				A03169301AB249B7001EB66F /* LayoutRelation.swift in Sources */,
 				A06C042C1AAFB38200570771 /* DimensionRelationTests.swift in Sources */,
 				A063C8C91AC59CE900B66E26 /* LayoutGuideRelation.swift in Sources */,

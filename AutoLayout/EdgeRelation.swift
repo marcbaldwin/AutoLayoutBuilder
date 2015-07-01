@@ -1,45 +1,37 @@
 import UIKit
 
-public class EdgeRelation: AbstractRelation, Relation {
+public class EdgeRelation: AbstractRelation {
 
-    typealias AttributeType = EdgeAttribute
-    let attribute: EdgeAttribute
     var constant: (l: CGFloat, r: CGFloat, t: CGFloat, b: CGFloat) = (0, 0, 0, 0)
     var multiplier: (l: CGFloat, r: CGFloat, t: CGFloat, b: CGFloat) = (1, 1, 1, 1)
+}
 
-    init(attribute: EdgeAttribute, views: [UIView]) {
-        self.attribute = attribute
-        super.init(views: views)
-    }
+extension EdgeRelation: MultiplierSingleRelation {
 
-    public func add(constant: CGFloat) {
-        self.constant = (
-            self.constant.l - constant,
-            self.constant.r + constant,
-            self.constant.t - constant,
-            self.constant.b + constant
-        )
-    }
-
-    public func multiplyBy(multiplier: CGFloat) {
-        self.multiplier = (
-            self.multiplier.l * multiplier,
-            self.multiplier.r * multiplier,
-            self.multiplier.t * multiplier,
-            self.multiplier.b * multiplier
-        )
+    public func setMultiplier(multiplier: CGFloat) {
+        self.multiplier = (multiplier, multiplier, multiplier, multiplier)
     }
 }
 
-// MARK: Operators
+extension EdgeRelation: ConstantSingleRelation {
 
-public func ==(lhs: EdgeRelation, rhs: EdgeRelation) -> [NSLayoutConstraint] {
-    var constraints = [NSLayoutConstraint]()
-    for view in lhs.views {
-        constraints.append(NSLayoutConstraint(view, .Left, .Equal, rhs.views.first!, .Left, rhs.multiplier.l, rhs.constant.l))
-        constraints.append(NSLayoutConstraint(view, .Right, .Equal, rhs.views.first!, .Right, rhs.multiplier.r, rhs.constant.r))
-        constraints.append(NSLayoutConstraint(view, .Top, .Equal, rhs.views.first!, .Top, rhs.multiplier.t, rhs.constant.t))
-        constraints.append(NSLayoutConstraint(view, .Bottom, .Equal, rhs.views.first!, .Bottom, rhs.multiplier.b, rhs.constant.b))
+    public func setConstant(constant: CGFloat) {
+        self.constant = (-constant, constant, -constant, constant)
     }
-    return constraints
+}
+
+extension EdgeRelation: ConstrainableToRelation {
+
+    typealias This = EdgeRelation
+
+    public func constrainToRelation(relation: EdgeRelation) -> [NSLayoutConstraint] {
+        var constraints = [NSLayoutConstraint]()
+        for view in views {
+            constraints.append(NSLayoutConstraint(view, .Left, .Equal, relation.views.first!, .Left, relation.multiplier.l, relation.constant.l))
+            constraints.append(NSLayoutConstraint(view, .Right, .Equal, relation.views.first!, .Right, relation.multiplier.r, relation.constant.r))
+            constraints.append(NSLayoutConstraint(view, .Top, .Equal, relation.views.first!, .Top, relation.multiplier.t, relation.constant.t))
+            constraints.append(NSLayoutConstraint(view, .Bottom, .Equal, relation.views.first!, .Bottom, relation.multiplier.b, relation.constant.b))
+        }
+        return constraints
+    }
 }

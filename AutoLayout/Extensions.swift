@@ -11,7 +11,7 @@ public extension UIView {
     }
 
     subscript(attribute: EdgeAttribute) -> EdgeRelation {
-        return EdgeRelation(attribute: attribute, views: [self])
+        return EdgeRelation(views: [self])
     }
 
     subscript(attribute: CenterAttribute) -> CenterRelation {
@@ -42,7 +42,7 @@ public extension Group {
     }
 
     subscript(attribute: EdgeAttribute) -> EdgeRelation {
-        return EdgeRelation(attribute: attribute, views: views)
+        return EdgeRelation(views: views)
     }
 
     subscript(attribute: CenterAttribute) -> CenterRelation {
