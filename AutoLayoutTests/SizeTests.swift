@@ -40,7 +40,7 @@ class SizeRelationTests: ALBTestCase {
             NSLayoutConstraint(view1, .Height, .Equal, view2, .Height, 1, -20)], constraints)
     }
 
-    // MARK: Multipliers
+    // MARK: Multiplier
 
     func testDeclareSizeOfViewEqualToSizeOfAnotherViewMultipliedByConstant() {
         let constraints = view1[.Size] == view2[.Size] * 1.5

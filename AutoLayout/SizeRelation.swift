@@ -2,8 +2,8 @@ import UIKit
 
 public class SizeRelation: AbstractRelation {
 
-    public var multiplier: (CGFloat, CGFloat) = (1, 1)
-    public var constant: (CGFloat, CGFloat) = (0, 0)
+    public var multiplier: CGFloatPair = (1, 1)
+    public var constant: CGFloatPair = (0, 0)
 }
 
 extension SizeRelation: MultiplierSingleRelation {
@@ -15,22 +15,22 @@ extension SizeRelation: MultiplierSingleRelation {
 
 extension SizeRelation: MultiplierTupleRelation {
 
-    public func setMultiplier(multiplier: (CGFloat, CGFloat)) {
+    public func setMultiplier(multiplier: CGFloatPair) {
         self.multiplier = multiplier
     }
 }
 
 extension SizeRelation: ConstantSingleRelation {
 
-    public func setConstant(multiplier: CGFloat) {
-        self.constant = (multiplier, multiplier)
+    public func setConstant(constant: CGFloat) {
+        self.constant = (constant, constant)
     }
 }
 
 extension SizeRelation: ConstantTupleRelation {
 
-    public func setConstant(multiplier: (CGFloat, CGFloat)) {
-        self.constant = multiplier
+    public func setConstant(constant: CGFloatPair) {
+        self.constant = constant
     }
 }
 
