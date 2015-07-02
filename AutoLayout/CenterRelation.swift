@@ -1,17 +1,17 @@
 import UIKit
 
-public class CenterRelation: AbstractDualRelation, DualRelation {
+public class CenterRelation: AbstractDualRelation { }
 
-    typealias AttributeType = CenterAttribute
-    let attribute: CenterAttribute
-    public var trueAttributes: (NSLayoutAttribute, NSLayoutAttribute) {
-        switch attribute {
-        case .Center: return (.CenterX, .CenterY)
+extension CenterRelation: ConstrainableToRelation {
+
+    typealias This = CenterRelation
+
+    public func constrainToRelation(relation: CenterRelation) -> [NSLayoutConstraint] {
+        var constraints = [NSLayoutConstraint]()
+        for lhsView in views {
+            constraints.append(NSLayoutConstraint(lhsView, .CenterX, .Equal, relation.views.first!, .CenterX, relation.multiplier.0, relation.constant.0))
+            constraints.append(NSLayoutConstraint(lhsView, .CenterY, .Equal, relation.views.first!, .CenterY, relation.multiplier.1, relation.constant.1))
         }
-    }
-
-    init(attribute: CenterAttribute, views: [UIView]) {
-        self.attribute = attribute
-        super.init(views: views)
+        return constraints
     }
 }

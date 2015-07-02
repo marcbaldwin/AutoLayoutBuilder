@@ -28,14 +28,3 @@ public func +<T: Relation>(lhs: T, rhs: CGFloat) -> T {
 public func -<T: Relation>(lhs: T, rhs: CGFloat) -> T {
     return lhs + (-rhs)
 }
-
-// MARK: Abstract Implementation
-
-public class AbstractRelation {
-
-    public var views: [UIView]
-
-    init(views: [UIView]) {
-        self.views = views
-    }
-}

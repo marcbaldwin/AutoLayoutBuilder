@@ -15,7 +15,7 @@ public extension UIView {
     }
 
     subscript(attribute: CenterAttribute) -> CenterRelation {
-        return CenterRelation(attribute: attribute, views: [self])
+        return CenterRelation(views: [self])
     }
 
     subscript(attribute: SizeAttribute) -> SizeRelation {
@@ -46,7 +46,7 @@ public extension Group {
     }
 
     subscript(attribute: CenterAttribute) -> CenterRelation {
-        return CenterRelation(attribute: attribute, views: views)
+        return CenterRelation(views: views)
     }
 
     subscript(attribute: SizeAttribute) -> SizeRelation {

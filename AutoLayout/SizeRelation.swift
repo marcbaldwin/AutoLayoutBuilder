@@ -1,38 +1,6 @@
 import UIKit
 
-public class SizeRelation: AbstractRelation {
-
-    public var multiplier: CGFloatPair = (1, 1)
-    public var constant: CGFloatPair = (0, 0)
-}
-
-extension SizeRelation: MultiplierSingleRelation {
-
-    public func setMultiplier(multiplier: CGFloat) {
-        self.multiplier = (multiplier, multiplier)
-    }
-}
-
-extension SizeRelation: MultiplierTupleRelation {
-
-    public func setMultiplier(multiplier: CGFloatPair) {
-        self.multiplier = multiplier
-    }
-}
-
-extension SizeRelation: ConstantSingleRelation {
-
-    public func setConstant(constant: CGFloat) {
-        self.constant = (constant, constant)
-    }
-}
-
-extension SizeRelation: ConstantTupleRelation {
-
-    public func setConstant(constant: CGFloatPair) {
-        self.constant = constant
-    }
-}
+public class SizeRelation: AbstractDualRelation { }
 
 extension SizeRelation: ConstrainableToSize {
 
