@@ -20,11 +20,7 @@ public class DimensionRelation: AbstractSingleRelation {
 extension DimensionRelation: ConstrainableToValue {
 
     public func constrainToValue(value: CGFloat, type: NSLayoutRelation) -> [NSLayoutConstraint] {
-        var constraints = [NSLayoutConstraint]()
-        for view in views {
-            constraints.append(NSLayoutConstraint(view, trueAttribute, type, nil, .NotAnAttribute, 1, value))
-        }
-        return constraints
+        return views.map { NSLayoutConstraint($0, self.trueAttribute, type, nil, .NotAnAttribute, 1, value) }
     }
 }
 
@@ -33,10 +29,6 @@ extension DimensionRelation: ConstrainableToRelation {
     typealias This = DimensionRelation
 
     public func constrainToRelation(relation: DimensionRelation, type: NSLayoutRelation) -> [NSLayoutConstraint] {
-        var constraints = [NSLayoutConstraint]()
-        for view in views {
-            constraints.append(NSLayoutConstraint(view, trueAttribute, type, relation.views.first!, relation.trueAttribute, relation.multiplier, relation.constant))
-        }
-        return constraints
+        return views.map { NSLayoutConstraint($0, self.trueAttribute, type, relation.views.first!, relation.trueAttribute, relation.multiplier, relation.constant) }
     }
 }

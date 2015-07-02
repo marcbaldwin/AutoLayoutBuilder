@@ -32,13 +32,12 @@ extension EdgeRelation: ConstrainableToRelation {
     typealias This = EdgeRelation
 
     public func constrainToRelation(relation: EdgeRelation, type: NSLayoutRelation) -> [NSLayoutConstraint] {
-        var constraints = [NSLayoutConstraint]()
-        for view in views {
-            constraints.append(NSLayoutConstraint(view, .Left, type, relation.views.first!, .Left, relation.multiplier.1, relation.constant.1))
-            constraints.append(NSLayoutConstraint(view, .Right, type, relation.views.first!, .Right, relation.multiplier.3, relation.constant.3))
-            constraints.append(NSLayoutConstraint(view, .Top, type, relation.views.first!, .Top, relation.multiplier.0, relation.constant.0))
-            constraints.append(NSLayoutConstraint(view, .Bottom, type, relation.views.first!, .Bottom, relation.multiplier.2, relation.constant.2))
+        return views.flatMap { [
+            NSLayoutConstraint($0, .Left, type, relation.views.first!, .Left, relation.multiplier.1, relation.constant.1),
+            NSLayoutConstraint($0, .Right, type, relation.views.first!, .Right, relation.multiplier.3, relation.constant.3),
+            NSLayoutConstraint($0, .Top, type, relation.views.first!, .Top, relation.multiplier.0, relation.constant.0),
+            NSLayoutConstraint($0, .Bottom, type, relation.views.first!, .Bottom, relation.multiplier.2, relation.constant.2)
+            ]
         }
-        return constraints
     }
 }

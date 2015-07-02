@@ -30,10 +30,6 @@ extension HorizontalRelation: ConstrainableToRelation {
     typealias This = HorizontalRelation
 
     public func constrainToRelation(relation: HorizontalRelation, type: NSLayoutRelation) -> [NSLayoutConstraint] {
-        var constraints = [NSLayoutConstraint]()
-        for view in views {
-            constraints.append(NSLayoutConstraint(view, trueAttribute, type, relation.views.first!, relation.trueAttribute, relation.multiplier, relation.constant))
-        }
-        return constraints
+        return views.map { NSLayoutConstraint($0, self.trueAttribute, type, relation.views.first!, relation.trueAttribute, relation.multiplier, relation.constant) }
     }
 }
