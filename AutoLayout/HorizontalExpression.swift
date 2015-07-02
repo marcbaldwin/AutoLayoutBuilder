@@ -1,6 +1,6 @@
 import UIKit
 
-public class HorizontalRelation: AbstractSingleRelation {
+public class HorizontalExpression: SingleExpression {
 
     let attribute: HorizontalAttribute
 
@@ -25,11 +25,11 @@ public class HorizontalRelation: AbstractSingleRelation {
     }
 }
 
-extension HorizontalRelation: ConstrainableToRelation {
+extension HorizontalExpression: ConstrainableToExpression {
 
-    typealias This = HorizontalRelation
+    typealias This = HorizontalExpression
 
-    public func constrainToRelation(relation: HorizontalRelation, type: NSLayoutRelation) -> [NSLayoutConstraint] {
-        return views.map { NSLayoutConstraint($0, self.trueAttribute, type, relation.views.first!, relation.trueAttribute, relation.multiplier, relation.constant) }
+    public func constrainToExpression(expression: HorizontalExpression, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
+        return views.map { NSLayoutConstraint($0, self.trueAttribute, relation, expression.views.first!, expression.trueAttribute, expression.multiplier, expression.constant) }
     }
 }

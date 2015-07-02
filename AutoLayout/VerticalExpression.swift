@@ -1,6 +1,6 @@
 import UIKit
 
-public class VerticalRelation: AbstractSingleRelation {
+public class VerticalExpression: SingleExpression {
 
     let attribute: VerticalAttribute
     public var trueAttribute: NSLayoutAttribute { return verticalPositionToLayoutAttribute(self.attribute)}
@@ -11,26 +11,26 @@ public class VerticalRelation: AbstractSingleRelation {
     }
 }
 
-extension VerticalRelation: ConstrainableToRelation {
+extension VerticalExpression: ConstrainableToExpression {
 
-    typealias This = VerticalRelation
+    typealias This = VerticalExpression
 
-    public func constrainToRelation(relation: VerticalRelation, type: NSLayoutRelation) -> [NSLayoutConstraint] {
-        return views.map { NSLayoutConstraint($0, self.trueAttribute, type, relation.views.first!, relation.trueAttribute, relation.multiplier, relation.constant) }
+    public func constrainToExpression(expression: VerticalExpression, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
+        return views.map { NSLayoutConstraint($0, self.trueAttribute, relation, expression.views.first!, expression.trueAttribute, expression.multiplier, expression.constant) }
     }
 }
 
 // MARK: Operators
 
-public func ==(lhs: VerticalRelation, rhs: LayoutGuideRelation) -> [NSLayoutConstraint] {
+public func ==(lhs: VerticalExpression, rhs: LayoutGuideExpression) -> [NSLayoutConstraint] {
     return makeVerticalPositionRelationConstraints(lhs, rhs, .Equal)
 }
 
-public func >=(lhs: VerticalRelation, rhs: LayoutGuideRelation) -> [NSLayoutConstraint] {
+public func >=(lhs: VerticalExpression, rhs: LayoutGuideExpression) -> [NSLayoutConstraint] {
     return makeVerticalPositionRelationConstraints(lhs, rhs, .GreaterThanOrEqual)
 }
 
-public func <=(lhs: VerticalRelation, rhs: LayoutGuideRelation) -> [NSLayoutConstraint] {
+public func <=(lhs: VerticalExpression, rhs: LayoutGuideExpression) -> [NSLayoutConstraint] {
     return makeVerticalPositionRelationConstraints(lhs, rhs, .LessThanOrEqual)
 }
 
@@ -51,6 +51,6 @@ internal func verticalPositionToLayoutAttribute(attribute: VerticalAttribute) ->
 
 // MARK: Internal
 
-func makeVerticalPositionRelationConstraints(lhs: VerticalRelation, rhs: LayoutGuideRelation, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
+func makeVerticalPositionRelationConstraints(lhs: VerticalExpression, rhs: LayoutGuideExpression, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
     return lhs.views.map { NSLayoutConstraint($0, lhs.trueAttribute, relation, rhs.layoutGuide, rhs.trueAttribute, 1, rhs.constant) }
 }

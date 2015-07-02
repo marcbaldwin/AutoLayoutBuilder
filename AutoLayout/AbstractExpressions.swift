@@ -1,6 +1,6 @@
 import UIKit
 
-public class AbstractRelation {
+public class Expression {
 
     public var views: [UIView]
 
@@ -11,20 +11,20 @@ public class AbstractRelation {
 
 // MARK: Single
 
-public class AbstractSingleRelation: AbstractRelation {
+public class SingleExpression: Expression {
 
     public var multiplier: CGFloat = 1
     public var constant: CGFloat = 0
 }
 
-extension AbstractSingleRelation: ConstantSingleRelation {
+extension SingleExpression: ConstantSingleExpression {
 
     public func setConstant(constant: CGFloat) {
         self.constant = constant
     }
 }
 
-extension AbstractSingleRelation: MultiplierSingleRelation {
+extension SingleExpression: MultiplierSingleExpression {
 
     public func setMultiplier(multiplier: CGFloat) {
         self.multiplier = multiplier
@@ -34,34 +34,34 @@ extension AbstractSingleRelation: MultiplierSingleRelation {
 
 // MARK: Dual
 
-public class AbstractDualRelation: AbstractRelation {
+public class DualExpression: Expression {
 
     public var multiplier: CGFloatPair = (1, 1)
     public var constant: CGFloatPair = (0, 0)
 }
 
-extension AbstractDualRelation: MultiplierSingleRelation {
+extension DualExpression: MultiplierSingleExpression {
 
     public func setMultiplier(multiplier: CGFloat) {
         self.multiplier = (multiplier, multiplier)
     }
 }
 
-extension AbstractDualRelation: MultiplierTupleRelation {
+extension DualExpression: MultiplierTupleExpression {
 
     public func setMultiplier(multiplier: CGFloatPair) {
         self.multiplier = multiplier
     }
 }
 
-extension AbstractDualRelation: ConstantSingleRelation {
+extension DualExpression: ConstantSingleExpression {
 
     public func setConstant(constant: CGFloat) {
         self.constant = (constant, constant)
     }
 }
 
-extension AbstractDualRelation: ConstantTupleRelation {
+extension DualExpression: ConstantTupleExpression {
 
     public func setConstant(constant: CGFloatPair) {
         self.constant = constant

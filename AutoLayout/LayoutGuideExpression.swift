@@ -1,6 +1,6 @@
 import UIKit
 
-public class LayoutGuideRelation {
+public class LayoutGuideExpression {
 
     let layoutGuide: UILayoutSupport
     let attribute: VerticalAttribute
@@ -15,12 +15,12 @@ public class LayoutGuideRelation {
 
 // MARK: Operators
 
-public func +(lhs: LayoutGuideRelation, rhs: CGFloat) -> LayoutGuideRelation {
+public func +(lhs: LayoutGuideExpression, rhs: CGFloat) -> LayoutGuideExpression {
     lhs.constant = rhs
     return lhs
 }
 
-public func -(lhs: LayoutGuideRelation, rhs: CGFloat) -> LayoutGuideRelation {
+public func -(lhs: LayoutGuideExpression, rhs: CGFloat) -> LayoutGuideExpression {
     lhs.constant = -rhs
     return lhs
 }

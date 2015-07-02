@@ -2,63 +2,63 @@ import UIKit
 
 public extension UIView {
 
-    subscript(attribute: HorizontalAttribute) -> HorizontalRelation {
-        return HorizontalRelation(attribute: attribute, views: [self])
+    subscript(attribute: HorizontalAttribute) -> HorizontalExpression {
+        return HorizontalExpression(attribute: attribute, views: [self])
     }
 
-    subscript(attribute: VerticalAttribute) -> VerticalRelation {
-        return VerticalRelation(attribute: attribute, views: [self])
+    subscript(attribute: VerticalAttribute) -> VerticalExpression {
+        return VerticalExpression(attribute: attribute, views: [self])
     }
 
-    subscript(attribute: EdgeAttribute) -> EdgeRelation {
-        return EdgeRelation(views: [self])
+    subscript(attribute: EdgeAttribute) -> EdgeExpression {
+        return EdgeExpression(views: [self])
     }
 
-    subscript(attribute: CenterAttribute) -> CenterRelation {
-        return CenterRelation(views: [self])
+    subscript(attribute: CenterAttribute) -> CenterExpression {
+        return CenterExpression(views: [self])
     }
 
-    subscript(attribute: SizeAttribute) -> SizeRelation {
-        return SizeRelation(views: [self])
+    subscript(attribute: SizeAttribute) -> SizeExpression {
+        return SizeExpression(views: [self])
     }
 
-    subscript(attribute: DimensionAttribute) -> DimensionRelation {
-        return DimensionRelation(attribute: attribute, views: [self])
+    subscript(attribute: DimensionAttribute) -> DimensionExpression {
+        return DimensionExpression(attribute: attribute, views: [self])
     }
 
     subscript(attribute: AspectRatioAttribute) -> ConstrainableToValue {
-        return AspectRatioRelation(views: [self])
+        return AspectRatioExpression(views: [self])
     }
 }
 
 public extension Group {
 
-    subscript(attribute: HorizontalAttribute) -> HorizontalRelation {
-        return HorizontalRelation(attribute: attribute, views: views)
+    subscript(attribute: HorizontalAttribute) -> HorizontalExpression {
+        return HorizontalExpression(attribute: attribute, views: views)
     }
 
-    subscript(attribute: VerticalAttribute) -> VerticalRelation {
-        return VerticalRelation(attribute: attribute, views: views)
+    subscript(attribute: VerticalAttribute) -> VerticalExpression {
+        return VerticalExpression(attribute: attribute, views: views)
     }
 
-    subscript(attribute: EdgeAttribute) -> EdgeRelation {
-        return EdgeRelation(views: views)
+    subscript(attribute: EdgeAttribute) -> EdgeExpression {
+        return EdgeExpression(views: views)
     }
 
-    subscript(attribute: CenterAttribute) -> CenterRelation {
-        return CenterRelation(views: views)
+    subscript(attribute: CenterAttribute) -> CenterExpression {
+        return CenterExpression(views: views)
     }
 
-    subscript(attribute: SizeAttribute) -> SizeRelation {
-        return SizeRelation(views: views)
+    subscript(attribute: SizeAttribute) -> SizeExpression {
+        return SizeExpression(views: views)
     }
 
-    subscript(attribute: DimensionAttribute) -> DimensionRelation {
-        return DimensionRelation(attribute: attribute, views: views)
+    subscript(attribute: DimensionAttribute) -> DimensionExpression {
+        return DimensionExpression(attribute: attribute, views: views)
     }
 
     subscript(attribute: AspectRatioAttribute) -> ConstrainableToValue {
-        return AspectRatioRelation(views: views)
+        return AspectRatioExpression(views: views)
     }
 }
 
@@ -71,7 +71,7 @@ public extension UIViewController {
 
 public extension LayoutGuide {
 
-    public subscript(attribute: VerticalAttribute) -> LayoutGuideRelation {
-        return LayoutGuideRelation(layoutGuide: layoutGuide, attribute: attribute)
+    public subscript(attribute: VerticalAttribute) -> LayoutGuideExpression {
+        return LayoutGuideExpression(layoutGuide: layoutGuide, attribute: attribute)
     }
 }
