@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 // MARK: Horizontal
 public enum HorizontalAttribute {
@@ -54,4 +54,47 @@ public enum SizeAttribute {
 // MARK: Aspect Ratio
 public enum AspectRatioAttribute {
     case AspectRatio
+}
+
+// Extensions:
+
+extension HorizontalAttribute {
+    var raw: NSLayoutAttribute {
+        switch self {
+        case .CenterX: return .CenterX
+        case .Left: return .Left
+        case .Right: return .Right
+        case .Leading: return .Leading
+        case .Trailing: return .Trailing
+        case .CenterXWithinMargins: return .CenterXWithinMargins
+        case .LeftMargin: return .LeftMargin
+        case .RightMargin: return .RightMargin
+        case .LeadingMargin: return .LeadingMargin
+        case .TrailingMargin: return .TrailingMargin
+        }
+    }
+}
+
+extension VerticalAttribute {
+    var raw: NSLayoutAttribute {
+        switch self {
+        case .CenterY: return .CenterY
+        case .Top: return .Top
+        case .Bottom: return .Bottom
+        case .Baseline: return .Baseline
+        case .FirstBaseline: return .FirstBaseline
+        case .CenterYWithinMargins: return .CenterYWithinMargins
+        case .TopMargin: return .TopMargin
+        case .BottomMargin: return .BottomMargin
+        }
+    }
+}
+
+extension DimensionAttribute {
+    var raw: NSLayoutAttribute {
+        switch self {
+        case .Width: return .Width
+        case .Height: return .Height
+        }
+    }
 }

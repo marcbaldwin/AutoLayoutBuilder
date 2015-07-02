@@ -4,7 +4,6 @@ public class LayoutGuideExpression {
 
     let layoutGuide: UILayoutSupport
     let attribute: VerticalAttribute
-    var trueAttribute: NSLayoutAttribute { return verticalPositionToLayoutAttribute(self.attribute) }
     var constant: CGFloat = 0
 
     init(layoutGuide: UILayoutSupport, attribute: VerticalAttribute) {
