@@ -34,6 +34,24 @@ class EdgeTests: ALBTestCase {
             NSLayoutConstraint(view1, .Bottom, .Equal, view2, .Bottom, 1, -5)], constraints)
     }
 
+    func testDeclareEdgesOfViewEqualToEdgesOfAnotherViewPlusConstantTuple() {
+        let constraints = view1[.Edges] == view2[.Edges] + (5, 10, 15, 20)
+        XCTAssertEqual([
+            NSLayoutConstraint(view1, .Left, .Equal, view2, .Left, 1, 10),
+            NSLayoutConstraint(view1, .Right, .Equal, view2, .Right, 1, 20),
+            NSLayoutConstraint(view1, .Top, .Equal, view2, .Top, 1, 5),
+            NSLayoutConstraint(view1, .Bottom, .Equal, view2, .Bottom, 1, 15)], constraints)
+    }
+
+    func testDeclareEdgesOfViewEqualToEdgesOfAnotherViewMinusConstantTuple() {
+        let constraints = view1[.Edges] == view2[.Edges] - (5, 10, 15, 20)
+        XCTAssertEqual([
+            NSLayoutConstraint(view1, .Left, .Equal, view2, .Left, 1, -10),
+            NSLayoutConstraint(view1, .Right, .Equal, view2, .Right, 1, -20),
+            NSLayoutConstraint(view1, .Top, .Equal, view2, .Top, 1, -5),
+            NSLayoutConstraint(view1, .Bottom, .Equal, view2, .Bottom, 1, -15)], constraints)
+    }
+
     // MARK: Multiplier
 
     func testDeclareEdgesOfViewEqualToEdgesOfAnotherViewMultipliedByConstant() {

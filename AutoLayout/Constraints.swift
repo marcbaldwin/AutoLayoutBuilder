@@ -1,6 +1,7 @@
 import UIKit
 
 public typealias CGFloatPair = (CGFloat, CGFloat)
+public typealias CGFloatQuad = (CGFloat, CGFloat, CGFloat, CGFloat)
 
 // MARK: == CGFloat
 public protocol ConstrainableToValue {
@@ -61,6 +62,21 @@ public func +<T: ConstantTupleRelation>(lhs: T, rhs: CGFloatPair) -> T {
 
 public func -<T: ConstantTupleRelation>(lhs: T, rhs: CGFloatPair) -> T {
     lhs.setConstant((-rhs.0, -rhs.1))
+    return lhs
+}
+
+// MARK: Constant Tuple Relation
+public protocol ConstantQuadRelation: class {
+    func setConstant(constant: CGFloatQuad)
+}
+
+public func +<T: ConstantQuadRelation>(lhs: T, rhs: CGFloatQuad) -> T {
+    lhs.setConstant(rhs)
+    return lhs
+}
+
+public func -<T: ConstantQuadRelation>(lhs: T, rhs: CGFloatQuad) -> T {
+    lhs.setConstant((-rhs.0, -rhs.1, -rhs.2, -rhs.3))
     return lhs
 }
 
