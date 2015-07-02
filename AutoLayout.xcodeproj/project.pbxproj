@@ -20,7 +20,7 @@
 		A06492781AC0BEBA000C05DB /* AbstractSingleRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06492761AC0BEBA000C05DB /* AbstractSingleRelation.swift */; };
 		A06C04041AAF8FA100570771 /* AutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = A06C04031AAF8FA100570771 /* AutoLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A06C040A1AAF8FA100570771 /* AutoLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06C03FE1AAF8FA100570771 /* AutoLayout.framework */; };
-		A06C04111AAF8FA100570771 /* HorizontalRelationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04101AAF8FA100570771 /* HorizontalRelationTests.swift */; };
+		A06C04111AAF8FA100570771 /* HorizontalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04101AAF8FA100570771 /* HorizontalTests.swift */; };
 		A06C041D1AAF90A700570771 /* HorizontalRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C041C1AAF90A700570771 /* HorizontalRelation.swift */; };
 		A06C04201AAF920200570771 /* HorizontalRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C041C1AAF90A700570771 /* HorizontalRelation.swift */; };
 		A06C04251AAF9BCA00570771 /* VerticalRelationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C04241AAF9BCA00570771 /* VerticalRelationTests.swift */; };
@@ -83,7 +83,7 @@
 		A06C04031AAF8FA100570771 /* AutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoLayout.h; sourceTree = "<group>"; };
 		A06C04091AAF8FA100570771 /* AutoLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06C040F1AAF8FA100570771 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A06C04101AAF8FA100570771 /* HorizontalRelationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalRelationTests.swift; sourceTree = "<group>"; };
+		A06C04101AAF8FA100570771 /* HorizontalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTests.swift; sourceTree = "<group>"; };
 		A06C041C1AAF90A700570771 /* HorizontalRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalRelation.swift; sourceTree = "<group>"; };
 		A06C04241AAF9BCA00570771 /* VerticalRelationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalRelationTests.swift; sourceTree = "<group>"; };
 		A06C04261AAF9C6200570771 /* VerticalRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalRelation.swift; sourceTree = "<group>"; };
@@ -170,7 +170,6 @@
 			children = (
 				A06C04371AAFB7FE00570771 /* Helper */,
 				A06C04301AAFB51100570771 /* Tests */,
-				A0DDC9221AC35141009C3D8C /* Layout Relation Tests */,
 				A06C040E1AAF8FA100570771 /* Supporting Files */,
 			);
 			path = AutoLayoutTests;
@@ -211,13 +210,9 @@
 		A06C04301AAFB51100570771 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A0E3E2E11B4453A8004971AB /* AspectRatioTests.swift */,
-				A0B915091AB08D8200C47CC2 /* CenterRelationTests.swift */,
-				A06C042B1AAFB38200570771 /* DimensionRelationTests.swift */,
-				A0B9150F1AB0955800C47CC2 /* EdgeTests.swift */,
-				A06C04101AAF8FA100570771 /* HorizontalRelationTests.swift */,
+				A0E3E2EF1B458190004971AB /* Attribute Tests */,
+				A0DDC9221AC35141009C3D8C /* Layout Relation Tests */,
 				A063C8CC1AC6F78900B66E26 /* LayoutGuideRelationTests.swift */,
-				A06C04341AAFB7F200570771 /* SizeTests.swift */,
 				A0B915111AB09E1A00C47CC2 /* Tests.swift */,
 				A06C04241AAF9BCA00570771 /* VerticalRelationTests.swift */,
 			);
@@ -242,6 +237,19 @@
 				A0DDC9271AC40907009C3D8C /* VerticalLayoutTests.swift */,
 			);
 			name = "Layout Relation Tests";
+			sourceTree = "<group>";
+		};
+		A0E3E2EF1B458190004971AB /* Attribute Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A0E3E2E11B4453A8004971AB /* AspectRatioTests.swift */,
+				A0B915091AB08D8200C47CC2 /* CenterRelationTests.swift */,
+				A06C042B1AAFB38200570771 /* DimensionRelationTests.swift */,
+				A0B9150F1AB0955800C47CC2 /* EdgeTests.swift */,
+				A06C04101AAF8FA100570771 /* HorizontalTests.swift */,
+				A06C04341AAFB7F200570771 /* SizeTests.swift */,
+			);
+			name = "Attribute Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,7 +405,7 @@
 				A06C042A1AAF9E5900570771 /* Helper.swift in Sources */,
 				A031692D1AB2491D001EB66F /* LeadingToTrailingLayoutTests.swift in Sources */,
 				A06C04331AAFB6CA00570771 /* SizeRelation.swift in Sources */,
-				A06C04111AAF8FA100570771 /* HorizontalRelationTests.swift in Sources */,
+				A06C04111AAF8FA100570771 /* HorizontalTests.swift in Sources */,
 				A0B915081AB08D1500C47CC2 /* CenterRelation.swift in Sources */,
 				A0B9150B1AB08D8200C47CC2 /* CenterRelationTests.swift in Sources */,
 				A0DA08961AB05D39007E24E4 /* Common.swift in Sources */,
