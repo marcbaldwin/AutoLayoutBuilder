@@ -1,6 +1,6 @@
 import UIKit
 
-public class BuilderGroup {
+public class LayoutGroup {
     var constraints = [NSLayoutConstraint]()
 
     public func activateConstraints(active: Bool) {
@@ -10,34 +10,34 @@ public class BuilderGroup {
     }
 }
 
-public func += (lhs: BuilderGroup, rhs: [NSLayoutConstraint]) {
+public func += (lhs: LayoutGroup, rhs: [NSLayoutConstraint]) {
     lhs.constraints += rhs
 }
 
-public class Builder {
-    var keyedBuilders = ["" : BuilderGroup()]
+public class Layout {
+    var keyedBuilders = ["" : LayoutGroup()]
     public init() {}
 }
 
-public extension Builder {
+public extension Layout {
 
-    subscript (key: String) -> BuilderGroup {
+    subscript (key: String) -> LayoutGroup {
         return self.key(key)
     }
 
-    public func key(key: String) -> BuilderGroup {
+    public func key(key: String) -> LayoutGroup {
         if let builderGroup = keyedBuilders[key] {
             return builderGroup
         }
         else {
-            let builderGroup = BuilderGroup()
+            let builderGroup = LayoutGroup()
             keyedBuilders[key] = builderGroup
             return builderGroup
         }
     }
 }
 
-public extension Builder {
+public extension Layout {
 
     public func activateConstraints(active: Bool) {
         for builderGroup in keyedBuilders {
@@ -62,6 +62,6 @@ public extension Builder {
     }
 }
 
-public func += (lhs: Builder, rhs: [NSLayoutConstraint]) {
+public func += (lhs: Layout, rhs: [NSLayoutConstraint]) {
     lhs.keyedBuilders[""]! += rhs
 }
