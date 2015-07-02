@@ -3,6 +3,8 @@ import XCTest
 
 class SizeRelationTests: ALBTestCase {
 
+    // MARK: Relative
+
     func testDeclareSizeOfViewEqualToSizeOfAnotherView() {
         let constraints = view1[.Size] == view2[.Size]
         XCTAssertEqual([
@@ -10,7 +12,16 @@ class SizeRelationTests: ALBTestCase {
             NSLayoutConstraint(view1, .Height, .Equal, view2, .Height, 1, 0)], constraints)
     }
 
-    // MARK: Constants
+    func testDeclareSizeOfMultipleViewsEqualToSizeOfAnotherView() {
+        let constraints = Group(view1,view2)[.Size] == view3[.Size]
+        XCTAssertEqual([
+            NSLayoutConstraint(view1, .Width, .Equal, view3, .Width, 1, 0),
+            NSLayoutConstraint(view1, .Height, .Equal, view3, .Height, 1, 0),
+            NSLayoutConstraint(view2, .Width, .Equal, view3, .Width, 1, 0),
+            NSLayoutConstraint(view2, .Height, .Equal, view3, .Height, 1, 0)], constraints)
+    }
+
+    // MARK: Relative with constant
 
     func testDeclareSizeOfViewEqualToSizeOfAnotherViewPlusConstant() {
         let constraints = view1[.Size] == view2[.Size] + 10
@@ -40,7 +51,7 @@ class SizeRelationTests: ALBTestCase {
             NSLayoutConstraint(view1, .Height, .Equal, view2, .Height, 1, -20)], constraints)
     }
 
-    // MARK: Multiplier
+    // MARK: Relative with multiplier
 
     func testDeclareSizeOfViewEqualToSizeOfAnotherViewMultipliedByConstant() {
         let constraints = view1[.Size] == view2[.Size] * 1.5
@@ -70,7 +81,7 @@ class SizeRelationTests: ALBTestCase {
             NSLayoutConstraint(view1, .Height, .Equal, view2, .Height, 1/3, 0)], constraints)
     }
 
-    // MARK: Combination
+    // MARK: Relative with multiplier and constant
 
     func testDeclareSizeOfViewEqualToSizeOfAnotherViewDividedByConstantPlusConstant() {
         let constraints = view1[.Size] == view2[.Size] / 0.75 + CGFloat(20)
@@ -79,18 +90,7 @@ class SizeRelationTests: ALBTestCase {
             NSLayoutConstraint(view1, .Height, .Equal, view2, .Height, 1/0.75, 20)], constraints)
     }
 
-    // MARK: Multiple Views
-
-    func testDeclareSizeOfMultipleViewsEqualToSizeOfAnotherView() {
-        let constraints = Group(view1,view2)[.Size] == view3[.Size]
-        XCTAssertEqual([
-            NSLayoutConstraint(view1, .Width, .Equal, view3, .Width, 1, 0),
-            NSLayoutConstraint(view1, .Height, .Equal, view3, .Height, 1, 0),
-            NSLayoutConstraint(view2, .Width, .Equal, view3, .Width, 1, 0),
-            NSLayoutConstraint(view2, .Height, .Equal, view3, .Height, 1, 0)], constraints)
-    }
-
-    // MARK: Size
+    // MARK: Fixed
 
     func testDeclareSizeOfViewEqualToSize() {
         let constraints = view1[.Size] == CGSize(width: 50, height: 100)

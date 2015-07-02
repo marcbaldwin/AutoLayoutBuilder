@@ -31,13 +31,13 @@ extension EdgeRelation: ConstrainableToRelation {
 
     typealias This = EdgeRelation
 
-    public func constrainToRelation(relation: EdgeRelation) -> [NSLayoutConstraint] {
+    public func constrainToRelation(relation: EdgeRelation, type: NSLayoutRelation) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         for view in views {
-            constraints.append(NSLayoutConstraint(view, .Left, .Equal, relation.views.first!, .Left, relation.multiplier.1, relation.constant.1))
-            constraints.append(NSLayoutConstraint(view, .Right, .Equal, relation.views.first!, .Right, relation.multiplier.3, relation.constant.3))
-            constraints.append(NSLayoutConstraint(view, .Top, .Equal, relation.views.first!, .Top, relation.multiplier.0, relation.constant.0))
-            constraints.append(NSLayoutConstraint(view, .Bottom, .Equal, relation.views.first!, .Bottom, relation.multiplier.2, relation.constant.2))
+            constraints.append(NSLayoutConstraint(view, .Left, type, relation.views.first!, .Left, relation.multiplier.1, relation.constant.1))
+            constraints.append(NSLayoutConstraint(view, .Right, type, relation.views.first!, .Right, relation.multiplier.3, relation.constant.3))
+            constraints.append(NSLayoutConstraint(view, .Top, type, relation.views.first!, .Top, relation.multiplier.0, relation.constant.0))
+            constraints.append(NSLayoutConstraint(view, .Bottom, type, relation.views.first!, .Bottom, relation.multiplier.2, relation.constant.2))
         }
         return constraints
     }

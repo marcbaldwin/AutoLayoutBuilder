@@ -3,7 +3,7 @@ import XCTest
 
 class EdgeTests: ALBTestCase {
 
-    // MARK:
+    // MARK: Relative
 
     func testDeclareEdgesOfViewEqualToEdgesOfAnotherView() {
         let constraints = view1[.Edges] == view2[.Edges]
@@ -14,7 +14,20 @@ class EdgeTests: ALBTestCase {
             NSLayoutConstraint(view1, .Bottom, .Equal, view2, .Bottom, 1, 0)], constraints)
     }
 
-    // MARK: Constants
+    func testDeclareEdgesOfMultipleViewsEqualToEdgesOfAnotherView() {
+        let constraints = Group(view1,view2)[.Edges] == view3[.Edges]
+        XCTAssertEqual([
+            NSLayoutConstraint(view1, .Left, .Equal, view3, .Left, 1, 0),
+            NSLayoutConstraint(view1, .Right, .Equal, view3, .Right, 1, 0),
+            NSLayoutConstraint(view1, .Top, .Equal, view3, .Top, 1, 0),
+            NSLayoutConstraint(view1, .Bottom, .Equal, view3, .Bottom, 1, 0),
+            NSLayoutConstraint(view2, .Left, .Equal, view3, .Left, 1, 0),
+            NSLayoutConstraint(view2, .Right, .Equal, view3, .Right, 1, 0),
+            NSLayoutConstraint(view2, .Top, .Equal, view3, .Top, 1, 0),
+            NSLayoutConstraint(view2, .Bottom, .Equal, view3, .Bottom, 1, 0)], constraints)
+    }
+
+    // MARK: Relative with constant
 
     func testDeclareEdgesOfViewEqualToEdgesOfAnotherViewPlusConstant() {
         let constraints = view1[.Edges] == view2[.Edges] + 5
@@ -52,7 +65,7 @@ class EdgeTests: ALBTestCase {
             NSLayoutConstraint(view1, .Bottom, .Equal, view2, .Bottom, 1, -15)], constraints)
     }
 
-    // MARK: Multiplier
+    // MARK: Relative with multiplier
 
     func testDeclareEdgesOfViewEqualToEdgesOfAnotherViewMultipliedByConstant() {
         let constraints = view1[.Edges] == view2[.Edges] * 1.2
@@ -71,22 +84,4 @@ class EdgeTests: ALBTestCase {
             NSLayoutConstraint(view1, .Top, .Equal, view2, .Top, 0.8, 0),
             NSLayoutConstraint(view1, .Bottom, .Equal, view2, .Bottom, 0.8, 0)], constraints)
     }
-
-    // MARK: Combination
-
-    func testDeclareEdgesOfMultipleViewsEqualToEdgesOfAnotherView() {
-        let constraints = Group(view1,view2)[.Edges] == view3[.Edges]
-        XCTAssertEqual([
-            NSLayoutConstraint(view1, .Left, .Equal, view3, .Left, 1, 0),
-            NSLayoutConstraint(view1, .Right, .Equal, view3, .Right, 1, 0),
-            NSLayoutConstraint(view1, .Top, .Equal, view3, .Top, 1, 0),
-            NSLayoutConstraint(view1, .Bottom, .Equal, view3, .Bottom, 1, 0),
-            NSLayoutConstraint(view2, .Left, .Equal, view3, .Left, 1, 0),
-            NSLayoutConstraint(view2, .Right, .Equal, view3, .Right, 1, 0),
-            NSLayoutConstraint(view2, .Top, .Equal, view3, .Top, 1, 0),
-            NSLayoutConstraint(view2, .Bottom, .Equal, view3, .Bottom, 1, 0)], constraints)
-    }
-
-
-
 }

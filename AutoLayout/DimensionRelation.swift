@@ -1,32 +1,42 @@
 import UIKit
 
-public class DimensionRelation: AbstractSingleRelation, SingleRelation {
+public class DimensionRelation: AbstractSingleRelationA {
 
-    typealias AttributeType = DimensionAttribute
     let attribute: DimensionAttribute
-    public var trueAttribute: NSLayoutAttribute {
-        switch attribute {
-        case .Width: return .Width
-        case .Height: return .Height
-        }
-    }
 
     init(attribute: DimensionAttribute, views: [UIView]) {
         self.attribute = attribute
         super.init(views: views)
     }
+
+    private func trueAttribute() -> NSLayoutAttribute {
+        switch attribute {
+        case .Width: return .Width
+        case .Height: return .Height
+        }
+    }
 }
 
-// MARK: Operators
+extension DimensionRelation: ConstrainableToValue {
 
-public func ==(lhs: DimensionRelation, rhs: CGFloat) -> [NSLayoutConstraint] { return makeDimensionRelationConstraints(lhs, rhs, .Equal) }
+    public func constrainToValue(value: CGFloat, type: NSLayoutRelation) -> [NSLayoutConstraint] {
+        var constraints = [NSLayoutConstraint]()
+        for view in views {
+            constraints.append(NSLayoutConstraint(view, trueAttribute(), type, nil, .NotAnAttribute, 1, value))
+        }
+        return constraints
+    }
+}
 
-public func >=(lhs: DimensionRelation, rhs: CGFloat) -> [NSLayoutConstraint] { return makeDimensionRelationConstraints(lhs, rhs, .GreaterThanOrEqual) }
+extension DimensionRelation: ConstrainableToRelation {
 
-public func <=(lhs: DimensionRelation, rhs: CGFloat) -> [NSLayoutConstraint] { return makeDimensionRelationConstraints(lhs, rhs, .LessThanOrEqual) }
+    typealias This = DimensionRelation
 
-// MARK: Internal Helper Functions
-
-internal func makeDimensionRelationConstraints(lhs: DimensionRelation, rhs: CGFloat, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
-    return lhs.views.map() { NSLayoutConstraint($0, lhs.trueAttribute, relation, nil, .NotAnAttribute, 1, rhs) }
+    public func constrainToRelation(relation: DimensionRelation, type: NSLayoutRelation) -> [NSLayoutConstraint] {
+        var constraints = [NSLayoutConstraint]()
+        for view in views {
+            constraints.append(NSLayoutConstraint(view, trueAttribute(), type, relation.views.first!, trueAttribute(), relation.multiplier, relation.constant))
+        }
+        return constraints
+    }
 }

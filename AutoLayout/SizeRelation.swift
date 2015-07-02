@@ -18,11 +18,11 @@ extension SizeRelation: ConstrainableToRelation {
 
     typealias This = SizeRelation
     
-    public func constrainToRelation(relation: SizeRelation) -> [NSLayoutConstraint] {
+    public func constrainToRelation(relation: SizeRelation, type: NSLayoutRelation) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         for lhsView in views {
-            constraints.append(NSLayoutConstraint(lhsView, .Width, .Equal, relation.views.first!, .Width, relation.multiplier.0, relation.constant.0))
-            constraints.append(NSLayoutConstraint(lhsView, .Height, .Equal, relation.views.first!, .Height, relation.multiplier.1, relation.constant.1))
+            constraints.append(NSLayoutConstraint(lhsView, .Width, type, relation.views.first!, .Width, relation.multiplier.0, relation.constant.0))
+            constraints.append(NSLayoutConstraint(lhsView, .Height, type, relation.views.first!, .Height, relation.multiplier.1, relation.constant.1))
         }
         return constraints
     }

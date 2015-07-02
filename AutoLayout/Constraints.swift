@@ -5,11 +5,19 @@ public typealias CGFloatQuad = (CGFloat, CGFloat, CGFloat, CGFloat)
 
 // MARK: == CGFloat
 public protocol ConstrainableToValue {
-    func constrainToValue(value: CGFloat) -> [NSLayoutConstraint]
+    func constrainToValue(value: CGFloat, type: NSLayoutRelation) -> [NSLayoutConstraint]
 }
 
 public func ==(lhs: ConstrainableToValue, rhs: CGFloat) -> [NSLayoutConstraint] {
-    return lhs.constrainToValue(rhs)
+    return lhs.constrainToValue(rhs, type: .Equal)
+}
+
+public func >=(lhs: ConstrainableToValue, rhs: CGFloat) -> [NSLayoutConstraint] {
+    return lhs.constrainToValue(rhs, type: .GreaterThanOrEqual)
+}
+
+public func <=(lhs: ConstrainableToValue, rhs: CGFloat) -> [NSLayoutConstraint] {
+    return lhs.constrainToValue(rhs, type: .LessThanOrEqual)
 }
 
 // MARK: == CGSize
@@ -21,14 +29,22 @@ public func ==(lhs: ConstrainableToSize, rhs: CGSize) -> [NSLayoutConstraint] {
     return lhs.constrainToSize(rhs)
 }
 
-// MARK: == View[.Attribute]
+// MARK: ==, >=, <= view[.Attribute]
 public protocol ConstrainableToRelation {
     typealias This
-    func constrainToRelation(relation: This) -> [NSLayoutConstraint]
+    func constrainToRelation(relation: This, type: NSLayoutRelation) -> [NSLayoutConstraint]
 }
 
 public func ==<T1:ConstrainableToRelation, T2:ConstrainableToRelation where T1.This == T2>(lhs: T1, rhs: T2) -> [NSLayoutConstraint] {
-    return lhs.constrainToRelation(rhs)
+    return lhs.constrainToRelation(rhs, type: .Equal)
+}
+
+public func >=<T1:ConstrainableToRelation, T2:ConstrainableToRelation where T1.This == T2>(lhs: T1, rhs: T2) -> [NSLayoutConstraint] {
+    return lhs.constrainToRelation(rhs, type: .GreaterThanOrEqual)
+}
+
+public func <=<T1:ConstrainableToRelation, T2:ConstrainableToRelation where T1.This == T2>(lhs: T1, rhs: T2) -> [NSLayoutConstraint] {
+    return lhs.constrainToRelation(rhs, type: .LessThanOrEqual)
 }
 
 //
