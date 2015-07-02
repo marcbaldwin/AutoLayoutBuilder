@@ -9,7 +9,7 @@ public class DimensionRelation: AbstractSingleRelationA {
         super.init(views: views)
     }
 
-    private func trueAttribute() -> NSLayoutAttribute {
+    private var trueAttribute: NSLayoutAttribute {
         switch attribute {
         case .Width: return .Width
         case .Height: return .Height
@@ -22,7 +22,7 @@ extension DimensionRelation: ConstrainableToValue {
     public func constrainToValue(value: CGFloat, type: NSLayoutRelation) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         for view in views {
-            constraints.append(NSLayoutConstraint(view, trueAttribute(), type, nil, .NotAnAttribute, 1, value))
+            constraints.append(NSLayoutConstraint(view, trueAttribute, type, nil, .NotAnAttribute, 1, value))
         }
         return constraints
     }
@@ -35,7 +35,7 @@ extension DimensionRelation: ConstrainableToRelation {
     public func constrainToRelation(relation: DimensionRelation, type: NSLayoutRelation) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         for view in views {
-            constraints.append(NSLayoutConstraint(view, trueAttribute(), type, relation.views.first!, trueAttribute(), relation.multiplier, relation.constant))
+            constraints.append(NSLayoutConstraint(view, trueAttribute, type, relation.views.first!, relation.trueAttribute, relation.multiplier, relation.constant))
         }
         return constraints
     }

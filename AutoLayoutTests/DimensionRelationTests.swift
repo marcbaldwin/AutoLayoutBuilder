@@ -10,6 +10,11 @@ class DimensionRelationTests: ALBTestCase {
         XCTAssertEqual([NSLayoutConstraint(view1, .Width, .Equal, view2, .Width, 1, 0)], constraints)
     }
 
+    func testDeclareWidthOfViewEqualToHeightOfView() {
+        let constraints = view1[.Width] == view1[.Height]
+        XCTAssertEqual([NSLayoutConstraint(view1, .Width, .Equal, view1, .Height, 1, 0)], constraints)
+    }
+
     func testDeclareHeightOfMultipleViewsEqualToHeightOfAnotherView() {
         let constraints = Group(view1,view2)[.Height] == view3[.Height]
         XCTAssertEqual([
