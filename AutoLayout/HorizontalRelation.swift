@@ -1,6 +1,6 @@
 import UIKit
 
-public class HorizontalRelation: AbstractSingleRelationA {
+public class HorizontalRelation: AbstractSingleRelation {
 
     let attribute: HorizontalAttribute
 

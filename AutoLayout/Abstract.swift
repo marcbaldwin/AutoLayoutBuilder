@@ -11,20 +11,20 @@ public class AbstractRelation {
 
 // MARK: Single
 
-public class AbstractSingleRelationA: AbstractRelation {
+public class AbstractSingleRelation: AbstractRelation {
 
     public var multiplier: CGFloat = 1
     public var constant: CGFloat = 0
 }
 
-extension AbstractSingleRelationA: ConstantSingleRelation {
+extension AbstractSingleRelation: ConstantSingleRelation {
 
     public func setConstant(constant: CGFloat) {
         self.constant = constant
     }
 }
 
-extension AbstractSingleRelationA: MultiplierSingleRelation {
+extension AbstractSingleRelation: MultiplierSingleRelation {
 
     public func setMultiplier(multiplier: CGFloat) {
         self.multiplier = multiplier

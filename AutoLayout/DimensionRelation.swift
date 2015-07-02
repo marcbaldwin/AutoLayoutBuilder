@@ -1,6 +1,6 @@
 import UIKit
 
-public class DimensionRelation: AbstractSingleRelationA {
+public class DimensionRelation: AbstractSingleRelation {
 
     let attribute: DimensionAttribute
 

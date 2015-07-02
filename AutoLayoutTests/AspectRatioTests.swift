@@ -5,6 +5,8 @@ class AspectRatioTests: ALBTestCase {
 
     let ratio: CGFloat = 16/9
 
+    // MARK: Relative to ratio
+
     func testDeclareAspectRatioOfViewEqualToConstantRatio() {
         let constraints = view1[.AspectRatio] == ratio
         XCTAssertEqual(NSLayoutConstraint(view1, .Width, .Equal, view1, .Height, ratio, 0), constraints[0])

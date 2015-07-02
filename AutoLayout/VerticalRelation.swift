@@ -1,14 +1,26 @@
 import UIKit
 
-public class VerticalRelation: AbstractSingleRelation, SingleRelation {
+public class VerticalRelation: AbstractSingleRelation {
 
-    typealias AttributeType = VerticalAttribute
     let attribute: VerticalAttribute
     public var trueAttribute: NSLayoutAttribute { return verticalPositionToLayoutAttribute(self.attribute)}
 
     init(attribute: VerticalAttribute, views: [UIView]) {
         self.attribute = attribute
         super.init(views: views)
+    }
+}
+
+extension VerticalRelation: ConstrainableToRelation {
+
+    typealias This = VerticalRelation
+
+    public func constrainToRelation(relation: VerticalRelation, type: NSLayoutRelation) -> [NSLayoutConstraint] {
+        var constraints = [NSLayoutConstraint]()
+        for view in views {
+            constraints.append(NSLayoutConstraint(view, trueAttribute, type, relation.views.first!, relation.trueAttribute, relation.multiplier, relation.constant))
+        }
+        return constraints
     }
 }
 

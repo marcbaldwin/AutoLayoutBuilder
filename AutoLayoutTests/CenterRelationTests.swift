@@ -3,7 +3,7 @@ import XCTest
 
 class CenterRelationTests: ALBTestCase {
 
-    // MARK: Relative
+    // MARK: Relative to view
 
     func testDeclareCenterOfViewEqualToCenterOfAnotherView() {
         let constraints = view1[.Center] == view2[.Center]
@@ -21,7 +21,7 @@ class CenterRelationTests: ALBTestCase {
             NSLayoutConstraint(view2, .CenterY, .Equal, view3, .CenterY, 1, 0)], constraints)
     }
 
-    // MARK: Relative with constant
+    // MARK: Relative to view with constant
 
     func testDeclareCenterOfViewEqualToCenterOfAnotherViewPlusConstant() {
         let constraints = view1[.Center] == view2[.Center] + 10
@@ -51,7 +51,7 @@ class CenterRelationTests: ALBTestCase {
             NSLayoutConstraint(view1, .CenterY, .Equal, view2, .CenterY, 1, -5)], constraints)
     }
 
-    // MARK: Relative with multiplier
+    // MARK: Relative to view with multiplier
 
     func testDeclareCenterOfViewEqualToCenterOfAnotherViewMultipliedByConstant() {
         let constraints = view1[.Center] == view2[.Center] * 1.25
@@ -81,7 +81,7 @@ class CenterRelationTests: ALBTestCase {
             NSLayoutConstraint(view1, .CenterY, .Equal, view2, .CenterY, 0.5, 0)], constraints)
     }
 
-    // MARK: Relative with multiplier and constant
+    // MARK: Relative to view with multiplier and constant
 
     func testDeclareCenterOfViewEqualToCenterOfAnotherViewMultipliedByConstantPlusConstant() {
         let constraints = view1[.Center] == view2[.Center] * 1.25 + 10

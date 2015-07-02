@@ -3,7 +3,7 @@ import XCTest
 
 class EdgeTests: ALBTestCase {
 
-    // MARK: Relative
+    // MARK: Relative to view
 
     func testDeclareEdgesOfViewEqualToEdgesOfAnotherView() {
         let constraints = view1[.Edges] == view2[.Edges]
@@ -27,7 +27,7 @@ class EdgeTests: ALBTestCase {
             NSLayoutConstraint(view2, .Bottom, .Equal, view3, .Bottom, 1, 0)], constraints)
     }
 
-    // MARK: Relative with constant
+    // MARK: Relative to view with constant
 
     func testDeclareEdgesOfViewEqualToEdgesOfAnotherViewPlusConstant() {
         let constraints = view1[.Edges] == view2[.Edges] + 5
@@ -65,7 +65,7 @@ class EdgeTests: ALBTestCase {
             NSLayoutConstraint(view1, .Bottom, .Equal, view2, .Bottom, 1, -15)], constraints)
     }
 
-    // MARK: Relative with multiplier
+    // MARK: Relative to view with multiplier
 
     func testDeclareEdgesOfViewEqualToEdgesOfAnotherViewMultipliedByConstant() {
         let constraints = view1[.Edges] == view2[.Edges] * 1.2

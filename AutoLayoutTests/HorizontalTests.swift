@@ -3,7 +3,7 @@ import XCTest
 
 class HorizontalTests: ALBTestCase {
 
-    // MARK: Relative
+    // MARK: Relative to view
 
     func testDeclareLeftOfViewEqualToRightOfAnotherView() {
         let constraints = view1[.Left] == view2[.Right]
@@ -27,7 +27,7 @@ class HorizontalTests: ALBTestCase {
             NSLayoutConstraint(view2, .Left, .Equal, view3, .Right, 1, 0)], constraints)
     }
 
-    // MARK: Relative with constant
+    // MARK: Relative to view with constant
 
     func testDeclareLeftOfViewEqualToRightOfAnotherViewPlusConstant() {
         let constraints = view1[.Left] == view2[.Right] + 10
@@ -39,7 +39,7 @@ class HorizontalTests: ALBTestCase {
         XCTAssertEqual([NSLayoutConstraint(view1, .Left, .Equal, view2, .Right, 1, -10)], constraints)
     }
 
-    // MARK: Relative with multiplier
+    // MARK: Relative to view with multiplier
 
     func testDeclareLeftOfViewEqualToRightOfAnotherViewMultipliedByConstant() {
         let constraints = view1[.Left] == view2[.Right] * 2
@@ -51,7 +51,7 @@ class HorizontalTests: ALBTestCase {
         XCTAssertEqual([NSLayoutConstraint(view1, .Left, .Equal, view2, .Right, 0.5, 0)], constraints)
     }
 
-    // MARK: Relative with multiplier and constant
+    // MARK: Relative to view with multiplier and constant
 
     func testDeclareLeftOfViewEqualToRightOfAnotherViewMultipliedByConstantPlusConstant() {
         let constraints = view1[.Left] == view2[.Right] * 2 + 10

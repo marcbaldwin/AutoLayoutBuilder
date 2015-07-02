@@ -3,7 +3,7 @@ import XCTest
 
 class SizeRelationTests: ALBTestCase {
 
-    // MARK: Relative
+    // MARK: Relative to view
 
     func testDeclareSizeOfViewEqualToSizeOfAnotherView() {
         let constraints = view1[.Size] == view2[.Size]
@@ -21,7 +21,7 @@ class SizeRelationTests: ALBTestCase {
             NSLayoutConstraint(view2, .Height, .Equal, view3, .Height, 1, 0)], constraints)
     }
 
-    // MARK: Relative with constant
+    // MARK: Relative to view with constant
 
     func testDeclareSizeOfViewEqualToSizeOfAnotherViewPlusConstant() {
         let constraints = view1[.Size] == view2[.Size] + 10
@@ -51,7 +51,7 @@ class SizeRelationTests: ALBTestCase {
             NSLayoutConstraint(view1, .Height, .Equal, view2, .Height, 1, -20)], constraints)
     }
 
-    // MARK: Relative with multiplier
+    // MARK: Relative to view with multiplier
 
     func testDeclareSizeOfViewEqualToSizeOfAnotherViewMultipliedByConstant() {
         let constraints = view1[.Size] == view2[.Size] * 1.5
@@ -81,7 +81,7 @@ class SizeRelationTests: ALBTestCase {
             NSLayoutConstraint(view1, .Height, .Equal, view2, .Height, 1/3, 0)], constraints)
     }
 
-    // MARK: Relative with multiplier and constant
+    // MARK: Relative to view with multiplier and constant
 
     func testDeclareSizeOfViewEqualToSizeOfAnotherViewDividedByConstantPlusConstant() {
         let constraints = view1[.Size] == view2[.Size] / 0.75 + CGFloat(20)
@@ -90,7 +90,7 @@ class SizeRelationTests: ALBTestCase {
             NSLayoutConstraint(view1, .Height, .Equal, view2, .Height, 1/0.75, 20)], constraints)
     }
 
-    // MARK: Fixed
+    // MARK: Fixed to constant
 
     func testDeclareSizeOfViewEqualToSize() {
         let constraints = view1[.Size] == CGSize(width: 50, height: 100)

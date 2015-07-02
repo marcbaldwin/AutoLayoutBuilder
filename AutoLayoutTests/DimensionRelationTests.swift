@@ -3,7 +3,7 @@ import XCTest
 
 class DimensionRelationTests: ALBTestCase {
 
-    // MARK: Relative
+    // MARK: Relative to view
 
     func testDeclareWidthOfViewEqualToWidthOfAnotherView() {
         let constraints = view1[.Width] == view2[.Width]
@@ -32,7 +32,7 @@ class DimensionRelationTests: ALBTestCase {
         XCTAssertEqual([NSLayoutConstraint(view1, .Width, .LessThanOrEqual, view2, .Width, 1, 0)], constraints)
     }
 
-    // MARK: Relative with constant
+    // MARK: Relative to view with constant
 
     func testDeclareWidthOfViewEqualToWidthOfAnotherViewPlusConstant() {
         let constraints = view1[.Width] == view2[.Width] + 10
@@ -44,7 +44,7 @@ class DimensionRelationTests: ALBTestCase {
         XCTAssertEqual([NSLayoutConstraint(view1, .Width, .Equal, view2, .Width, 1, -10)], constraints)
     }
 
-    // MARK: Relative with multiplier
+    // MARK: Relative to view with multiplier
 
     func testDeclareWidthOfViewEqualToWidthOfAnotherViewMultipliedByConstant() {
         let constraints = view1[.Width] == view2[.Width] * 2
@@ -56,7 +56,7 @@ class DimensionRelationTests: ALBTestCase {
         XCTAssertEqual([NSLayoutConstraint(view1, .Width, .Equal, view2, .Width, 0.5, 0)], constraints)
     }
 
-    // MARK: Fixed
+    // MARK: Fixed to constant
 
     func testDeclareWidthOfViewEqualToConstant() {
         let constraints = view1[.Width] == 10
