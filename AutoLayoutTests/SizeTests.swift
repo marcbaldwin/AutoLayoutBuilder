@@ -1,7 +1,7 @@
 import UIKit
 import XCTest
 
-class SizeRelationTests: ALBTestCase {
+class SizeTests: ALBTestCase {
 
     // MARK: Relative to view
 

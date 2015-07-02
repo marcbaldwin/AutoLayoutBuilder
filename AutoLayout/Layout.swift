@@ -10,7 +10,6 @@ public class BuilderGroup {
     }
 }
 
-
 public func += (lhs: BuilderGroup, rhs: [NSLayoutConstraint]) {
     lhs.constraints += rhs
 }
@@ -65,43 +64,4 @@ public extension Builder {
 
 public func += (lhs: Builder, rhs: [NSLayoutConstraint]) {
     lhs.keyedBuilders[""]! += rhs
-}
-
-extension NSLayoutConstraint {
-
-    convenience init(_ view1: AnyObject, _ attr1: NSLayoutAttribute, _ relation: NSLayoutRelation, _ view2: AnyObject?, _ attr2: NSLayoutAttribute, _ multiplier: CGFloat, _ c: CGFloat) {
-        self.init(item: view1, attribute: attr1, relatedBy: relation, toItem: view2, attribute: attr2, multiplier: multiplier, constant: c)
-    }
-}
-
-public func equalHeights(views: UIView...) -> [NSLayoutConstraint] {
-    return equalHeights(views)
-}
-
-public func equalHeights(views: [UIView]) -> [NSLayoutConstraint] {
-    let firstView = views.first!
-    var constraints = [NSLayoutConstraint]()
-    for view in views[1..<views.count] {
-        constraints.append(NSLayoutConstraint(firstView, .Height, .Equal, view, .Height, 1, 0))
-    }
-    return constraints
-}
-
-public func equalWidths(views: UIView...) -> [NSLayoutConstraint] {
-    return equalWidths(views)
-}
-
-public func equalWidths(views: [UIView]) -> [NSLayoutConstraint] {
-    let firstView = views.first!
-    var constraints = [NSLayoutConstraint]()
-    for view in views[1..<views.count] {
-        constraints.append(NSLayoutConstraint(firstView, .Width, .Equal, view, .Width, 1, 0))
-    }
-    return constraints
-}
-
-public func activate(constraints: [NSLayoutConstraint]) {
-    for constraint in constraints {
-        constraint.active = true
-    }
 }

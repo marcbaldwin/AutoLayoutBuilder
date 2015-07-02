@@ -1,7 +1,7 @@
 import UIKit
 import XCTest
 
-class CenterRelationTests: ALBTestCase {
+class CenterTests: ALBTestCase {
 
     // MARK: Relative to view
 
