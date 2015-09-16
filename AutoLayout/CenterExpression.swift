@@ -4,7 +4,7 @@ public class CenterExpression: DualExpression { }
 
 extension CenterExpression: ConstrainableToExpression {
 
-    typealias This = CenterExpression
+    public typealias This = CenterExpression
 
     public func constrainToExpression(expression: CenterExpression, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
         return views.flatMap { [

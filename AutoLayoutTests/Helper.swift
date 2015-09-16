@@ -1,30 +1,36 @@
 import UIKit
 
-extension NSLayoutConstraint: Equatable {}
+extension NSLayoutConstraint {
 
-public func ==(lhs: NSLayoutConstraint, rhs: NSLayoutConstraint) -> Bool {
+    public override func isEqual(object: AnyObject?) -> Bool {
 
-    var isEqual = true
+        if let rhs = object as? NSLayoutConstraint {
+            var isEqual = true
 
-    isEqual = isEqual && lhs.firstItem.isEqual(rhs.firstItem)
+            isEqual = isEqual && firstItem.isEqual(rhs.firstItem)
 
-    if let secondItem: AnyObject = lhs.secondItem {
-        if let rhsSecondItem: AnyObject = rhs.secondItem {
-            isEqual = isEqual && secondItem.isEqual(rhsSecondItem)
+            if let secondItem: AnyObject = secondItem {
+                if let rhsSecondItem: AnyObject = rhs.secondItem {
+                    isEqual = isEqual && secondItem.isEqual(rhsSecondItem)
+                }
+                else {
+                    return false
+                }
+            }
+            else {
+                isEqual && rhs.secondItem == nil
+            }
+
+            isEqual = isEqual && firstAttribute == rhs.firstAttribute
+            isEqual = isEqual && secondAttribute == rhs.secondAttribute
+            isEqual = isEqual && multiplier == rhs.multiplier
+            isEqual = isEqual && constant == rhs.constant
+            isEqual = isEqual && relation == rhs.relation
+            
+            return isEqual
         }
         else {
             return false
         }
     }
-    else {
-        isEqual && rhs.secondItem == nil
-    }
-
-    isEqual = isEqual && lhs.firstAttribute == rhs.firstAttribute
-    isEqual = isEqual && lhs.secondAttribute == rhs.secondAttribute
-    isEqual = isEqual && lhs.multiplier == rhs.multiplier
-    isEqual = isEqual && lhs.constant == rhs.constant
-    isEqual = isEqual && lhs.relation == rhs.relation
-
-    return isEqual
 }

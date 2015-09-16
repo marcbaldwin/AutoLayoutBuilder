@@ -15,7 +15,7 @@ extension SizeExpression: ConstrainableToSize {
 
 extension SizeExpression: ConstrainableToExpression {
 
-    typealias This = SizeExpression
+    public typealias This = SizeExpression
     
     public func constrainToExpression(expression: SizeExpression, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
         return views.flatMap { [

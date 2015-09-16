@@ -29,7 +29,7 @@ extension EdgeExpression: ConstantQuadExpression {
 
 extension EdgeExpression: ConstrainableToExpression {
 
-    typealias This = EdgeExpression
+    public typealias This = EdgeExpression
 
     public func constrainToExpression(expression: EdgeExpression, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
         return views.flatMap { [

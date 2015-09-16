@@ -21,7 +21,7 @@ extension DimensionExpression: ConstrainableToValue {
 
 extension DimensionExpression: ConstrainableToExpression {
 
-    typealias This = DimensionExpression
+    public typealias This = DimensionExpression
 
     public func constrainToExpression(expression: DimensionExpression, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
         return views.map {

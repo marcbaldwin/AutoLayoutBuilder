@@ -12,7 +12,7 @@ public class HorizontalExpression: SingleExpression {
 
 extension HorizontalExpression: ConstrainableToExpression {
 
-    typealias This = HorizontalExpression
+    public typealias This = HorizontalExpression
 
     public func constrainToExpression(expression: HorizontalExpression, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
         return views.map {

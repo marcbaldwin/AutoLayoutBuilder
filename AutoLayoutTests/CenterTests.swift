@@ -84,7 +84,7 @@ class CenterTests: ALBTestCase {
     // MARK: Relative to view with multiplier and constant
 
     func testDeclareCenterOfViewEqualToCenterOfAnotherViewMultipliedByConstantPlusConstant() {
-        let constraints = view1[.Center] == view2[.Center] * 1.25 + 10
+        let constraints = view1[.Center] == view2[.Center] * CGFloat(1.25) + CGFloat(10)
         XCTAssertEqual([
             NSLayoutConstraint(view1, .CenterX, .Equal, view2, .CenterX, 1.25, 10),
             NSLayoutConstraint(view1, .CenterY, .Equal, view2, .CenterY, 1.25, 10)], constraints)

@@ -24,11 +24,11 @@ public class LayoutRelation {
 infix operator ~ { associativity left precedence 100 }
 
 public func ~(lhs: LayoutDirection, rhs: LayoutRelation) -> [NSLayoutConstraint] {
-    return makeLayoutConstraints(lhs, rhs.views, rhs.margins)
+    return makeLayoutConstraints(lhs, views: rhs.views, margins: rhs.margins)
 }
 
 public func ~(lhs: LayoutDirection, rhs: Group) -> [NSLayoutConstraint] {
-    return makeLayoutConstraints(lhs, rhs.views, nil)
+    return makeLayoutConstraints(lhs, views: rhs.views, margins: nil)
 }
 
 public func |(lhs: UIView, rhs: UIView) -> LayoutRelation {

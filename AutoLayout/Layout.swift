@@ -47,7 +47,7 @@ public extension Layout {
 
     public func activateConstraintsExcludingKeys(keys: String...) {
         for (key, builderGroup) in keyedBuilders {
-            if !contains(keys, key) {
+            if !keys.contains(key) {
                 builderGroup.activateConstraints(true)
             }
         }
@@ -55,7 +55,7 @@ public extension Layout {
 
     public func activateConstraintsWithKeys(keys: String...) {
         for (key, builderGroup) in keyedBuilders {
-            if contains(keys, key) {
+            if keys.contains(key) {
                 builderGroup.activateConstraints(true)
             }
         }

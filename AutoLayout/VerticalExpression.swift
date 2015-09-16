@@ -12,7 +12,7 @@ public class VerticalExpression: SingleExpression {
 
 extension VerticalExpression: ConstrainableToExpression {
 
-    typealias This = VerticalExpression
+    public typealias This = VerticalExpression
 
     public func constrainToExpression(expression: VerticalExpression, relation: NSLayoutRelation) -> [NSLayoutConstraint] {
         return views.map {
@@ -24,15 +24,15 @@ extension VerticalExpression: ConstrainableToExpression {
 // MARK: Operators
 
 public func ==(lhs: VerticalExpression, rhs: LayoutGuideExpression) -> [NSLayoutConstraint] {
-    return makeVerticalPositionRelationConstraints(lhs, rhs, .Equal)
+    return makeVerticalPositionRelationConstraints(lhs, rhs: rhs, relation: .Equal)
 }
 
 public func >=(lhs: VerticalExpression, rhs: LayoutGuideExpression) -> [NSLayoutConstraint] {
-    return makeVerticalPositionRelationConstraints(lhs, rhs, .GreaterThanOrEqual)
+    return makeVerticalPositionRelationConstraints(lhs, rhs: rhs, relation: .GreaterThanOrEqual)
 }
 
 public func <=(lhs: VerticalExpression, rhs: LayoutGuideExpression) -> [NSLayoutConstraint] {
-    return makeVerticalPositionRelationConstraints(lhs, rhs, .LessThanOrEqual)
+    return makeVerticalPositionRelationConstraints(lhs, rhs: rhs, relation: .LessThanOrEqual)
 }
 
 // MARK: Internal

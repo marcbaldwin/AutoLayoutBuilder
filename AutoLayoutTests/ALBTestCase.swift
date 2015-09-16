@@ -22,11 +22,4 @@ class ALBTestCase: XCTestCase {
         viewController.loadView()
         viewController.view = superview
     }
-
-    override func tearDown() {
-        super.tearDown()
-        if let constraints = constraints {
-            constraints.map { $0.active = true }
-        }
-    }
 }
