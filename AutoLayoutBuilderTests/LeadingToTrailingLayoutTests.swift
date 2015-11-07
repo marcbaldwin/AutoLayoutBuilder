@@ -2,6 +2,7 @@ import Foundation
 
 import UIKit
 import XCTest
+@testable import AutoLayoutBuilder
 
 class LeadingToTrailingLayoutTests: ALBTestCase {
 

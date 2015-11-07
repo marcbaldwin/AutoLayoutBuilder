@@ -1,6 +1,7 @@
 import Foundation
 import XCTest
 import UIKit
+@testable import AutoLayoutBuilder
 
 class ALBTestCase: XCTestCase {
 

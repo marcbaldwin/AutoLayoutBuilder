@@ -18,7 +18,7 @@ extension NSLayoutConstraint {
                 }
             }
             else {
-                isEqual && rhs.secondItem == nil
+                isEqual = isEqual && rhs.secondItem == nil
             }
 
             isEqual = isEqual && firstAttribute == rhs.firstAttribute
