@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AutoLayoutBuilder"
-  s.version      = "3.0.0"
+  s.version      = "2.0.0"
   s.license      = "MIT"
   s.summary      = "Create adaptive layouts with an expressive yet concise syntax."
   s.homepage     = "https://github.com/marcbaldwin/AutoLayoutBuilder"
